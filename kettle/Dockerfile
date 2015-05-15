@@ -13,3 +13,8 @@ WORKDIR /usr/src/app
 RUN curl -L http://downloads.sourceforge.net/project/pentaho/Data%20Integration/4.2.1-stable/pdi-ce-4.2.1-stable.tar.gz | tar xz --strip-components=1
 
 ENV PATH=/usr/src/app:$PATH
+
+RUN groupadd -g 1000 app && useradd -m -u 1000 -g 1000 app
+RUN mkdir /home/app/.kettle && chown app:app /home/app/.kettle
+VOLUME /home/app/.kettle
+USER app

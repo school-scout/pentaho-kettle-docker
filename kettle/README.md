@@ -2,4 +2,4 @@
 
 ## Running kitchen
 
-    docker run --rm mazzolino/pentaho-kettle kitchen.sh [ARGUMENTS]
+    docker run --rm mazzolino/pentaho-kettle -v $HOME/.kettle:/home/app/.kettle kitchen.sh [ARGUMENTS]

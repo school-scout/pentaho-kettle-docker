@@ -19,6 +19,8 @@ RUN rm libext/JDBC/mysql-connector-java-5.1.17.jar \
 ENV PATH=/usr/src/app:$PATH
 
 RUN groupadd -g 1000 app && useradd -m -u 1000 -g 1000 app
-RUN mkdir /home/app/.kettle && chown app:app /home/app/.kettle
-VOLUME /home/app/.kettle
 USER app
+RUN mkdir /home/app/.kettle
+
+COPY configure_and_start /
+ENTRYPOINT ["/configure_and_start"]

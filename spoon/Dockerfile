@@ -5,4 +5,4 @@ RUN apt-get -y install libswt-gtk-3-java firefox
 
 USER app
 
-ENTRYPOINT ["./spoon.sh"]
+CMD ["sh", "./spoon.sh"]

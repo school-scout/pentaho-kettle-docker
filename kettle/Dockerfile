@@ -12,6 +12,10 @@ RUN mkdir /usr/src/app
 WORKDIR /usr/src/app
 RUN curl -L http://downloads.sourceforge.net/project/pentaho/Data%20Integration/4.2.1-stable/pdi-ce-4.2.1-stable.tar.gz | tar xz --strip-components=1
 
+# Install newer MySQL connector
+RUN rm libext/JDBC/mysql-connector-java-5.1.17.jar \
+ && curl -L https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.35.tar.gz | tar xz --strip-components=1 -C libext/JDBC/ mysql-connector-java-5.1.35/mysql-connector-java-5.1.35-bin.jar
+
 ENV PATH=/usr/src/app:$PATH
 
 RUN groupadd -g 1000 app && useradd -m -u 1000 -g 1000 app

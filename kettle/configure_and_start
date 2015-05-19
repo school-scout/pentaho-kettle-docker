@@ -1,5 +1,6 @@
 #!/bin/bash
 
+if [ $DATABASE_HOST ]; then
 cat >~/.kettle/repositories.xml <<EOF;
 <?xml version="1.0" encoding="UTF-8"?>
 <repositories>
@@ -36,5 +37,6 @@ cat >~/.kettle/repositories.xml <<EOF;
   </repository>
 </repositories>
 EOF
+fi
 
 exec $*

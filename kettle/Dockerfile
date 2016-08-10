@@ -1,7 +1,22 @@
 FROM ubuntu:trusty
 
-# Instlal java
+RUN apt-get update
 RUN apt-get -y install software-properties-common curl
+
+# Install gosu
+ENV GOSU_VERSION 1.9
+RUN set -x \
+    && dpkgArch="$(dpkg --print-architecture | awk -F- '{ print $NF }')" \
+    && curl -L -o /usr/local/bin/gosu "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$dpkgArch" \
+    && curl -L -o /usr/local/bin/gosu.asc "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$dpkgArch.asc" \
+    && export GNUPGHOME="$(mktemp -d)" \
+    && gpg --keyserver ha.pool.sks-keyservers.net --recv-keys B42F6819007F00F88E364FD4036A9C25BF357DD4 \
+    && gpg --batch --verify /usr/local/bin/gosu.asc /usr/local/bin/gosu \
+    && rm -r "$GNUPGHOME" /usr/local/bin/gosu.asc \
+    && chmod +x /usr/local/bin/gosu \
+    && gosu nobody true
+
+# Install java
 RUN add-apt-repository ppa:webupd8team/java
 RUN apt-get update
 RUN echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
@@ -18,9 +33,6 @@ RUN rm libext/JDBC/mysql-connector-java-5.1.17.jar \
 
 ENV PATH=/usr/src/app:$PATH
 
-RUN groupadd -g 1000 app && useradd -m -u 1000 -g 1000 app
-USER app
-RUN mkdir /home/app/.kettle
-
+COPY with_app_user /
 COPY configure_and_start /
-ENTRYPOINT ["/configure_and_start"]
+ENTRYPOINT ["/with_app_user", "/configure_and_start"]

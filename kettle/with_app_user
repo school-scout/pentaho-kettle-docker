@@ -1,0 +1,10 @@
+#!/bin/bash
+set -euo pipefail
+
+APP_UID=${APP_UID:-1000}
+APP_GID=${APP_GID:-1000}
+
+groupadd -g $APP_GID app && useradd -m -u $APP_UID -g $APP_GID app
+chown -R app /home/app
+
+exec gosu app env $*

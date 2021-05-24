@@ -1,0 +1,6 @@
+FROM schoolscout/pentaho-kettle
+
+RUN rm libext/JDBC/mysql-connector-java-5.1.35-bin.jar \
+ && curl -L https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-8.0.13.tar.gz | tar xz --strip-components=1 -C libext/JDBC/ mysql-connector-java-8.0.13/mysql-connector-java-8.0.13.jar
+
+COPY configure_and_start.mysql8 /configure_and_start

@@ -1,0 +1,8 @@
+FROM schoolscout/pentaho-kettle:mysql8
+
+RUN apt-get update \
+ && apt-get -y install libswt-gtk-3-java firefox \
+ && rm /var/lib/apt/lists/* -fR
+
+CMD ["sh", "./spoon.sh"]
+VOLUME ["/home/app/.kettle"]

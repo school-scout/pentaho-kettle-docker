@@ -1,0 +1,9 @@
+services:
+  app:
+    build: .
+    env_file: .env
+    volumes:
+      - $HOME/.kettle:/home/app/.kettle
+    image: schoolscout/pentaho-spoon
+    ports:
+      - 35900:5900/tcp

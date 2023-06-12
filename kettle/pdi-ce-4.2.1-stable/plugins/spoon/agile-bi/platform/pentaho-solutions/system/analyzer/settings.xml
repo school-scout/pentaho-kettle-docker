@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+    <!-- Tell browser to cache static resources defined in plugin.xml for 1 hour -->
+    <max-age>3600</max-age>
+</settings>

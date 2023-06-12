@@ -1,0 +1,35 @@
+<div id="standardDialog" style="width:520px;">
+	<div id="standardDialogHeader" class="Caption">
+		<div id="dialogTitleBar">
+		<table width=100%>
+		<tr>
+			<td width="*">@{dlgFilterListTitle}</td>
+			<td width="19"><img id="dlgHelp" src="images/help_link.png" class="titleBarButton"></td>
+			
+		</tr>
+		</table>
+		</div>
+	</div>
+
+	<div id="dialogMessageBar" class="hidden"></div>				
+
+	<div class="dialog-content" style="overflow:hidden;">
+		<div style="float:left;clear:left;">@{dlgFilterListChooseFilter1} 
+			<a href="#" onclick="cv.rptEditor.report.filterDlg.show('%{1}');return false;" class="underline">@{dlgFilterListChooseFilter2}</a> @{dlgFilterListChooseFilter3}:
+		</div>
+		<div id="FT_predicateList"></div>
+		<div style="float:left;clear:left;">&nbsp;</div> 
+	</div>
+
+	<div>
+	<table width=100% class="button-panel">
+	<tr>
+		<td width="100%" class="standardDialogFooter">&nbsp;</td>
+		<td>
+      <button class="pentaho-button" id="dlgBtnCancel">@{btnLabelClose}</button>
+		</td>
+	</tr>
+	</table>
+	</div>
+	
+</div>

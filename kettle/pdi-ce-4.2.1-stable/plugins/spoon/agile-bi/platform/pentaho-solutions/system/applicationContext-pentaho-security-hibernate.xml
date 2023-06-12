@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springsource.org/dtd/spring-beans.dtd">
+
+<!--+
+	| Application context containing JDBC UserRoleListService 
+	| implementation.
+	+-->
+
+<beans>
+
+	<bean id="userRoleDaoUserRoleListService"
+		class="org.pentaho.platform.engine.security.userroledao.userrolelistservice.UserRoleDaoUserRoleListService">
+		<property name="userDetailsService" ref="userDetailsService" />
+		<property name="userRoleDao" ref="userRoleDao" />
+	</bean>
+
+	<bean id="pentahoUserRoleListService"
+		class="org.pentaho.platform.engine.security.userrole.UserDetailsRoleListService">
+		<property name="userRoleListService">
+			<ref local="userRoleDaoUserRoleListService" />
+		</property>
+	</bean>
+
+</beans>

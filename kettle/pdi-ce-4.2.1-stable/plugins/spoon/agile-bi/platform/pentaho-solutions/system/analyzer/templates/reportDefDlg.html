@@ -1,0 +1,37 @@
+<div id="standardDialog" style="width:520px;">
+	<div id="standardDialogHeader" class="Caption">
+		<div id="dialogTitleBar">
+		<table width=100%>
+		<tr>
+			<td width="*">@{dlgReportXMLTitle}</td>
+			<td width="19"><img id="dlgHelp" src="images/help_link.png" class="titleBarButton hidden"></td>
+			
+		</tr>
+		</table>
+		</div>
+	</div>
+
+	<div id="dialogMessageBar" class="hidden"></div>				
+
+	<div class="dialog-content">
+		<div style="float:left;clear:left;">@{dlgReportXMLDesc}:
+		</div>
+		<textarea id="RD_reportDef" class="reportDefition"></textarea>
+		<div style="clear:left;">&nbsp;</div> 
+	</div>
+
+	<div>
+	<table width=100% class="button-panel">
+	<tr>
+		<td width="100%" class="standardDialogFooter">&nbsp;</td>
+		<td>
+      <button class="pentaho-button" id="dlgBtnSave">@{btnLabelOK}</button>
+		</td>
+		<td>
+      <button class="pentaho-button" id="dlgBtnCancel">@{btnLabelCancel}</button>
+		</td>
+	</tr>
+	</table>
+	</div>
+	
+</div>

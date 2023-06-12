@@ -1,0 +1,289 @@
+<html>	
+<head>
+<title>Working with Calculations, Totals, Sorting, etc</title>
+	<link rel="StyleSheet" href="../../screen.css" type="text/css" />
+</head>	
+<body style="padding: 10px 20px 0px 10px;">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="height: 124px">
+   <tr>
+      <td><img src="../../images/spacer.gif" height="40" width="100" border="0" alt="0"></td>
+   </tr>
+   <tr>
+      <td class="main_title">Working with Calculations and Totals</td>
+   </tr>
+   <tr>
+      <td><img src="../../images/spacer.gif" height="8" width="100" border="0" alt="0"></td>
+   </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding: 10px 0px 20px 10px">
+   <tr>
+      <td>
+         <ul>
+            <li><a href="#0">About Calculations, Totals, and Sorting</a></li>
+            <li><a href="#displaying_grand_totals_and_subtotals">Displaying Grand Totals</a></li>
+            <li><a href="#displaying_totals_as_averages_max">Displaying Totals as Averages, Max, Min, etc.</a></li>
+            <li><a href="#3">More About Averages</a></li>
+            <li><a href="#non_visual_totals">Displaying Totals That Also Include Filtered Out Values</a></li>
+            <li><a href="#displaying_percent_rank_etc">Displaying % of, Running Sum, Rank, etc.</a></li>
+            <li><a href="#PCTOF">% of</a></li>
+            <li><a href="#RANK">Rank</a></li>
+            <li><a href="#RSUM">Running Sum</a></li>
+            <li><a href="#PCTRSUM">% of Running Sum</a></li>
+            <li><a href="#10">Sorting</a></li>
+            <li><a href="#creating_new_numbers">Creating New Numbers</a></li>
+         </ul>
+         <h2 class="line"><a name="0"></a>About Calculations, Totals, and Sorting</h2>
+         <p>Once you add fields and filters to your report, you might want to calculate and manipulate the data on your report. There are the following three primary methods:</p>
+         <ul>
+            <li>Changing the way <b>totals</b> are displayed. For example, display totals as <em>Averages</em>.</li>
+            <li>Adding <b>new fields</b> that originate from existing fields. For example, based on the field <em>Revenue</em>, you create <em>% of Revenue</em>.</li>
+			<li>Creating new numbers on the fly.</li>
+         </ul>
+         <h2 class="line"><a name="displaying_grand_totals_and_subtotals"></a>Displaying Grand Totals</h2>
+         <p>By default, <b>Grand Totals</b> <em>don't </em>display when you view a report in table format (grid of rows and columns). Also, Totals never display when you view a report in chart format.</p>
+         <p>To show or hide <b>Grand Totals</b>, do the following:</p>
+		 <ol>
+		 <li>Click the <b>More Actions</b> button and select <b>Report Options...</b> from the menu to open the <strong>Report Options</strong> dialog box.</li>
+		 <li>Select or deselect the appropriate checkboxes in the <strong>Totals</strong> section.</li>
+		 <li>Click the <strong>OK</strong> button to save your specifications.</li>
+		 </ol>
+         <p>To hide Grand Totals while viewing a report in table report, click the Grand Total cell on the report, and select <b>Hide Grand Total</b> from the menu. Note that this method does not allow you to show Grand Totals again, once it is hidden.</p>
+         <h2 class="line"><a name="displaying_totals_as_averages_max"></a>Displaying Totals as Averages, Max, Min, etc</h2>
+         <p>Grand totals and subtotals summarize detail row or column values.  You can choose to summarize the data in the following ways:</p>
+         <ul>
+            <li>Aggregate - Default. Displayed as Total in table report.  Summarizes based on the aggregator of the underlying measure.</li>
+            <li>Sum - Useful for keeping duplicates in distinct count measures.</li>
+            <li>Average - See also: More about Averages.</li>
+            <li>Max</li>
+            <li>Min</li>
+         </ul>
+         <p>To display these, click the number field (such as &quot;Sales Revenue&quot;) in the report and select <b>Show Average, Max, Min, etc </b> from the menu.</p>
+         <h2 class="line"><a name="3"></a>More about Averages</h2>
+         <p>In most cases, it looks like Pentaho totals are simply summing the individual values that are visible in the report. However, it smarter than so and this is especially beneficial for fields that lends themselves to averages, such as ratios. This is best illustrated in an example.</p>
+         <p>Assume we want to view the Win Rate of a sales team for the entire country, as well as for each region. The user brings the field "Win Rate", "Region" and a couple of other fields into the report, and Pentaho automatically shows the correct Win Rate across the regions (1.3%). We don't have to, and <i>shouldn't</i>, use the <b>Average</b> option for Grand Totals in this case.</p>
+         <div class="img">
+            <img src="../../images/content/working_with_calculations/img_01.jpg" width="318" height="126" alt="image 1" border="0">         </div>
+         <p>The average option is appropriate for the first two number fields, and the user may use the Averages option for these two fields.</p>
+         <div class="img">
+            <img src="../../images/content/working_with_calculations/img_02.jpg" width="337" height="141" alt="image 2" border="0">         </div>
+         <p>If the user would still go ahead and choose to display "Win rate" as an average she would see 23.3% which is not a meaningful number.</p>
+         <div class="img">
+            <img src="../../images/content/working_with_calculations/img_03.jpg"  width="337" height="142" alt="image 3">         </div>
+         <h2 class="line"><a name="non_visual_totals"></a>Displaying Totals that Also Include Filtered Out Values</h2>
+         <p>By default, Totals sum only the values that are visible on the report. If values are filtered out they will not be part of the total. This is illustrated below.</p>
+         <div class="img">
+            <img src="../../images/content/working_with_calculations/img_04.jpg"  width="215" height="145" alt="image 4" border="0">         </div>
+         <p>If we filter out a Product Line, the totals row will change accordingly:</p>
+         <div class="img">
+            <img src="../../images/content/working_with_calculations/img_05.jpg"  width="212" height="139" alt="image 5" border="0">         </div>
+         <p>However, you may also want see a total that includes the values that are filtered out and Pentaho offers this option. Continuing on the example above we would get:</p>
+         <div class="img">
+            <img src="../../images/content/working_with_calculations/img_06.jpg"  width="330" height="159" alt="image 6" border="0">         </div>
+         <p>Note that the new total still restricts data to 2006 Q4. Any filters applied to fields placed on the opposite axis would still apply, as would filters that apply on fields to the left of the total.</p>
+         <p>To display a total that also includes values that are filtered out, click the Grand Total cell on the report, and select Display Total that Includes Filtered Out Values from the menu.</p>
+         <p>Alternatively, click More Actions and select Report Options from the menu. Then check the Also Display Totals that Include Filtered Out Values checkbox.</p>
+         <h2 class="line"><a name="displaying_percent_rank_etc"></a>Displaying % of, Rank, Running Sum, etc</h2>
+         <p>To display % or, Rank, Running Sum, etc, click a field on the report and select % of, Rank, Running Sum, etc from the menu. Then, select the appropriate option.</p>
+         <p>This will create a new field in your report that behaves similar to any other fields. The differences are:</p>
+         <ul>
+             <li>You may not filter based on this field</li>
+             <li>You may not create another field (% or, Rank, Running Sum, etc) based on this field</li>
+         </ul>
+         <p>See below for further help on each option.</p>
+         <h2 class="line"><a name="PCTOF"></a>% of</h2>
+         <p>When displaying values as percentages (%) you have four options:</p>
+         <ul>
+            <li>Grand Total Column is 100%</li>
+	    <li>Grand Total Row is 100%</li>
+            <li>Grand Total in lower right corner is 100%</li>
+            <li>Each &lt;field&gt; adds to 100%</li>
+         </ul>
+         <p>Below follows an example that illustrates each option.</p>
+         <p><b>Grand Total Column is 100%</b></p>
+         <div class="img">
+            <img src="../../images/content/working_with_calculations/img_07.png"  width="152" height="119" alt="image 7" border="0">         </div>
+         <p><b>Grand Total Row is 100%</b></p>
+         <div class="img">
+            <img src="../../images/content/working_with_calculations/img_08.png"  width="209" height="112" alt="image 8" border="0">         </div>
+         <p><b>Grand Total in lower right corner is 100%</b></p>
+         <div class="img">
+            <img src="../../images/content/working_with_calculations/img_09.png"  width="209" height="223" alt="image 9" border="0">         </div>
+         <p><b>Each &lt;field&gt; adds to 100%</b></p>
+         <p>This option is only available when you have multiple text fields on the report</p>
+         <div class="img">
+            <img src="../../images/content/working_with_calculations/img_10.png"  width="199" height="229" alt="image 10" border="0">         </div>
+         <h2 class="line"><a name="RANK"></a>Rank</h2>
+         <p>When ranking values (such as Product Lines) by a number field (such as Sales Revenue), you have three options</p>
+         <ul>
+            <b>
+            <li>Rank across Rows</li>
+            <li>Rank across Columns</li>
+            <li>Rank Within &lt;field&gt;</li>
+            </b>
+         </ul>
+         <p>Below follows an example that illustrates each option.</p>
+         <p><b>Rank across Rows</b></p>
+         <div class="img">
+            <img src="../../images/content/working_with_calculations/img_11.png"  width="205" height="120" alt="image 11" border="0">         </div>
+         <p><b>Rank across Columns</b></p>
+         <div class="img">
+            <img src="../../images/content/working_with_calculations/img_12.png"  width="188" height="113" alt="image 12" border="0">         </div>
+         <p><b>Rank Within &lt;field&gt;</b></p>
+         <p>This option is only available when you have multiple text fields on the report</p>
+         <div class="img">
+            <img src="../../images/content/working_with_calculations/img_13.png"  width="261" height="230" alt="image 13" border="0">         </div>
+         <p>Note that you are always ranking by the innermost row/column ('Product Line'). You may not rank by 'Region'.</p> 
+         <h2 class="line"><a name="RSUM"></a>Running Sum</h2>
+         <p>The most common use of Running Sum, (a.k.a. Cumulative Sum) is to show how a number grows over time. For example, what was total sales revenue for this year, up and through January, February, March, etc.</p>
+         <p>When creating a Running Sum field you have three options:</p>
+         <ul>
+            <li>Sum across all Rows</li>
+            <li>Sum across all Columns</li>
+            <li>Break By &lt;field&gt;</li>
+         </ul>
+         <p>Below follows an example that illustrates each option.</p>
+         <p><b>Sum across all Rows </b></p>
+         <div class="img">
+            <img src="../../images/content/working_with_calculations/img_14.png"  width="213" height="120" alt="image 14" border="0">         </div>
+         <p><b>Sum across all Columns</b></p>
+         <div class="img">
+            <img src="../../images/content/working_with_calculations/img_15.png"  width="427" height="98" alt="image 15" border="0">         </div>
+         <p><b>Break By &lt;field&gt;</b></p>
+         <p>This option is only available when you have multiple text fields on the report
+         <div class="img">
+            <img src="../../images/content/working_with_calculations/img_16.jpg"  width="251" height="179" alt="image 16" border="0">         </div>
+         <h2 class="line"><a name="PCTRSUM"></a>% of Running Sum</h2>
+         <p>The % of Running Sum option combines the % of and the Running Sum functionality. You have three options:</p>
+         <ul>
+            <li>Sum across all Rows</li>
+            <li>Sum across all Columns</li>
+            <li>Break By &lt;field&gt;</li>
+         </ul>
+         <p>Below follows an example that illustrates each option.</p>
+         <p><b>Sum across all Rows </b></p>
+         <div class="img">
+            <img src="../../images/content/working_with_calculations/img_17.png"  width="240" height="120" alt="image 17" border="0">         </div>
+         <p><b>Sum across all Columns</b></p>
+         <div class="img">
+            <img src="../../images/content/working_with_calculations/img_18.png"  width="547" height="98" alt="image 18" border="0">         </div>
+         <p><b>Break By &lt;field&gt;</b></p>
+         <p>This option is only available when you have multiple text fields on the report</p>
+         <div class="img">
+            <img src="../../images/content/working_with_calculations/img_19.jpg"  width="286" height="191" alt="image 19" border="0">         </div>
+         <h2 class="line"><a name="10"></a>Sorting</h2>
+         <p>By default, your report is sorted in alphanumeric order by text fields (such as &apos;Product Line&apos;).</p>
+         <p>To re-sort a row or column click the field on the report and select a <b>Sort</b> options from the menu.</p>
+         <p>The image below illustrates which fields can be re-sorted based on their placement on the report.</p>
+         <div class="img"><img src="../../images/content/working_with_calculations/img_20.jpg"  width="682" height="513" alt="image 20" border="0"></div>
+		 <h2 class="line"><a name="creating_new_numbers"></a>Creating New Numbers</h2>
+         <p>Pentaho allows you to create three types of new numbers directly within a report:</p>
+		 <ul>
+			<li> % of, Rank, Running Sum, etc. (Described above)</li>
+			<li> Calculated Numbers</li>
+			<li> Trend Numbers</li>
+		 </ul>
+         <p><strong>Creating Calculated Numbers</strong></p>
+		 <ol>
+			<li> Right click on the column header for a number in your report and select User Defined Number &rarr Calculated Number&hellip;
+			<div class="img"><img src="../../images/content/working_with_calculations/calculated_number_menu.gif"  border="0"></div>
+			</li>
+			<li> In the New Calculated Number dialog box, give your new number a name. </li>
+			<li> Determine the format and number or decimal places and then select from your metric list to create a new number using the operators that are available.
+				<div class="img"><img src="../../images/content/working_with_calculations/creating_calculated_numbers.gif"  border="0"></div>
+			</li>
+		 </ol>
+		 <p><strong>Tips on Creating Calculated Numbers</strong></p>
+		 <ul>
+		 	<li>Calculated numbers are based on any valid MDX expression that evaluates to a calculated member</li>
+		 	<li>Advanced expressions will reference other dimensions via the dimension's MDX name.  To find the MDX name, right click on any field and select "Tell me about..."</li>
+		 	<li>You can pin measures to specific members of a dimension.
+		 		<ul><li>Ex. <b>([Measures].[Unit Sales], [Product].[Food], [Gender].[M])</b></li></ul>  
+		 	</li>
+		 	<li>You can generate level based measures using Ancestor or Parent MDX functions
+		 		<ul><li>Ex. <b>([Measures].[Unit Sales], Ancestor([Product].CurrentMember, [Product].[Product Family]))</b></li></ul>
+		 	</li>
+		 	<li>You can do if-else conditional logic using the IIf or Case MDX functions
+		 		<ul><li>Ex. <b>IIf ([Product].CurrentMember Is [Product].[Food], [Unit Sales] * 1.1, [Unit Sales])</b></li></ul>
+		 	</li>
+		 	<li>You can compare bookings for each sales rep to the best sales rep in his team
+                <ul><li>Ex. <b>[Bookings]/([Bookings],Order(Descendants([Sales Rep].CurrentMember.Parent, [Sales Rep].[Sales Rep]), [Bookings], DESC).Item(0))</b></li></ul>
+            </li>
+		 	<li>See <a target="_blank" href="http://mondrian.pentaho.com/documentation/mdx.php">here</a> for a list of available MDX functions</li>
+		 </ul>
+	<p><strong><a name="subtotal_calculation"></a>Subtotal Calculation</strong><p>
+<ol>Checking the Subtotal Calculation checkbox will set the subtotals to be computed by computing the result of the formula with the base number&apos;s subtotals. Un-checking this checkbox will set the subtotals to be computed as a summary of the calculated number's different values. The two subtotal approaches are demonstrated in the following table:
+				<table BORDER="0" BORDERCOLOR="black" CELLPADDING="0" CELLSPACING="5" ALIGN="left" VALIGN="middle" STYLE="LINE-HEIGHT:20px;" >
+					<tr>
+						<td ALIGN="left"><b>Regular Subtotals</b></td>						
+					</tr>				
+					<tr>
+						<td>
+							<table FRAME="border" BORDER="1" BORDERCOLOR="black" ALIGN="left" VALIGN="middle"  CELLPADDING="2" CELLSPACING="0">
+								<tr>
+									<td ALIGN="center">&nbsp;  Column X  &nbsp;</td>
+									<td ALIGN="center">&nbsp;  Column Y  &nbsp;</td>
+									<td ALIGN="center">&nbsp;  Calculated Column X/Y  &nbsp;</td>
+								</tr>
+								<tr>
+									<td ALIGN="center">&nbsp;  X1  &nbsp;</td>
+									<td ALIGN="center">&nbsp;  Y1  &nbsp;</td>
+									<td ALIGN="center" BGCOLOR="#b5c7ff">&nbsp; X1/Y1  &nbsp;</td>
+								</tr>
+								<tr>
+									<td ALIGN="center">&nbsp;  X2  &nbsp;</td>
+									<td ALIGN="center">&nbsp;  Y2  &nbsp;</td>
+									<td ALIGN="center" BGCOLOR="#b5c7ff">&nbsp;  X2/Y2  &nbsp;</td>
+								</tr>
+								<tr>
+									<td ALIGN="center">&nbsp;  Subtotal(X1, X2)  &nbsp;</td>
+									<td ALIGN="center">&nbsp;  Subtotal(Y1, Y2)  &nbsp;</td>
+									<td ALIGN="center" BGCOLOR="#cecbce">&nbsp;  Subtotal(X1/Y1, X2/Y2)  &nbsp;</td>									
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td ALIGN="left"><b>Subtotals Using Formula</b></td>
+					</tr>
+					<tr>						
+						<td>
+							<table FRAME="border" BORDER="1" BORDERCOLOR="black" ALIGN="left" VALIGN="middle"  CELLPADDING="2" CELLSPACING="0">
+								<tr>
+									<td ALIGN="center">&nbsp;  Column X  &nbsp;</td>
+									<td ALIGN="center">&nbsp;  Column Y  &nbsp;</td>
+									<td ALIGN="center">&nbsp;  Calculated Column X/Y  &nbsp;</td>
+								</tr>
+								<tr>
+									<td ALIGN="center">&nbsp;  X1  &nbsp;</td>
+									<td ALIGN="center">&nbsp;  Y1  &nbsp;</td>
+									<td ALIGN="center">&nbsp;  X1/Y1  &nbsp;</td>
+								</tr>
+								<tr>
+									<td ALIGN="center">&nbsp;  X2  &nbsp;</td>
+									<td ALIGN="center">&nbsp;  Y2  &nbsp;</td>
+									<td ALIGN="center">&nbsp;  X2/Y2  &nbsp;</td>
+								</tr>
+								<tr>
+									<td ALIGN="center" BGCOLOR="#b5c7ff">&nbsp;  Subtotal(X1, X2)  &nbsp;</td>
+									<td ALIGN="center" BGCOLOR="#b5cvff">&nbsp;  Subtotal(Y1, Y2)  &nbsp;</td>
+									<td ALIGN="center" BGCOLOR="#cecbce">&nbsp;  Subtotal(X1, X2)/Subtotal(Y1, Y2)  &nbsp;</td>									
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>		
+		</ol>		
+</td></tr>
+   <tr height="10"><td></td></tr>
+   <tr>
+      <td><div class="bottom_title">Related Topics</div></td>
+   </tr>
+   <tr>
+      <td>
+         <ul>
+            <li><a href="working_with_filters.html">Working with Filters</a></li>
+         </ul>      </td>
+   </tr>
+</table>
+</body>
+</html>

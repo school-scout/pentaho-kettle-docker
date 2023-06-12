@@ -1,0 +1,91 @@
+<div id="standardDialog" style="width:620px;">
+	<div id="standardDialogHeader" class="Caption">
+		<div id="dialogTitleBar">
+		<table width=100%>
+		<tr>
+			<td width="*"><span id="dialogTitleText">@{dlgCalcNumTitle}</span></td>
+			<td width="19"><img id="dlgHelp" src="images/help_link.png" class="titleBarButton"></td>
+			
+		</tr>
+		</table>
+		</div>
+	</div>
+
+	<div id="dialogMessageBar" class="hidden"></div>				
+
+	<div class="dialog-content">
+		<table width=100%><tbody>
+            <tr height="25px" valign="top">
+                <td colspan=3><span style="width:70px;display:block;float:left;margin-top:3px">@{dlgSharedName}:</span>
+                <input type=text id="MA_name" value="Calculated Number" style="width:300px;float:left;"></td>
+            </tr>
+            <tr height="35px" valign="top">
+                <td colspan=3>
+                <span style="width:70px;display:block;float:left;margin-top:3px">@{dlgSharedNumFormat}:</span>
+                <select id="MA_formatCategory" name="MA_formatCategory" size="1" style="margin-right:5px;float:left;">
+                    <option value="Default">@{dlgSharedNumFormatDefault}</option>
+                    <option value="General Number" selected="selected">@{dlgSharedNumFormatGeneral}</option>
+                    <option value="Currency ($)">@{dlgSharedNumFormatCurrency}</option>
+                    <option value="Percentage (%)">@{dlgSharedNumFormatPct}</option>
+                    <option value="Expression">@{dlgSharedNumFormatExp}</option>
+                </select>
+                <span style="display:block;float:left;margin:0 10px;margin-top:3px">@{dlgSharedNumDecimalPlaces}:</span>
+                <select id="MA_formatScale" name="MA_formatScale" size="1">
+                    <option value="0" selected="selected">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                </td>
+            </tr>
+
+            <tr valign="top">
+                <td width="260"><select id="MA_measures" size="17" class="inputTxt" style="width:260px;"></select></td>
+	            <td width="25" align="center">
+	                <img src="images/dialog/add_selected.png" class="FT_picklistCmd" style="margin-top:90px;" id="MA_addField" title="Add Selected"><br/>
+	            </td>
+                <td witdh=*>
+                    <textarea style="display:block;width:100%;height:202px;float:right;" id="MA_content"></textarea>
+                    <div id="MA_ops" style="text-align:right;margin-top:10px;float:right;width:100%;">
+		                <input type=button id="MA_ADD" value="+" class="miniButton">
+		                <input type=button id="MA_SUB" value="-" class="miniButton">
+		                <input type=button id="MA_MUL" value="*" class="miniButton">
+		                <input type=button id="MA_DIV" value="/" class="miniButton">
+		                <input type=button id="MA_LP" value="(" class="miniButton">
+		                <input type=button id="MA_RP" value=")" class="miniButton">
+                        <input type=button id="MA_clear" value="Clear" class="miniButton">
+		            </div>
+                </td>
+            </tr>
+            <tr height="25px"><td colspan="3"><b>@{dlgCalcNumSubtotalCalc}</b></td></tr>
+            <tr height="25px" valign="top">
+                <td colspan="3">
+                <input type="checkbox" id="MA_calculateSubtotalsUsingFormula" name="calculateSubtotalsUsingFormula" style="float:left;margin-left:0px" checked/>
+                <span style="padding-right:8px;display:block;float:left;margin-top:3px">&nbsp;&nbsp;@{dlgCalcNumSubtotalCalcDesc}</span><img id="helpCalculateSubtotals" src="images/help_link.png" style="margin-top:3px" class="titleBarButton">
+                </td>
+            </tr>
+		</tbody></table>
+	</div>
+
+	<div>
+	<table width=100% class="button-panel">
+	<tr>
+		<td width="100%" class="standardDialogFooter">&nbsp;</td>
+		<td>
+      <button class="pentaho-button" id="dlgBtnSave">@{btnLabelOK}</button>
+		</td>
+		<td>
+      <button class="pentaho-button" id="dlgBtnCancel">@{btnLabelCancel}</button>
+    </td>
+	</tr>
+	</table>
+	</div>
+	
+</div>

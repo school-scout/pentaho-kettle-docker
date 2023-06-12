@@ -1,0 +1,59 @@
+<html>	
+<head>
+<title>Setting Report Options</title>
+	<link rel="StyleSheet" href="../../screen.css" type="text/css" />
+</head>	
+<body style="padding: 10px 20px 0px 10px;">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="height: 124px">
+   <tr>
+      <td><img src="../../images/spacer.gif" height="45" width="100" border="0" alt="0"></td>
+   </tr>
+   <tr>
+      <td class="main_title">Setting Report Preferences</td>
+   </tr>
+   <tr>
+      <td><img src="../../images/spacer.gif" height="5" width="100" border="0" alt="0"></td>
+   </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding: 10px 0px 20px 10px">
+   <tr>
+      <td>
+         <ul>
+            <li><a href="#0">Working with Rows Where the Number Cell is Blank</a></li>
+            <li><a href="#1">What happens when there is no number field on the report?</a></li>
+            <li><a href="#2">Options for Totals</a></li>
+            <li><a href="#3">Drill Link Configuration</a></li>
+         </ul>
+         <h2 class="line"><a name="0"></a>Working with Rows Where the Number Cell is Blank</h2>
+         <p>Blank cells are values in your report which are Null or Empty.  Pentaho will hide rows and columns when all values in the row or column are blank.  You can control what to show when a cell contains a blank value.</p>
+
+<p>Analyzer reports are designed to break down number fields (such as "Sales") by Text Fields (such as "Product Name"). If a product did not sell, it will appear either as a zero dollars OR as a "blank" or dash ("-"). In some reporting situations the absence of a value could mean the same as a zero, but in other cases, zero might have a different meaning. The report calculations in the background behaves differently depending on whether a value is blank or a zero. For example, when the report calculates averages, zeros are taken into account whereas blanks are not.</p>
+       
+         <h2 class="line"><a name="1"></a>What happens when there is no number field on the report?</h2>
+         <p>The following rules apply:</p>
+         <ul>
+            <li>If there is only one text field (e.g. Product Line) but no number field on the report, then all values will be displayed. For example, all Product Lines will be displayed, even those that did not.</li>
+            <li>If there is more than one text field (e.g. Product Line and Region) but no number field on the report, then the report will hide some values. You should not draw any conclusions from the report in this state. Instead, add a number field.</li>
+         </ul>
+         <p>The rules above are designed to minimize the confusion that could appear if an expected value does not appear but weigh this against displaying every single combination of data elements.</p>
+         <h2 class="line"><a name="2"></a>Options for Totals</h2>
+         <p>To show or hide any of the following:</p>
+         <ul>
+           <li><strong>Grand totals for rows </strong></li>
+           <li><strong>Grand totals for columns</strong></li>
+           <li><strong><a href="working_with_calculations.html#non_visual_totals">Totals that include filtered values</a></strong></li>
+         </ul>
+         <p>Click <b>More Actions</b> on the report edit page and select <b>Report Options</b> from the menu.
+      For more information on totals, see <a href="working_with_calculations.html#displaying_grand_totals_and_subtotals">Displaying Grand Totals and Subtotals</a></p>
+      <h2 class="line"><a name="3" />Drill Link Configuration</h2>
+      <p>To create reports based on specific number value data, you can implement drill-down links in Pentaho Analyzer. This will turn all non-calculated number fields into links which, when clicked, bring up a configurable data grid that enables you to quickly view more details for that data point without having to reconfigure your report. Follow the directions below to turn on drill-linking in the Report Options dialogue.</p>
+<ul>
+<li>Select the <strong>Show drillthrough links on Number cells</strong> checkbox, then click <b>OK</b>.  The number fields in your report will turn into links.</li>
+   <li>Click on a drill-down link to see a data grid that shows all of the available details for that value.</li>
+   <li>To add or remove columns from the grid, click on the down arrow on the right side of any column and select the <strong>Columns</strong> sub-menu. From there you can select which columns you want to appear. You can also sort by ascending or descending values for any column through this menu.</li>
+
+<p>You now have drill-down links for numeric, non-calculated members.</p>
+      </td></tr>
+</table>
+</body>
+</html>

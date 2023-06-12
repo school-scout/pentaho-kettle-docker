@@ -1,0 +1,63 @@
+
+/****
+		dijit.form.TextBox
+		dijit.form.ValidationTextBox
+		dijit.form.SerializableTextBox
+		dijit.form.RangeBoundTextBox
+		dijit.form.NumberTextBox
+		dijit.form.CurrencyTextBox
+		dijit.form.NumberSpinner
+		dijit.form.ComboBox (partial)
+ ****/
+
+.tundra .dijitInputContainer INPUT,
+.tundra .dijitTextBox {
+	margin: 0 0.1em;
+}
+
+.tundra .dijitTextArea {
+	padding: 3px;
+}
+
+.tundra .dijitTextBox {
+	/* 	For all except dijit.form.NumberSpinner:  the actual input element.
+		For TextBox, ComboBox, Spinner: the div that contains the input.
+		Otherwise the actual input element.
+	*/
+}
+
+/* ComboBox specific rules*/
+.tundra .dijitComboBox .dijitButtonNode {
+	padding: 0 0.2em;
+}
+.tundra .dijitTextBox .dijitButtonNode {
+	/* line between the input area and the drop down button, and also between
+	 * the up and down buttons of a spinner
+	 */
+	border-color: #9b9b9b;
+}
+
+.tundra .dijitTextBoxFocused {
+	/* input field when focused (ie: typing affects it) */
+}
+.tundra .dijitTextBoxFocused .dijitButtonNode {
+}
+
+.tundra .dijitError {
+}
+
+.tundra .dijitErrorFocused {
+}
+
+/* Validation errors  */
+.tundra .dijitValidationIcon {
+	/* prevent height change when widget goes from valid to invalid state */
+}
+
+/* The highlight is shown in the ComboBox menu. */
+.tundra .dijitComboBoxHighlightMatch {
+}
+
+.tundra .dijitFocusedLabel {
+	/* for checkboxes or radio buttons, hatch border around the corresponding label, to indicate focus */
+}

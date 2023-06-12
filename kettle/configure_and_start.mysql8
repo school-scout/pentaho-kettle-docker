@@ -15,7 +15,7 @@ cat >~/.kettle/repositories.xml <<EOF;
     <database>$DATABASE_DATABASE</database>
     <port>-1</port>
     <username>$DATABASE_USER</username>
-    <password>Encrypted $DATABASE_PASSWORD</password>
+    <password>$DATABASE_PASSWORD</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -44,4 +44,4 @@ cat >~/.kettle/repositories.xml <<EOF;
 EOF
 fi
 
-exec $*
+exec "$@"

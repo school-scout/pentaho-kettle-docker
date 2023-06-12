@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin title="analyzer">
+
+    <lifecycle-listener class="com.pentaho.analyzer.content.AnalyzerLifecycleListener"/>
+    
+    <menu-items>
+        <menu-item id="new-analyzer" anchor="file-new-submenu" label="Analyzer Report..." command="content/analyzer/selectSchema" type="MENU_ITEM" how="LAST_CHILD"/>
+        <menu-item id="new-analyzer" anchor="file-new-submenu-classic" label="Analyzer Report..." command="javascript:popPage('content/analyzer/selectSchema')" type="MENU_ITEM" how="LAST_CHILD"/>
+    </menu-items>
+     	
+    <overlays>
+	    <overlay id="launch" resourcebundle="content/analyzer/resources/messages.properties">
+		    <button 
+			    id="launch_new_analysis" 
+			    label="${Launcher.NEW_ANALYZER_REPORT}" 
+			    image="content/analyzer/images/quicklaunch_button_analyzer.png"
+			    command="openURL('${Launcher.ANALYZER_REPORT}', '${Launcher.ANALYZER_TOOLTIP}', 'content/analyzer/selectSchema')"/>
+	    </overlay>
+	    <overlay id="startup.dashboardToolbar"  resourcebundle="../content/analyzer/resources/messages">
+	        <overlay id="startup.dashboardToolbar" resourcebundle="../content/analyzer/resources/messages">
+	            <toolbarbutton id="newAnalysisButton" removeelement="true"/>
+                <toolbar id="mainToolbar">
+                    <toolbarbutton id="newAnalysisButton" image="../content/analyzer/images/analyzer_toolbar_icon.png" onclick="mainToolbarHandler.openUrl('${tabName}','${tabName}','content/analyzer/selectSchema')" tooltiptext="${openNewAnalyzerReport}" insertafter="newAdhocButton"/>
+                </toolbar>
+	        </overlay>
+	    </overlay>
+	</overlays>
+
+
+  <external-resources>
+    <file context="dashboards">content/analyzer/scripts/widget/AnalyzerDashboardWidget.js</file>
+  </external-resources>
+  
+    <static-paths>
+        <static-path url="/analyzer/styles" localFolder="styles"/>
+        <static-path url="/analyzer/help" localFolder="help"/>
+        <static-path url="/analyzer/images" localFolder="images"/>
+        <static-path url="/analyzer/scripts" localFolder="scripts"/>
+        <static-path url="/analyzer/resources" localFolder="resources"/>
+        <static-path url="/analyzer/ext" localFolder="ext"/>
+    </static-paths> 
+
+    <content-generator id="analyzer" type="xanalyzer" title="Analyzer Content Generator" class="com.pentaho.analyzer.content.AnalyzerContentGenerator"/>
+
+    <content-types>
+        <content-type type="xanalyzer" mime-type="text/html">
+            <title>Analyzer</title>
+            <description>Pentaho Analyzer File</description>
+            <icon-url>content/analyzer/images/analysis_report_file_icon.png</icon-url>
+            <meta-provider>com.pentaho.analyzer.repo.AnalyzerFileInfoGenerator</meta-provider>
+            <operations>
+                <operation>
+                    <id>RUN</id>
+                    <command>content/analyzer/editor?command=open&amp;solution={solution}&amp;path={path}&amp;action={name}&amp;showFieldList=true</command>
+                </operation>
+                <operation>
+                    <id>NEWWINDOW</id>
+                    <command>content/analyzer/editor?command=open&amp;solution={solution}&amp;path={path}&amp;action={name}</command>
+                </operation>                
+                <operation>
+                    <id>EDIT</id>
+                    <command>content/analyzer/editor?command=open&amp;solution={solution}&amp;path={path}&amp;action={name}&amp;edit=true&amp;showFieldList=true</command>
+                </operation>
+                <operation>
+                    <id>SCHEDULE_NEW</id>
+                    <command>content/analyzer/schedule?command=new&amp;solution={solution}&amp;path={path}&amp;action={name}</command>
+                </operation>
+                <operation>
+                    <id>SCHEDULE_EDIT</id>
+                    <command>content/analyzer/schedule?command=edit&amp;subscription-id={subscription-id}</command>
+                </operation>                
+                <operation>
+                    <id>PARAMETER</id>
+                    <command>content/analyzer/parameters?solution={solution}&amp;path={path}&amp;action={name}</command>
+                </operation>                
+                <operation>
+                    <id>BACKGROUND</id>
+                    <command>ViewAction?solution={solution}&amp;path={path}&amp;action={name}&amp;background=true</command>
+                </operation>
+            </operations>
+        </content-type>
+    </content-types>
+    
+</plugin>

@@ -1,0 +1,39 @@
+/* All styles applied to markup within the main content */
+
+#content {
+	font-family: verdana, geneva, arial, helvetica, sans-serif;
+	clear: left;
+	height: 100%;
+	color: #333333;
+	line-height: 120%;
+	text-align: left;
+}
+
+/* This style must be applied to fix width block elements in order to center horizontally on both IE and FF */
+#content .centered {
+	margin:0px auto;
+	text-align:left;
+}
+	
+#content form, table {
+    margin: 0;
+    padding: 0;
+}
+
+#content #homepage {
+	margin-left: 10px;
+	margin-right: 10px;	
+	line-height: 140%;
+}
+
+#homepage tr {
+	vertical-align: top;
+}
+
+#content .homepageHeading {
+	font-weight: bold;
+	font-size: 152%;
+	margin: 10px 0px 14px 0px;
+	color: #444;
+}
+

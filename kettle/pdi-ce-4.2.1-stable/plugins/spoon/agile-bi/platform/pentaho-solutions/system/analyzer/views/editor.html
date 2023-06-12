@@ -1,0 +1,378 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>Pentaho Analyzer</title>
+    <meta name="helpTopic" content="CV/Business_User/about_reports.html">
+      <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+
+      <link rel="stylesheet" type="text/css" media="all"   href="styles/common.css" />
+      <link rel="stylesheet" type="text/css" media="all"   href="styles/content.css" />
+      <link rel="stylesheet" type="text/css" media="all"   href="styles/dialog.css" />
+      <link rel="stylesheet" type="text/css" media="all"   href="styles/report.css" />
+      <link rel="stylesheet" href="../data-access/resources/gwt/datasourceEditorDialog.css">
+
+      <link rel="apple-touch-icon" href="images/analyzer_ipad.png" />
+
+      <style type="text/css" media="all">
+        body {
+          -webkit-user-select:none;
+          -webkit-box-sizing: border-box;
+          -webkit-tap-highlight-color: rgba(0,0,0,0);
+        }
+        </style>
+      <link rel="stylesheet" media="only screen and (max-device-width: 1024px)" href="styles/ipad.css" type="text/css" />
+
+      <script language="javascript" type="text/javascript" src="webcontext.js?context=analyzer"></script>
+    
+      <script type="text/javascript" src="scripts/dojo/dojo.js"></script>
+      <script type="text/javascript" src="scripts/cv/common.js"></script>
+      <script type="text/javascript">
+        djConfig.isDebug = true;
+        cv.prefs.isDebug = true;
+        var cvCatalog = @{editorBean.JSONResources};
+        dojo.doc().documentElement.style.overflow = 'hidden';
+        cv.prefs.chartOptions = @{editorBean.chartOptionsJSON};
+        </script>
+      <script type="text/javascript">
+        <!--
+        if (typeof cv != "undefined") {
+          dojo.hostenv.setModulePrefix('clearview.widget','../widget');
+          cv.contextPath = "";
+        }
+        -->
+        </script>
+      <!-- webcontext.js is written by PentahoWebContextFilter. Content of this file contains values of CONTEXT_PATH and FULLY_QUALIFIED_SERVER_URL -->
+      <script type="text/javascript" src="scripts/cv/report.js"></script>
+      <script type="text/javascript" src="scripts/cv/editor.js"></script>
+      <script type="text/javascript" src="scripts/cv/widget.js"></script>
+
+        <script type="text/javascript">
+          // check to see if we're an iframe inside of a page with Data Access. If not add the module.
+          if(!window.parent || !window.parent.openDatasourceEditorIFrameProxy){ 
+            document.write("<script language='javascript' src='../data-access/resources/gwt/DatasourceEditor.nocache.js'></"+"script>");
+          }
+          
+          </script>
+        
+        <meta name="viewport" content="initial-scale=1.0, minimum-scale = 1, maximum-scale = 1, user-scalable=no"/>
+  </head>
+  
+  <body class="editor">
+    <script type="text/javascript">      
+      // Check to see if we're running in PUC, if not add the standard background.
+      if(!window.parent || !window.parent.mantle_initialized){
+        document.getElementsByTagName("body")[0].className += " pentaho-page-background";
+      }
+    </script>
+    <div class="hidden">
+      <input type="hidden" id="REPORT_catalog" value="@{editorBean.catalog}"/>
+      <input type="hidden" id="REPORT_cube" value="@{editorBean.analysisArea}"/>
+      <input type="hidden" id="createPAA" value="true"/>
+      <input type="hidden" id="reportWritable" value="@{editorBean.reportWritable}"/>
+      <input type="hidden" id="fieldHelpXML" value="@{editorBean.fieldHelpXML}"/>
+      <input type="hidden" id="reportXML" value="@{editorBean.reportXML}" />
+      <input type="hidden" id="applyReportContextInFilterDialog" value="@{editorBean.applyReportContextInFilterDialog}" />
+    </div>
+    
+    <!-- page loading indicator -->
+    <span id="pageLoading" style="color: white; font-size:100%;padding-left:250px;">
+      <img src="images/indicator_circle_ball.gif"> @{loadingReportEditor}
+    </span>
+    
+    <!-- start of ReportContent -->
+    <div id="reportContent" class="hidden" parseWidgets="false">
+      
+      <div id="reportBtns" class="dijit dijitToolbar pentaho-rounded-panel2-shadowed pentaho-padding-sm pentaho-shine pentaho-background" >
+        <div class="main" id="mobile_toolbar">
+          <div class="reportImgBtn" id="cmdNew"><img src="images/icons/new.png"/></div>
+          <div class="reportImgBtn" id="cmdOpen"><img src="images/icons/open.png"/></div>
+          <div class="reportImgBtn" id="cmdSave"><img src="images/icons/save.png"/></div>
+          <div class="reportImgBtn" id="cmdSaveAs"><img src="images/icons/saveas.png"/></div>
+          <div class="reportImgBtn" id="cmdFields"><img src="images/toolbar/field_panel.png"/></div>
+          <div class="reportImgBtn" id="cmdFilters"><img src="images/toolbar/filter.png"/></div>
+          <div class="reportImgBtn" id="cmdLayout"><img src="images/toolbar/field_layout.png"/></div>
+        </div>
+        
+        <div class="main" id="main_toolbar" style="float: left;">
+          <div class="reportBtn" id="cmdFields"><img src="images/toolbar/field_panel.png" width="16" height="16"/></div>
+          <div class="reportBtn" id="cmdFilters"><img src="images/toolbar/filter.png" width="16" height="16"/></div>
+          <div class="reportBtn" id="cmdLayout"><img src="images/toolbar/field_layout.png" width="16" height="16"/></div>
+        </div>
+        
+        <div class="additional" style="float: right;">
+          <div class="reportBtn"><img id="cmdUndo" title="@{ttUndo}" src="images/toolbar/undo.png"></div>
+          <div class="reportBtn"><img id="cmdRedo" title="@{ttRedo}" src="images/toolbar/redo.png"></div>
+          <div class="btnContainer"><div style="margin-right: 2px;" class="reportBtn" id="cmdResetBtn" title="@{ttReset}">&nbsp;@{btnLabelReset}&nbsp;</div></div>
+          <div class="btnContainer">
+            <div class="reportBtn" id="cmdMoreActions" title="@{ttMoreAction}">
+              &nbsp;@{btnLabelMore} <img src="images/icons/arrow_menu.gif" width=11 height=9 valign=bottom>&nbsp;
+			</div>
+          </div>
+        </div>
+        
+      </div>
+      <div id="reportContainerWrapper">
+        <div id="reportContainer" class="pentaho-rounded-panel2-shadowed pentaho-padding-lg pentaho-background"></div>
+      </div>
+      
+      <div dojoType="CVTooltipRefresh" id="refreshTooltip" connectId="" toggle="fade" toggleDuration="200">
+        <div id="refreshHeader"><div class="progressPaneHeaderLabel"></div></div>
+        <div id="refreshAction"></div>
+        <div id="refreshFooter"></div>
+      </div>
+      
+    </div> <!-- end of ReportContent -->
+    
+    <!-- start of all fields -->
+    <div id="fieldList" class="hidden" parseWidgets="false">
+      <div id="fieldListWrapper" class="pentaho-rounded-panel-top-left pentaho-shadow-inset-glow pentaho-padding-lg pentaho-background">
+        <div class="clearfix">
+            <img id="hideFieldList" src="images/report/fieldList_expand.png" title="@{btnTitleShowFields}">
+        </div>
+        <div id="fieldListContent" class="hidden">
+            <div id="fieldListTop" class="clearfix">
+              <div id="fieldListHeading" class="pentaho-titled-toolbar">
+                  	<img id="editDatasource" style="float:right;visibility:hidden;" title="@{ttEditDatasource}" src="images/report/Edit.png">
+                    <div id="availableFields">@{fieldListAvailableField} (<span id="fieldCount"></span>) @{fieldListAvailableFieldFor}:</div>
+                    <div style="clear:left;float:left;width:90%;overflow:hidden"><span id="analysisArea">@{editorBean.analysisAreaDisplay}</span></div>
+                    </div>
+              <div class="fieldListOptions">
+                <div id="viewFieldOptions" title="@{ttViewOptions}">
+                  @{fieldListView}&nbsp;<img src="images/icons/arrow_menu.gif" valign="bottom" height=9 width=11>
+				</div>
+                <div style="padding-top: 2px;clear:left;float:left;">@{fieldListFind}:&nbsp;</div>
+                <div id="searchBox">
+                	<input type=text id="searchField"><img id="clearSearchField" title="@{ttClearSearch}" src="images/report/deleteFilterItem.gif" class="hidden">
+                </div>
+              </div>
+              <div class="fieldListStatus"><span id="fieldListCount">Showing 0</span></div>
+            </div>
+            
+            <div id="fieldListTree">
+            	<div id="fieldListTreeContent" />
+            </div>
+            
+            <!-- Last Refreshed Information -->
+            <div id="refreshDates" class="hidden">
+              
+            </div>
+        </div>
+      </div>
+    </div> <!-- end of "fieldList" DIV -->
+    
+    <div id="reportActions" class="hidden">
+      <a id="cmdReportXml" href="#" onclick="return false;">@{reportAdminActionXML}</a>
+      <span class="behaviorBarSeparator">|</span>
+      <a href="admin/log" target="_blank">@{reportAdminActionLog}</a>
+      <span class="behaviorBarSeparator">|</span> 
+      <a id="cmdClearCache" href="#" onclick="return false;">@{reportAdminActionClearCache}</a>
+    </div>
+    
+    <div parseWidgets="false"> <!-- Start of Dojo Widgets -->
+      
+      <span dojoType="cvTooltip" id="theTooltip" connectId="" caption="Tooltip is here" toggle="fade" toggleDuration="200"></span>
+      <span dojoType="cvRptInfoTooltip" id="theRptInfoTooltip" connectId="" caption="Report Info Tooltip is here" toggle="fade" toggleDuration="200"></span>
+      
+      <div dojoType="dialog" id="theDialog" bgColor="black" bgOpacity="0.65" toggle="fade" toggleDuration="200" executeScripts="true">
+      </div>
+      
+      <div dojoType="PopupMenu2" id="fieldListMenu" class="popupMenu" targetNodeIds="">
+        <div dojoType="MenuItem2" id="cmdFieldAdd" caption="@{popupMenuAddToReport}"></div>
+        <div dojoType="MenuItem2" id="cmdFieldFilter" caption="@{popupMenuFilter}"></div>
+        <div dojoType="MenuItem2" id="cmdFieldAbout" caption="@{popupMenuTellMeAbout}"></div>
+      </div>
+      
+      <div dojoType="PopupMenu2" id="fieldViewMenu" class="popupMenu" targetNodeIds="">
+        <div dojoType="MenuItem2" id="cmdViewCategory" caption="@{popupMenuByCategory}"></div>
+        <div dojoType="MenuItem2" id="cmdViewType" caption="@{popupMenuByNumberTextTime}"></div>
+        <div dojoType="MenuItem2" id="cmdViewName" caption="A&#8594;Z"></div>
+        <div dojoType="MenuItem2" id="cmdViewSchema" caption="@{popupMenuBySchema}"></div>
+      </div>
+      
+      <div dojoType="CVLeftSidePopupMenu" id="exportMenu" class="popupMenu" targetNodeIds="">
+        <div dojoType="MenuItem2" id="cmdPDF" caption="@{popupMenuExportPDF}"></div>
+        <div dojoType="MenuItem2" id="cmdExcel" caption="@{popupMenuExportXLS}"></div>
+        <div dojoType="MenuItem2" id="cmdCSV" caption="@{popupMenuExportCSV}"></div>
+      </div>
+      
+      <div dojoType="CVLeftSidePopupMenu" id="moreActionsMenu" class="popupMenu" targetNodeIds="">
+        <div dojoType="MenuItem2" caption="@{popupMenuActionExport}" submenuid="exportMenu"></div>
+        <div dojoType="MenuSeparator2"></div>
+        <div dojoType="MenuItem2" id="cmdProps" caption="@{popupMenuActionAbout}"></div>
+        <div dojoType="MenuItem2" id="cmdOptions" caption="@{popupMenuActionOptions}"></div>
+        <div dojoType="MenuItem2" id="cmdChartProps" caption="@{popupMenuActionChartProps}"></div>
+        <div dojoType="MenuSeparator2"></div>
+        <div dojoType="MenuItem2" id="cmdResetColumnSize" caption="@{popupMenuActionResetColSize}"></div>
+      </div>
+      
+      <div dojoType="PopupMenu2" id="attributePopMenu" targetNodeIds="" class="popupMenu">
+        <div dojoType="MenuItem2" id="PM:attrEdit" caption="@{popupMenuAttributeEdit}"></div>
+        <div dojoType="MenuSeparator2"></div>
+        <div dojoType="MenuItem2" id="PM:addHier" caption="@{popupMenuAttributeAlsoShow}" submenuid="hierarchyPopMenu"></div>
+        <div dojoType="MenuItem2" id="PM:addProp" caption="@{popupMenuAttributeShowProps}" submenuid="propertiesPopMenu"></div>
+        <div dojoType="MenuSeparator2"></div>
+        <div dojoType="MenuItem2" id="PM:hyperlink" caption="@{popupMenuHyperlink}"></div>
+        <div dojoType="MenuSeparator2"></div>
+        <div dojoType="MenuItem2" id="PM:attrFilter" caption="@{popupMenuFilter}"></div>
+        <div dojoType="MenuItem2" id="PM:attrFilterRank" caption="@{popupMenuAttributeTop10}"></div>
+        <div dojoType="MenuSeparator2"></div>
+        <div dojoType="MenuItem2" id="PM:attrSortAZ" caption="@{popupMenuAttributeSort} A&#8594;Z"></div>
+        <div dojoType="MenuItem2" id="PM:attrSortZA" caption="@{popupMenuAttributeSort} Z&#8594;A"></div>
+        <div dojoType="MenuSeparator2"></div>
+        <div dojoType="MenuItem2" id="PM:attrShowSub" caption="@{popupMenuAttributeShowSubtotals}"></div>
+        <div dojoType="MenuSeparator2"></div>
+        <div dojoType="MenuItem2" id="PM:helpAttr" caption="@{popupMenuTellMeAbout}"></div>
+        <div dojoType="MenuItem2" id="PM:removeAttr" caption="@{popupMenuRemoveFromReport}"></div>
+      </div>
+      
+      <div dojoType="PopupMenu2" id="propPopMenu" targetNodeIds="" class="popupMenu">
+        <div dojoType="MenuItem2" id="PM:helpProp" caption="@{popupMenuTellMeAbout}"></div>
+        <div dojoType="MenuItem2" id="PM:removeProp" caption="@{popupMenuRemoveFromReport}"></div>
+      </div>
+      
+      <div dojoType="PopupMenu2" id="newNumberMenu" class="popupMenu" targetNodeIds="">
+        <div dojoType="MenuItem2" id="PM:editMeasureSummary" caption="@{popupMenuNumberEdit} @{popupMenuNumberSummary}"></div>
+        <div dojoType="MenuItem2" id="PM:editMeasureArith" caption="@{popupMenuNumberEdit} @{popupMenuNumberCalculated}"></div>
+        <div dojoType="MenuItem2" id="PM:editMeasureTrend" caption="@{popupMenuNumberEdit} @{popupMenuNumberTrend}"></div>
+        <div dojoType="MenuSeparator2" id="menuSeparator"></div>
+        <div dojoType="MenuItem2" id="PM:summaryMetrics" caption=" @{popupMenuNumberSummary}"></div>
+        <div dojoType="MenuItem2" id="PM:arithNumber" caption="@{popupMenuNumberCalculated}"></div>
+        <div dojoType="MenuItem2" id="PM:trendNumber" caption="@{popupMenuNumberTrend}"></div>
+      </div>
+      
+      <div dojoType="PopupMenu2" id="condFormatMenu" class="popupMenu" targetNodeIds="">
+        <div dojoType="MenuItem2" id="PM:condFormat_COLOR_SCALE_G_Y_R" caption="@{popupMenuCondFormatColorScaleGYR}"></div>
+        <div dojoType="MenuItem2" id="PM:condFormat_COLOR_SCALE_R_Y_G" caption="@{popupMenuCondFormatColorScaleRYG}"></div>
+        <div dojoType="MenuItem2" id="PM:condFormat_COLOR_SCALE_B_Y_R" caption="@{popupMenuCondFormatColorScaleBYR}"></div>
+        <div dojoType="MenuItem2" id="PM:condFormat_COLOR_SCALE_R_Y_B" caption="@{popupMenuCondFormatColorScaleRYB}"></div>
+        <div dojoType="MenuSeparator2"></div>
+        <div dojoType="MenuItem2" id="PM:condFormat_DATA_BAR_RED" caption="@{popupMenuCondFormatDataBarRed}"></div>
+        <div dojoType="MenuItem2" id="PM:condFormat_DATA_BAR_GREEN" caption="@{popupMenuCondFormatDataBarGreen}"></div>
+        <div dojoType="MenuItem2" id="PM:condFormat_DATA_BAR_BLUE" caption="@{popupMenuCondFormatDataBarBlue}"></div>
+        <div dojoType="MenuSeparator2"></div>
+        <div dojoType="MenuItem2" id="PM:condFormat_TREND_ARROW_GR" caption="@{popupMenuCondFormatDataTrendArrowGR}"></div>
+        <div dojoType="MenuItem2" id="PM:condFormat_TREND_ARROW_RG" caption="@{popupMenuCondFormatDataTrendArrowRG}"></div>
+      </div>
+      
+      <div dojoType="PopupMenu2" id="measurePopMenu" class="popupMenu" targetNodeIds="">
+        <div dojoType="MenuItem2" id="PM:measEdit" caption="@{popupMenuNumberColNameFormat}"></div>
+        <div dojoType="MenuItem2" caption="@{popupMenuNumberCondFormat}" submenuid="condFormatMenu"></div>
+        <div dojoType="MenuSeparator2"></div>
+        <div dojoType="MenuItem2" caption="@{popupMenuNumberUserDefNumber}" submenuid="newNumberMenu"></div>
+        <div dojoType="MenuSeparator2"></div>
+        <div dojoType="MenuItem2" id="PM:measFilterCond" caption="@{popupMenuNumberGreaterThan}"></div>
+        <div dojoType="MenuItem2" id="PM:measFilterRank" caption="@{popupMenuAttributeTop10}"></div>
+        <div dojoType="MenuSeparator2"></div>
+        <div dojoType="MenuItem2" id="PM:measSortHiLow" caption="@{popupMenuNumberSortHighLow}"></div>
+        <div dojoType="MenuItem2" id="PM:measSortLowHi" caption="@{popupMenuNumberSortLowHigh}"></div>
+        <div dojoType="MenuSeparator2"></div>
+        <div dojoType="MenuItem2" id="PM:measSubtotals" caption="@{popupMenuNumberSubtotals}"></div>
+        <div dojoType="MenuSeparator2"></div>
+        <div dojoType="MenuItem2" id="PM:helpMetric" caption="@{popupMenuTellMeAbout}"></div>
+        <div dojoType="MenuItem2" id="PM:inChartHideMetric" caption="@{popupMenuNumberHideFromChart}"></div>
+        <div dojoType="MenuItem2" id="PM:removeMetric" caption="@{popupMenuRemoveFromReport}"></div>
+      </div>
+      
+      <div dojoType="PopupMenu2" id="measureDisabledPopMenu" class="popupMenu" targetNodeIds="">
+        <div dojoType="MenuItem2" id="PM:inChartShowMetric" caption="@{popupMenuNumberShowOnChart}"></div>
+        <div dojoType="MenuItem2" id="PM:removeDisabledMetric" caption="@{popupMenuRemoveFromReport}"></div>
+      </div>
+      
+      <div dojoType="PopupMenu2" id="filterPopMenu" class="popupMenu" targetNodeIds="">
+        <div dojoType="MenuItem2" id="PM:editFilter" caption="@{popupMenuAttributeEdit}"></div>
+        <div dojoType="MenuItem2" id="PM:removeFilter" caption="@{popupMenuRemoveFromReport}"></div>
+        <div dojoType="MenuSeparator2"></div>
+        <div dojoType="MenuItem2" id="PM:addFilter" caption="@{popupMenuFilterAdd}"></div>
+      </div>
+      
+      <div dojoType="PopupMenu2" id="grandTotalPopMenu" class="popupMenu" targetNodeIds="">
+        <div dojoType="MenuItem2" id="PM:totalHide" caption="@{popupMenuTotalsHide}"></div>
+        <div dojoType="MenuItem2" id="PM:totalNonVisual" caption="@{popupMenuTotalsNonVisual}"></div>
+      </div>
+      
+      <div dojoType="PopupMenu2" id="chartTypeMenu" class="popupMenu" targetNodeIds="">
+        <div dojoType="MenuItem2" id="VERTICAL_BAR" caption="@{popupMenuChartColumn}"></div>
+        <div dojoType="MenuItem2" id="STACKED_VERTICAL_BAR" caption="@{popupMenuChartStackedColumn}"></div>
+        <div dojoType="MenuItem2" id="PCT_STACKED_VERTICAL_BAR" caption="@{popupMenuChart100StackedColumn}"></div>
+        <div dojoType="MenuSeparator2"></div>
+        <div dojoType="MenuItem2" id="HORIZONTAL_BAR" caption="@{popupMenuChartBar}"></div>
+        <div dojoType="MenuItem2" id="STACKED_HORIZONTAL_BAR" caption="@{popupMenuChartStackedBar}"></div>
+        <div dojoType="MenuItem2" id="PCT_STACKED_HORIZONTAL_BAR" caption="@{popupMenuChart100StackedBar}"></div>
+        <div dojoType="MenuSeparator2"></div>
+        <div dojoType="MenuItem2" id="LINE" caption="@{popupMenuChartLine}"></div>
+        <div dojoType="MenuItem2" id="MULTIPLE_PIE" caption="@{popupMenuChartPie}"></div>
+        <div dojoType="MenuItem2" id="STACKED_AREA" caption="@{popupMenuChartArea}"></div>
+      </div>
+      
+    </div> <!-- End of Dojo Widgets -->
+    
+    <script type="text/javascript" src="scripts/filechooser/filechooser.nocache.js"></script>
+    
+    
+    <script type="text/javascript">
+      var catalogId;
+      
+      dojo.addOnLoad(function() {
+          
+        var catalog = window.cv.rptEditor.report.catalog;
+        var cube = window.cv.rptEditor.report.cube;
+
+        cv.io.ajaxLoad("ajax/lookupXmiId", {catalog:catalog,cube:cube}, false, function(data){
+                      catalogId = data;
+                      initDataAccess(window.dataAccessAvailable || window.parent.dataAccessAvailable);
+                      });
+        });
+      
+        dojo.event.connect(dojo.byId("editDatasource"), "onclick", function() {
+          if(catalogId) {
+            var openFunct = window.parent ? window.parent.pho.openEditDatasourceEditor || window.openEditDatasourceEditor : window.openEditDatasourceEditor;
+            var callback = new function() {
+              this.onOk = function(json, mqlStr){
+                alert(json+"\n\n\n"+mqlStr);
+              }
+              this.onError = function(err){
+                alert(err);
+              }
+              this.onCancel = function(){
+                alert("Canceled");
+              }
+                this.onReady = function(){
+              }
+              this.onFinish = function(status) {
+                document.location.reload();
+              }
+              this.onFinish = function(status, transport) {
+                document.location.reload();
+              }
+            };
+
+            try {
+            openFunct(catalogId, "", callback, "ANALYSIS");
+            } catch (err) {
+            // backward compatibility safety net
+            openFunct(catalogId, "", callback);
+            }
+
+          }
+          return;
+      });
+      
+      function initDataAccess(hasAccess) {
+        window.dataAccessAvailable = hasAccess;
+        if(window.dataAccessAvailable && catalogId){
+          var editDatasourceButton = document.getElementById("editDatasource");
+          editDatasourceButton.style.visibility = 'visible';
+        }
+      }
+      </script>
+    
+    <form id="drillForm" method="post" >
+      <input type="hidden" name="reportXML" id="drillForm_reportXML" />
+      <input type="hidden" name="colIndex" id="drillForm_colIndex" />
+      <input type="hidden" name="rowIndex" id="drillForm_rowIndex" />
+    </form>
+  </body>
+</html>

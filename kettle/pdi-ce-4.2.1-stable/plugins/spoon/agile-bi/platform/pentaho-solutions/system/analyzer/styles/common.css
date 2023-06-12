@@ -1,0 +1,336 @@
+/****************** START OF FONT DEFINITONS ***************************************/
+/**
+ * 84.5% for !IE, keywords for IE
+ * Percents could work for IE, but for backCompat purposes, we are using keywords.
+ * x-small is for IE < 6 and IE6 quirks mode.
+ */
+body {-webkit-text-size-adjust: 125%}
+table {font-size:inherit;font:100%;}
+
+/**
+ * 99% for safari; 100% is too large
+ */
+select, input, textarea {font-size:1em;}
+
+/**
+ * Bump up !IE to get to 13px equivalent
+ */
+pre, code {font:1.1em monospace;*font-size:100%;}
+
+/**
+ * Default line-height based on font-size rather than "computed-value"
+ * see: http://www.w3.org/TR/CSS21/visudet.html#line-height
+ */
+body * {}
+
+/* Font sizes (px vs. percentage)
+	11 	85
+	12 	92
+	13 	100
+	14 	107
+	15 	114
+	16 	122
+	17 	129
+	18 	136
+	19 	144
+	20 	152
+	21 	159
+	22 	167
+	23 	174
+	24 	182
+	25 	189
+	26 	197
+*/
+/****************** END OF FONT DEFINITONS ***************************************/
+
+/* Common ClearView CSS shared by all pages.  Include header, content and footer. */
+body {
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+	min-width: 750px;
+}
+
+div,table,tr,td {
+	margin: 0;
+	padding: 0;
+}
+
+/* Clearfix */
+.clearfix:after {
+    content: "."; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+}
+
+.clearfix {display: inline-block;}
+
+/* Hides from IE-mac \*/
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}
+/* End hide from IE-mac */
+
+
+/* Text headers and label styles */
+a, a:link {
+ 	color:#e17b03;
+}
+
+a img {
+	border: 0px;
+}
+
+A.appCmdLink {
+	color: #e17b03;
+}
+
+A.appCmdLink:hover {
+	color: #e17b03;
+}
+
+
+h1,h2,h3,h4,p {
+	margin: 0;
+}
+
+/* Header */
+
+.header {
+	width: 100%;
+	height: 50px;
+	background: url(../images/banner_bg.gif) top left repeat-y;
+	background-color: #656565;
+	vertical-align: bottom;
+}
+
+.header IMG {
+	float: left;
+	border-right: none;
+}
+
+/* Top level navigation bar */
+#navBar {
+	margin: 15px 0 0 17px;
+	list-style: none;
+	float: left;
+	padding: 0;
+}
+
+#navBar LI {
+	display: block;
+	float: left;
+	line-height: 2em;
+	font-size: 122%;
+}
+
+#navBar A {
+	vertical-align: bottom;
+	display: block;
+	color: rgb(213,213,213);
+	padding: 10px 15px 0px 7px;
+	text-decoration: none;
+	font-family: arial, helvetica, clean, sans-serif;
+	font-weight: bold;
+	font-size: 107%;
+}
+
+#navBar A:hover {
+	color: rgb(236,236,236);
+}
+
+#navBar A.current {
+	padding-top: 4px;
+	color: rgb(255,238,171);
+	font-size: 144%;
+}
+
+#navBar A.current:hover {
+	color: rgb(255,238,171);
+	cursor: default;
+}
+
+#personalizationContainer {
+	float: right;
+	margin: 29px 20px 0 0;
+	color: rgb(208,208,208);
+	font-size: 85%;
+}
+
+#personalizationContainer a, #personalizationContainer a:visited {
+	text-decoration: none;
+	color: rgb(224,224,224);
+}
+
+#personalizationContainer a:hover {
+	text-decoration: underline;
+}
+
+#impersonationMessage {
+	background-color: #FFCC00; 
+	color: #000; 
+	font-size: 85%;
+	text-align: center; 
+	position: absolute; 
+	left: 0px;
+	overflow-x: hidden;
+	width: 160px; 
+	margin-bottom: 2px;
+	padding: 3px;
+}
+
+/* Footer */
+#footer {
+	padding: 5px;
+}
+
+#footer a {
+	color: #fff;
+}
+
+/* Welcome Box */
+
+div#loginTable {
+	background: #EEEEEE;
+	border: 1px solid #C0C0C0;
+	color: inherit;
+	margin: 10px 0px;
+	padding: 5px;
+	width: 400px;
+}
+
+div#loginTable th {
+	text-align: right;
+}
+
+/* Form control styles */
+input.button {
+	color: #000;
+	padding-left: 4px;
+	padding-right: 4px;
+	padding-bottom: 2px;
+	margin-left: 6px;
+}
+
+input.button { /* fix button size in IE */
+	line-height: 17px;
+}
+
+
+form input.focus,form textarea.focus {
+	border-color: #7395c1;
+	color: #000;
+}
+
+form select {
+	padding-left: 0px;
+}
+
+/* Labels for validation and label tag */
+label {
+	font-weight: normal;
+	cursor: pointer;
+}
+
+label.required {
+	font-weight: bold;
+}
+
+input.checkbox {
+	margin-left:0px;
+}
+
+label.error {
+	font-weight: bold;
+	background: transparent;
+	color: red;
+}
+
+/* Misc */
+.hidden {
+	display: none !important;
+}
+
+h1#clearView {
+	padding-top: 16px;
+	color: #7395C1;
+}
+
+/* for Collapsible folder */
+.folderClose {
+    background: url(../images/folder_closed.gif) white center left no-repeat;
+}
+
+.folderOpen {
+    background: url(../images/folder_opened.gif) white center left no-repeat;
+}
+
+/* Styles used by JSF messages */
+#successMessages, #errorMessages {
+	border:1px #c8c7c7 solid;
+	background-color: rgb(255,249,221);
+	padding: 10px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+.fieldError {
+	margin-left:5px;
+	padding: 5px 10px;
+	color: #ff3333;
+	font-weight:normal;
+}
+
+.profileFieldError {
+    padding: 5px 10px 5px 0px;
+    color: #ff3333;
+    font-weight:normal;
+}
+
+.errorBox {
+    background: #ffffdd;
+    border: 1px solid #999999;
+    color: #000000;
+    padding: 2px 5px;
+    font-size: 107%;
+}
+
+#exception {
+	width:600px;
+	margin-right:auto;
+	margin-left:auto;
+	background-color:#ddd;
+	border:5px solid #999;
+	padding:20px;
+}
+
+#exception IMG.exceptionMsgIcon {
+	vertical-align: top;
+	float: left;
+	padding-right: 10px;
+}
+
+#exception .exceptionMsgText {
+	margin-left: 60px;
+	font-size: 122%;
+}
+
+.helpIcon {
+	width: 16px;
+	height: 16px;
+	cursor: pointer;
+}
+
+/* Terms and Conditions */
+
+.legal {
+	width: 100%;
+}
+
+.legal tr {
+	text-align: center;
+}
+
+.legal .legalButtons {
+	padding-top:15px;
+}

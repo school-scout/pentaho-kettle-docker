@@ -1,0 +1,48 @@
+<div id="standardDialog" style="width:550px;">
+	<div id="standardDialogHeader" class="Caption">
+		<div id="dialogTitleBar">
+		<table width=100%>
+		<tr>
+			<td width="*">@{dlgSummaryNewTitle}</td>
+			<td width="19"><img id="dlgHelp" src="images/help_link.png" class="titleBarButton"></td>
+			
+		</tr>
+		</table>
+		</div>
+	</div>
+
+	<div id="dialogMessageBar" class="hidden"></div>				
+
+	<div class="dialog-content">
+	    <div style="margin: 7px 0px;">@{dlgSummaryNewChooseType}:</div>
+	    <table><tbody>
+            <tr><td>
+        		<input type="radio" name="SM_Group" id="SM_PCTOF" value="PCTOF" class="inputChk">&nbsp;&nbsp;@{dlgSummaryEditPctOf} %{0}</input>
+        	</td></tr>
+            <tr><td>
+		        <input type="radio" name="SM_Group" id="SM_RANK" value="RANK" class="inputChk">&nbsp;&nbsp;@{dlgSummaryEditRank} %{0}</input>
+            </td></tr>
+            <tr><td>
+        		<input type="radio" name="SM_Group" id="SM_RSUM" value="RSUM" class="inputChk">&nbsp;&nbsp;@{dlgSummaryEditRSUM} %{0}</input>
+            </td></tr>
+            <tr><td>
+        		<input type="radio" name="SM_Group" id="SM_PCTRSUM" value="PCTRSUM" class="inputChk">&nbsp;&nbsp;@{dlgSummaryEditPctRSUM} %{0}</input>
+            </td></tr>
+        </tbody></table>
+	</div>		
+
+	<div>
+	<table width=100% class="button-panel">
+	<tr>
+		<td width="100%" class="standardDialogFooter">&nbsp;</td>
+		<td>
+      <button class="pentaho-button" id="dlgBtnNext">@{btnLabelNext}</button>
+		</td>
+		<td>
+      <button class="pentaho-button" id="dlgBtnCancel">@{btnLabelCancel}</button>
+		</td>
+	</tr>
+	</table>
+	</div>
+	
+</div>

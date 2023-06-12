@@ -1,0 +1,103 @@
+<html>
+<title>Schedule Report</title>
+<head>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+	<script language="javascript" type="text/javascript" src="webcontext.js"></script>
+    <script type="text/javascript">
+        //<![CDATA[
+        //override theme
+        var phoConfig = {
+          theme_resources : { core: ["mainStyles.css", "jquery.jscrollpane.js","jquery.mousewheel.js", "mwheelIntent.js"]}
+        };
+        //]]>
+	</script>
+    <script language="javascript" src="/pentaho-style/style/ThemeResources.js"></script>
+</head>
+  
+<body>
+	<script type="text/javascript">      
+      // Check to see if we're running in PUC, if not add the standard background.
+      if(!window.parent || !window.parent.mantle_initialized){
+        document.getElementsByTagName("body")[0].className += " pentaho-page-background";
+      }
+    </script>
+    
+<script type="text/javascript" src="scripts/dojo/dojo.js"></script>
+<script type="text/javascript" src="scripts/cv/common.js"></script>
+<script type="text/javascript">
+    <!--
+    if (typeof cv != "undefined") {
+        dojo.hostenv.setModulePrefix('clearview.widget','../widget');
+        cv.contextPath = "";
+    }
+    -->
+</script>
+<link rel="stylesheet" type="text/css" media="all"   href="styles/common.css" /> 
+<link rel="stylesheet" type="text/css" media="all"   href="styles/content.css" /> 
+<link rel="stylesheet" type="text/css" media="all" href="styles/report/selectArea.css" />   
+
+<form id="schedule-form">
+
+    <input name="subscription-id" type="hidden" value=""/>
+    <input name="solution" type="hidden" value="${solution}"/>
+    <input name="path" type="hidden" value="${path}"/>
+    <input name="action" type="hidden" value="${action}"/>
+    <input name="command" type="hidden" value="save"/>
+    
+    <div style="height:65px; clear:both"></div>
+    
+	<div class="selectAreaWizard pentaho-dialog" style="position: relative;">
+
+		<div style="cursor:default;" class="Caption">@{scheduleTitle}</div>
+		<div class="dialog-content" style="padding-bottom: 8px">
+			<div class="analysisArea clearfix">
+				@{scheduleDesc}  	
+			</div>
+			
+			<div id="description" class="analysisAreaDescription clearfix">
+	            <table cellspacing="10">
+	                <tr><td><strong>@{scheduleSubscription}:</strong></td></tr>
+	                <tr><td><input type="text" size="70" name="subscription-name"></input></td></tr>
+	                <tr><td><strong>@{scheduleEmailTo}:</strong></td></tr>
+	                <tr><td><input ${emailDisabled} type="text" size="70" name="destination"></input></td></tr>
+	                <tr><td><strong>@{scheduleReportType}:</strong></td></tr>
+	                <tr><td><select name="report-format-type"><option value="PDF">PDF</option><option value="EXCEL">Excel</option><option value="CSV">CSV</option></select></td></tr>
+	                <tr><td><strong>@{schedulePublicSchedule}</strong></td></tr>
+	                <tr><td><select name="schedule-id">${schedules}</select></td></tr>
+	            </table>
+			</div>
+		</div>			
+        <div class="controls clearfix">
+            <div class="buttons">
+            	<button id="btnNext" class="pentaho-button">@{scheduleBtnSchedule}</button>
+            </div>
+        </div>
+    </div>
+
+</form>
+	
+<script type="text/javascript">
+    
+    dojo.event.connect(dojo.byId("btnNext"), "onclick", function() {
+    	document.getElementById("schedule-form").submit();
+    });
+
+    dojo.addOnLoad(function() { 
+        // ${editSubscription}
+    });
+
+    function editSubscription(subId, subName, destination, typeIndex, scheduleIndex)
+    {
+        document.getElementsByName("subscription-id")[0].value = subId;
+        document.getElementsByName("subscription-name")[0].value = subName;
+        document.getElementsByName("destination")[0].value = destination;
+        document.getElementsByName("report-format-type")[0].selectedIndex = typeIndex;
+        document.getElementsByName("schedule-id")[0].selectedIndex = scheduleIndex;
+        document.getElementById("dialogTitle").innerHTML = '@{scheduleEditTitle}';
+        document.getElementById("btnNext").innerHTML = '@{scheduleBtnUpdate}';
+    }
+    
+</script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<div id="standardDialog" style="width:450px;">
+	<div id="standardDialogHeader" class="Caption">
+		<div id="dialogTitleBar">
+		<table width=100%>
+		<tr>
+			<td width="*">@{dlgAlertTitle}</td>
+			<td width="19"><img id="dlgHelp" class="hidden" src="images/help_link.png"></td>
+			
+		</tr>
+		</table>
+		</div>
+	</div>
+
+	<div class="dialog-content">
+		<div style="width:100%;clear:left;float:left">%{0}</div>
+		<div class="hidden" style="with:100%;clear:left;float:left;white-space:nowrap;padding-left:50px;padding-bottom:8px;">
+	        <input type="checkbox" id="alertDlgOptionMsg" style="vertical-align: middle;"> <span id="alertDlgOptionText"></span>
+	    </div>
+	    <div class="hidden" style="with:100%;clear:left;float:left;white-space:nowrap;padding-left:50px;padding-bottom:8px;">
+	        <input type="checkbox" id="alertDlgSuppressMsg" style="vertical-align: middle;"> @{dlgAlertWarning}
+	    </div>
+	</div>
+
+	<div>
+	<table width=100% class="button-panel">
+	<tr>
+		<td width="100%" class="standardDialogFooter">&nbsp;</td>
+		<td class="buttonOK">
+		    <button class="pentaho-button hidden" id="dlgBtnNext">@{btnLabelContinue}</button>
+		</td>
+		<td class="buttonOK">
+      <button class="pentaho-button hidden" id="dlgBtnSave">@{btnLabelOK}</button>
+		</td>
+		<td class="buttonCancel">
+      <button class="pentaho-button" id="dlgBtnCancel">@{btnLabelOK}</button>
+    </td>
+	</tr>
+	</table>
+	</div>
+</div>

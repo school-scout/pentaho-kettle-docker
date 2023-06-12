@@ -1,0 +1,679 @@
+/******** NEW SKIN STYLES *************/
+
+/* Hide browser scroll bar */
+body {
+	background-color: transparent;
+}
+
+
+.disabled {
+	color: #999999 !important;
+}
+
+div.active {
+	background-color: #ffdc8a;
+}
+
+
+#fieldList #fieldListTop {
+	background-color: black;
+}
+
+.pentaho-titled-toolbar {
+ color: #FFF;
+}
+
+#fieldList #fieldListHeading #availableFields{
+ 	color: white;
+}
+
+#fieldList #fieldListHeading #analysisArea {
+	font-size: 107%;
+	font-weight: bold;
+ 	color: white;
+}
+
+
+#fieldList #fieldListTop .fieldListOptions {
+	background-color: #D3D3D3;
+	border-bottom: 1px solid #848484;
+}
+
+#fieldList #fieldListTop #searchField {
+	background: white;
+	border: 1px solid #848484;
+}
+
+#fieldList #fieldListTop #editDatasource {
+	background-color: white;
+	border:1px #848484 solid;
+}
+
+#fieldList #fieldListTop .fieldListStatus {
+	background-color: white;
+	border-bottom: 1px solid #d7d7d7;
+}
+
+#fieldList #fieldListTop #viewFieldOptions {
+	border-top: 1px solid white;
+	border-left: 1px solid white;
+	border-bottom: 1px solid gray;
+	border-right: 1px solid gray;
+}
+
+#fieldList #fieldListTop #fieldListCount {
+	font-style: italic;
+}
+
+#fieldList #fieldListTree {
+	background-color: white;
+}
+
+#fieldList .commonView .uncommon {
+	display: none;
+}
+
+#fieldListTree .folder {
+	font-weight: bold;
+}
+
+#fieldListTree .field {
+	background-color: white;
+}
+
+#fieldListTree .attribute {
+	background-image: url(../../../images/report/dims_and_measures_icon_attr.png);
+}
+
+#fieldListTree .measure {
+	background-image: url(../../../images/report/dims_and_measures_icon_metric.png);
+}
+
+#fieldListTree .sourceSalesForce {
+	background-image: url(../../../images/report/source_SF.gif);
+}
+
+#fieldListTree .sourceExcel {
+	background-image: url(../../../images/report/source_EX.gif);
+}
+
+#fieldListTree .sourceNetSuite {
+	background-image: url(../../../images/report/source_NS.gif);
+}
+
+#fieldListTree .sourceMultiple {
+	background-image: url(../../../images/report/source_MS.gif);
+}
+
+#fieldListTree .sourceNone {
+	background-image: url(../../../images/report/dims_and_measures_icon_attr.png);
+}
+
+.cvTooltip {
+	border: solid #999999 1px;
+	background: white;
+	color: black;
+}
+
+.fieldTooltipTitle {
+	background-color: #b3c4ff;
+	font-weight: bold;
+	color: white;
+}
+
+.btnPressed {
+ border: 1px solid #888;
+ background: #898989;
+ height: 16px;
+ padding: 1px !important;
+}
+
+.btnActive {
+	 border: 1px solid #00FF00;
+ 	background: #a6a6a6;
+	padding: 1px !important;
+	height: 16px;
+}
+
+#main_toolbar .reportBtn, .additional  .reportBtn{
+	color: white;
+}
+
+#reportBtns A {
+	color: black;
+}
+
+#reportBtns A:visited {
+	color: black;
+}
+
+#reportBtns A:hover {
+	text-decoration: underline;
+}
+
+#reportBtns{
+  height: 22px;
+}
+
+/* End Report Buttons Bar */
+
+.pressed {
+	background-color: #D3D3D3;
+	border-top: 1px solid #a1b0e5;
+	border-left: 1px solid #a1b0e5;
+	border-right: none;
+	border-bottom: none;
+}
+
+/* Report summary bar */
+.reportSummary {
+	background-color: black;
+	border-top: 1px solid #666;
+	font-size: .86em;
+  color:white;
+}
+
+.filterPaneToggle {
+	background-image: url(../../../images/report/icon_filters_fold.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.filterSummary .hide {
+	background-image: url(../../../images/report/icon_filters_unfold.png);
+}
+
+.filterSummary .hide:hover {
+	/*background-position: 0 -60px;*/
+	/*background-image: url(../../../images/report/icon_filters_unfoldH.png);*/
+}
+
+
+/* End report summary bar */
+
+/* Field zones */
+.commonDragObject {
+	border: 1px solid gray;
+	font-size: 77%;
+}
+
+.filterDragObject {
+	background-color: #fff4ca;
+}
+
+.metricDragObject {
+	background-color: #d1dcff;
+}
+
+.attributeDragObject {
+	background-color: #ffeeab;
+}
+
+.dropZoneAttributes {
+	border: 1px solid silver;
+	background: url(../../../images/report/attribute_metric_outline.png) white no-repeat 4px 2px;
+	background-color: #fff7d6;
+}
+
+.dropZoneMeasures {
+	border: 1px solid silver;
+	background: url(../../../images/report/attribute_metric_outline.png) white no-repeat 4px 2px;
+	background-color: #e9efff;
+}
+
+.reportLayout {
+	border: 1px solid #B3B3B3;
+	border-left: 0px;
+	border-right: 0px;
+  	background-color:#CCC;
+}
+
+.reportLayout .attributeItem {
+	background: url(../../../images/report/gem_attribute.png) no-repeat;
+	margin: 2px 0 2px 2px;
+}
+
+.reportLayout .attributeItemHover {
+	background: url(../../../images/report/gem_attribute_hover.png) no-repeat;
+}
+
+.reportLayout .attributeMultiChartItem {
+	background: url(../../../images/report/gem_attribute_grid.png) no-repeat;
+	margin: 2px 0 2px 2px;
+}
+
+.reportLayout .attributeMultiChartItemHover {
+	background: url(../../../images/report/gem_attribute_grid_hover.png) no-repeat;
+}
+
+.reportLayout .metricItem {
+	background: url(../../../images/report/gem_metric.png) no-repeat;
+}
+
+.reportLayout .metricItemHover {
+	background: url(../../../images/report/gem_metric_hover.png) no-repeat;
+}
+
+.reportLayout .metricDisabled {
+	background: url(../../../images/report/gem_metric_disabled.gif) no-repeat !important;
+}
+
+.dropZoneItem {
+	font-size: 77%;
+}
+
+/* End fields stuff */
+
+/* Filter related styles */
+
+.reportFilter {
+	background-color: #CCC;
+	border: 1px solid #B3B3B3;
+}
+
+.filterPaneHint {
+	font-size: 122%;
+	color: #666666;
+}
+
+.filterGroup {
+	font-size: 86%;
+	border-bottom: 1px solid #AAA;
+}
+
+.filters .filterItemMouseOver {
+	background-color: #fff4ca;
+}
+
+/******** END NEW SKIN STYLES *************/
+/******** TEMP STYLES *************/
+.timePresets {display:none;}
+
+/******** END TEMP STYLES *************/
+
+
+/* Main Report Content */
+.reportRefresh {
+	background-color: rgb(239, 202, 202); 
+	border-bottom: 1px solid rgb(132, 132, 132); 
+}
+
+.reportArea {
+	background-color: #fff;
+}
+
+.reportArea .reportEmpty, .reportArea .noData {
+	color: #666666;
+}
+
+
+/* Pivot Table Styles */
+.pivotTable {
+	font-size: .86em;
+}
+
+.pivotTable .pivotTableRowLabelHeaderContainer {
+	border-right: 2px solid rgb(153,153,153);
+}
+
+.pivotTable .pivotTableRowLabelHeaderContainer TABLE {
+	border-bottom: 2px solid rgb(153,153,153);
+}
+
+
+
+.pivotTable .pivotTableColumnHeaderContainer {
+	border-right: 1px solid #999;
+}
+
+.pivotTable .pivotTableColumnHeaderContainer TABLE {
+	border-bottom: 2px solid rgb(153,153,153);
+}
+
+.pivotTable .pivotTableDataContainer {
+	border-right: 1px solid #999;
+}
+
+.pivotTable .pivotTableRowLabelContainer {
+	border-right: 2px solid rgb(153,153,153);
+}
+
+.pivotTable .pivotTableContent A {
+	color: #003D89;
+}
+
+.pivotTable .slicer {
+	background-color: white;
+}
+
+.pivotTable .columnHeaders TD {
+	color: #000000;
+	border: 1px solid #999;
+	border-left: none;
+	border-bottom: none;
+}
+
+.pivotTable .columnHeaders .columnheading {
+	background-color: #fce52d;
+}
+
+.pivotTable .columnHeaders .columnheading:hover {
+	background-color: #fbbb12;
+}
+
+.pivotTable .columnHeaders .columnPropHeading {
+    background-color: #fff7d6;
+}
+
+.pivotTable .columnHeaders .columnPropHeading:hover {
+    background-color: #ece5c6;
+}
+
+.pivotTable .columnHeaders .member {
+	background-color: #f5f5f5;
+}
+
+.pivotTable .columnHeaders .member:hover {
+	background-color: #d1d1d1;
+}
+
+.pivotTable .columnHeaders .memberSubTotal {
+	background-color: #f5f5f5;
+	font-weight: bold;
+}
+
+.pivotTable .columnHeaders .memberSubTotal:hover {
+	background-color: #d1d1d1;
+}
+
+.pivotTable .columnHeaders .metricNoData {
+	background-color: #d1dcff;
+}
+
+.pivotTable .columnHeaders .metric {
+	background-color: #BCE9F9;
+}
+
+.pivotTable .columnHeaders .metric:hover {
+	background-color: #4AC3F0;
+}
+
+.pivotTable .columnHeaders .metricHover {
+	background-color: #85a1ff !important;
+}
+
+.pivotTable .columnHeaders .grandTotal:hover {
+	background-color: #d1dcff;
+}
+
+.pivotTable .rowLabelHeaders TD {
+	color: #000000;
+	background-color: #FCE52D;
+	border: 1px solid #999;
+	border-right: none;
+	_border-bottom: none;  /* show to IE only */
+}
+
+.pivotTable .rowLabelHeaders TD:hover {
+	background-color: #FBBB12;
+}
+
+
+.pivotTable .rowLabelHeaders .rowPropHeader {
+    background-color: #fff7d6;
+}
+
+.pivotTable .rowLabelHeaders .rowPropHeader:hover {
+    background-color: #ece5c6;
+}
+
+.pivotTable .rowHeaders TD {
+	border: 1px solid #999;
+	border-top: none;
+	border-right: none;
+}
+
+
+.pivotTable .rowHeaders .subTotal {
+	background-color: #e5e5e5;
+	font-weight: bold;
+}
+
+.pivotTable .rowHeaders .subTotal:hover {
+	background-color: #c2c2c2;
+}
+
+.pivotTable .rowHeaders .inner {
+	background-color: #f5f5f5;
+}
+
+.pivotTable .rowHeaders .inner:hover {
+	background-color: #d1d1d1;
+}
+
+.pivotTable .rowHeaders .outer {
+	background-color: #f5f5f5;
+}
+
+.pivotTable .rowHeaders .outer:hover {
+	background-color: #d1d1d1;
+}
+
+.pivotTable .cells TD {
+	border-bottom: 1px solid #999;
+}
+
+.pivotTable .cells .rowSubTotal {
+	background-color: #e5e5e5;
+	font-weight: bold;
+}
+
+.pivotTable .cells .colSubTotal {
+	background-color: #e5e5e5;
+}
+
+.pivotTable .cells .colGrandTotal {
+	font-weight: bold;
+	background-color:#d3d3d3;
+}
+
+.pivotTable .highlightedCell {
+	background-color: #CCCCCC !important;
+}
+
+.pivotTable .highlightedRow {
+	background-color: #999999 !important;
+}
+
+.pivotTable .highlightedColumn {
+	background-color: #999999 !important;
+}
+
+.pivotTable .highlighted {
+	background-color: #AAAAAA !important;
+}
+
+.pivotTable .rowHeaders .highlighted {
+	color: #FFFFFF !important;
+}
+
+.pivotTable .columnHeaders .highlighted {
+	color: #FFFFFF !important;
+}
+
+.pivotTable .cell-style-green {
+    background-color: #66FF66;
+}
+
+.pivotTable .cell-style-yellow {
+    background-color: yellow;
+}
+
+.pivotTable .cell-style-red {
+    background-color: #FF6666;
+}
+
+.pivotTable .cells  .databar-red
+{
+    background-color: #FF7D7D;
+}
+
+.pivotTable .cells  .databar-green
+{
+    background-color: #7DFF7D;
+}
+
+.pivotTable .cells  .databar-blue
+{
+    background-color: #AAAAFF;
+}
+
+.rowTruncate {
+	background-color: #999999;
+	color: white;
+}
+
+.colTruncate {
+	background-color: #999999;
+	color: white;
+}
+
+.reportMain .trashcan {
+	background: url(../../../images/report/trashcan.png) no-repeat 4px 2px;
+}
+
+.reportMain .trashActive {
+	background: url(../../../images/report/trashcan_full.png) no-repeat 4px 2px;
+}
+
+/* Dojo widget styles */
+
+/* Dojo popup menus */
+body .dojoPopupMenu2 {
+	border: 1px solid #ccc;
+	background:white !important;
+}
+
+body .dojoMenuItem2Disabled .dojoMenuItem2Label,
+body .dojoMenuItem2Disabled .dojoMenuItem2Accel {
+	color: #ddd;
+	font-size: 11px;
+}
+
+body .dojoMenuItem2 .dojoMenuItem2Label,
+body .dojoMenuItem2 .dojoMenuItem2Accel {
+    font-size: 11px;
+}
+
+body .dojoMenuSeparator2Top {
+	border-bottom: 1px solid #ccc;
+}
+
+body .dojoMenuSeparator2Bottom {
+	border: none;
+}
+
+#progressPane .dojoFloatingPaneClient {
+	background-color: white;
+	overflow: hidden;
+}
+
+#progressPane .dojoFloatingPaneTitleBar {
+	cursor: move;
+	background-color: #9dace0;
+}
+
+
+.pivotTable .rowLabelHeaders .resizeHandle{
+    border: transparent  solid 2px;
+}
+
+
+.pivotTable .columnHeaders .resizeHandle{
+    border: transparent solid 2px;
+}
+
+.pivotTable .resizeIndicator{
+    border: 2px gray solid;
+}
+
+.rptInfoTitle {
+	color:#9dace0;
+}
+.rptInfo {
+	border: 2px solid #848484;
+	background-color: #ffffff;
+}
+.rptInfoContent {
+	background-color: #FFFFFF;
+	font-family: verdana, geneva, arial, helvetica, sans-serif;
+}
+
+.cvRptInfoTooltipHeader {
+	background-color: #DFDFDF;
+	font-family: verdana, geneva, arial, helvetica, sans-serif;
+	font-size:100%;
+	background-image: url('../../../images/report/about.png');
+	background-repeat: no-repeat;
+	background-position: 2px 6px;
+}
+
+.cvRptInfoTooltipTitle {
+	font-size:100%;
+	font-family: verdana, geneva, arial, helvetica, sans-serif;
+}
+
+.cvRptInfoTooltipBody_2 {
+	font-size:100%;
+}
+
+.cvRptInfoTooltipFooter {
+	font-size:100%;
+}
+.refreshPaneComplete {
+	background-image:url(../../../images/report/icon_refreshing_done.png);
+	background-repeat:no-repeat;
+	background-position:0%;
+}
+.progressPaneUp {
+    background-image:url(../../../images/report/refreshingHeader.gif);
+    background-repeat:no-repeat;
+}
+
+.progressPaneContent {
+    font-size:85%;
+    font-family: verdana, geneva, arial, helvetica, sans-serif;
+    background-image:url(../../../images/report/refreshingMiddle.gif);
+    background-repeat:repeat-y;
+}
+
+.progressPaneDown {
+    background-image:url(../../../images/report/refreshingFooter.gif);
+}
+
+#refreshDates{
+	border-top: 1px solid #ced3e5;
+}
+
+.cmdActionsBtn{
+	border: 1px solid #848484;
+	background: url(../../../images/report/9x9_arrow_down.png) 57px center no-repeat;
+	background-color:#E6E6E6;
+	color:black;
+}
+
+.autoRefreshDirtyPane{
+	background-color: rgb(0, 0, 0); 
+	filter: Alpha(Opacity=20);
+	opacity: 0.2; 
+}
+
+.titleLink{
+  color:white !important;
+}
+.fieldListItem{
+	background-color: white;
+}
+.fieldListItem-selected{
+	background-color: #CBEFA3 !important;
+}

@@ -1,0 +1,506 @@
+/* CSS for ClearView Dialog */
+
+#standardDialog {
+}
+
+#standardDialog TABLE {
+	cell-padding: 0;
+	cell-spacing: 0;
+}
+
+#standardDialog #standardDialogHeader #dialogTitleBar {
+	cursor: move;
+}
+
+#standardDialog #dialogMessageBar {
+	background-color: #fffdd5;
+	border: 1px solid #dcb114;
+	padding: 0 5px;
+	height: 30px;
+	overflow: auto;
+	font-size: 85%;
+}
+
+#standardDialog #dialogMessageBar .dlgError {
+	background: url("../images/dialog/invalid.png") left center no-repeat;
+	float: left;
+	padding-left: 20px;
+	padding-top: 2px;
+	height: 28px;
+}
+
+#standardDialog #dialogMessageBar .dlgInfo {
+	background: url("../images/dialog/icon_info.gif") top left no-repeat;
+	color: blue;
+	float: left;
+	padding-left: 20px;
+	padding-top: 2px;
+}
+
+#standardDialog #dialogMessageBar .dlgWarn {
+	background: url("../images/dialog/icon_warn.gif") top left no-repeat;
+	color: blue;
+	float: left;
+	padding-left: 20px;
+	padding-top: 2px;
+}
+
+#standardDialog .linebreak {
+	width: 100%;
+	clear: both;
+}
+
+#standardDialog #standardDialogHeader #dialogTitleBar h2 {
+}
+
+#standardDialog .titleBarButton {
+	margin: 1px 0px 0px 2px;
+	cursor: pointer;
+}
+
+#standardDialog .dialogBlock {
+	padding: 8px 10px 0px 10px;
+  border-bottom: 1px solid #848484;
+	overflow: auto;
+	font-size:85%;
+	height: 100%;
+}
+
+#standardDialog .dialogLabel {
+	width:115px;
+	display:block;
+	float:left;
+	text-align:right;
+	padding-right:5px;
+	margin-top:3px;
+}
+
+#standardDialog .standardDialogFooter {
+	padding-top: 1px;
+	height: 21px;
+	margin-right: 2px;
+	font-size:85%;
+}
+
+#standardDialog TABLE.topAlign TD {
+	vertical-align: top;
+}
+
+#standardDialog TD.disabled {
+	color: #dddddd;
+	cursor: default;
+}
+	
+#standardDialog .buttonOK {
+	margin-right: 0px;
+	align: right;
+}
+
+#standardDialog .buttonCancel {
+	margin-right:0px;
+}
+
+#standardDialog a {
+	text-decoration: none;
+}
+
+#standardDialog a.underline {
+	text-decoration: underline !important;
+}
+
+#standardDialog .miniButton {
+    padding: 0;
+}
+
+#standardDialog IMG.alertMsgIcon {
+	vertical-align: top;
+	float: left;
+	padding-right: 10px;
+}
+
+#standardDialog .alertMsgText {
+	width: 370px;
+	overflow: auto;
+	float: left;
+	padding: 10px 0 25px 0;
+}
+
+#standardDialog #alertMsgHelp {
+	vertical-align: top;
+	cursor: pointer;
+}
+
+#standardDialog input.text, #standardDialog select, #standardDialog textarea {
+	border: 1px solid #999999;
+	padding: 2px 0px;
+}
+
+#standardDialog input.inputChk {
+	font-size:85%;	
+	padding: 2px 3px;
+	vertical-align: middle;
+}
+
+#standardDialog input.invalid {
+	background-color: #FF8080;
+}
+#standardDialog .invalid {
+	background-color: #FF8080;
+}
+#standardDialog .inputNum {
+	text-align: right;
+}
+
+#standardDialog .fieldLabel {
+	font-weight: bold;
+	text-align: right;
+	padding-right: 5px;
+}
+
+#standardDialog .label {
+	font-weight: bold;
+	padding-left: 8px;
+}
+
+#standardDialog .labelTitle {
+	font-weight: bold;
+	padding-left: 8px;
+	padding-bottom: 5px;
+}
+
+#standardDialog .tabbedLabel {
+	padding-left: 20px;
+}
+
+#standardDialog .tabbedGroup {
+	padding-left: 45px;
+	line-height: 140%;
+}
+	
+#standardDialog .folderContent {
+	background-color: white;
+	overflow: auto;
+	margin-top: .3em;
+	width: 100%;
+}
+
+#standardDialog .sectionBar {
+ 	background-color: #e4e4e4;
+	color: #000000;
+	font-weight: bold;
+	margin-top: 8px;
+	padding-top: 1px;
+}
+
+#standardDialog .sectionCheckbox {
+	margin-left: 1px 5px 0 3px;
+}
+
+#standardDialog .sectionTitle {
+	font-weight: bold;
+}
+
+/* Filter dialogs related styles */
+
+#standardDialog .filterSubtitle {
+	float:left; 
+	clear:left;
+	padding-top: 3px;
+	margin: 3px 0px 4px 0px;
+}
+
+#standardDialog .filterRank {
+	width: 520px;
+	height: 24px;
+	overflow:auto;
+	padding: 0;
+	margin: 5px 0 0 6px;
+	table-layout: fixed;
+}
+
+#standardDialog .filterConditions {
+	width: 520px;
+	height: 103px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	border: 1px solid #c8c8c8;
+	background-color: #ffffff;
+	margin-top: 9px;
+	margin-left: 6px;
+}
+
+#standardDialog .filterCondition TABLE {
+	overflow: auto;
+	height: 24px;
+	table-layout: fixed;
+	background-color: #ffffff;
+	border-bottom: 1px solid #e5e5e5;
+	border-collapse: collapse;
+}
+
+#standardDialog .filterConditionSelected TABLE {
+	overflow:auto;
+	background: url(../images/dialog/icon_selected.gif) no-repeat center left;
+	background-color: #cbefa3;
+}
+
+#standardDialog .filterCondition TD {
+	vertical-align: top;
+	text-align: left;
+	padding: 3px 0 1px 0;
+}
+
+#standardDialog .filterConditionDelete {
+	text-align: right;
+	cursor: pointer;
+	background: url("../images/report/Remove.png") no-repeat center right;
+}
+
+#standardDialog .filterConditionAdd {
+	margin: 6px 0px 14px 6px;
+}
+
+#standardDialog .filterOpLink {
+	font-size: 85%;
+}
+
+#standardDialog .filterDetails {
+	width: 100%;
+	height: 285px;
+	margin: 5px 0px 0px 0px;
+	overflow: hidden;
+}
+
+#standardDialog .filterDetails TABLE {
+	margin: 5px;
+}
+
+#standardDialog .filterDetails TD {
+}
+
+#standardDialog .FT_picklistCmd {
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+#standardDialog .selectableList {
+	width: 215px;
+	height: 200px;
+	border: 1px solid #333333;
+	background-color: white;
+	margin-top: 2px;
+	overflow: auto;
+	cursor: pointer;
+}
+
+#standardDialog .selectableList DIV {
+	clear: left;
+	padding-left: 3px;
+	white-space: nowrap;
+}
+
+#standardDialog .selectableList .selected {
+	background-color: #cbefa3;
+}
+
+#standardDialog .included DIV {
+	background: url(../images/dialog/included.gif) no-repeat left center;
+	padding-left: 12px;
+}
+
+#standardDialog .excluded DIV {
+	background: url(../images/dialog/excluded.gif) no-repeat left center;
+	padding-left: 12px;
+}
+
+#standardDialog #FT_searchBy {
+	margin-top: 2px;
+	height: 26px;
+	font-size: 0.9em;
+	padding: 3px 14px;
+}
+
+#standardDialog .FT_expressionOR {
+	text-align: right;
+}
+
+#standardDialog .FT_expression INPUT {
+	margin: 0;
+	font-size:100%;	
+	border: 1px solid #999999;
+}
+
+#standardDialog .FT_multiExp .FT_removeExp {
+	background: url(../images/cross.png) no-repeat left center;
+	cursor: pointer;
+}
+
+#standardDialog #FT_predicateList {
+	width: 494px;
+	height: 100px;
+	margin-top: 5px;
+	padding: 2px;
+	border: 1px solid #c8c8c8;
+	float: left;
+	clear: left;
+	background-color: white;
+	font-size: 100%;
+	overflow: auto;
+}
+
+#standardDialog .reportDefition {
+	font-family: monospace;
+	width: 494px;
+	height: 200px;
+	margin-top: 5px;
+	padding: 2px;
+	border: 1px solid #c8c8c8;
+	float: left;
+	clear: left;
+	background-color: white;
+	font-size: 100%;
+	overflow: auto;
+}
+
+.roundedbutton{
+    cursor: pointer;
+}
+
+.roundedbutton-left{
+    background:transparent url(../images/dialog/button_puc_left.png) repeat scroll 0 0;
+    height:27px;
+    width:7px;
+    white-space: nowrap;
+}
+.roundedbutton-right{
+    background:transparent url(../images/dialog/button_puc_right.png) repeat scroll 0 0;
+    height:27px;
+    width:7px;
+    white-space: nowrap;   
+}
+
+.roundedbutton-middle{
+    background:transparent url(../images/dialog/button_puc_middle.png) repeat-x scroll 0 0;
+    -moz-user-select: none;
+    line-height: 22px;
+    height:27px;
+    white-space: nowrap;
+}
+
+#standardDialog #AL_linkParamsDiv TABLE {
+	background-color: #ffffff;
+	width: 100%;
+}
+
+#standardDialog #AL_linkParamsDiv .paramCell {
+	padding: 3px 5px;
+	border-bottom: 1px rgb(210,210,210) solid; 
+	border-right: 1px rgb(210,210,210) solid;
+	height: 20px;
+	width: 175px;
+}
+
+#standardDialog #AL_linkParamsDiv .valueCell {
+	padding: 3px 1px;
+	border-bottom: 1px rgb(210,210,210) solid; 
+	border-right: 1px rgb(210,210,210) solid;
+	height: 20px;
+}
+
+#standardDialog #AL_linkParamsTable input {
+	vertical-align: middle;
+}
+
+#standardDialog .colorPicker {
+	width: 14px; 
+	height: 14px;
+	border: 1px solid rgb(175,175,175);
+	cursor: pointer;
+	float: left;
+	margin-left: 3px;
+	margin-top: 2px;
+}
+
+#standardDialog .colorPalette {
+	position:absolute; 
+	background-color: white;
+	cursor: pointer;
+	margin-top: 17px;
+}
+
+#standardDialog .colorPalette TABLE {
+	width: 185px;
+}
+
+#standardDialog .colorLabel {
+	float: left; 
+	padding-top: 2px;
+}
+
+#standardDialog .inlineInput {
+	float: left;
+	margin-right: 10px;
+}
+
+.dialog-content{
+  	padding: 8px 10px 0px 10px;
+  	overflow: auto;
+  	height: 100%;
+    font-size: .86em;
+}
+
+.button-panel {
+	border-spacing: 0px 0px;
+}
+
+/* Remove once DOCTYPEs are standardized */
+.dialogMiddleCenter{
+  font-size: 16px;
+}
+
+/* Remove once DOCTYPEs are standardized */
+.dialogMiddleCenterInner.dialog-content{
+  font-size:.86em;
+}
+
+/* Remove once DOCTYPEs are standardized */
+.gwt-label{
+	  font-size: 0.86em;
+}
+
+label{
+	font-size: 1em;
+}
+
+.dojoTab {
+	border-bottom: 0px solid black !important;
+}
+
+.dojoTabPaneWrapper {
+    border-color: #3F3F3F !important;
+    border-style: solid !important;
+    border-width: 3px 1px 1px !important;
+}
+
+#mainTabContainer .current div {
+	color: white !important;
+}
+
+.fileChooserHeader {
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #848484;
+  border-right: 1px solid #848484;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.fileChooserCell {
+  background-color: white;
+  padding: 1px 5px;
+}
+
+.fileChooserCell-over {
+  background-color: white;
+  padding-left: 5px;
+  padding-right: 5px;
+}

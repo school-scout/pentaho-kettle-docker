@@ -1,0 +1,178 @@
+<html>
+    <head>
+        <title id='title'>Pentaho Analyzer Drill Through</title>
+
+        <!-- ** CSS ** -->
+        <!-- base library -->
+        <link rel="stylesheet" type="text/css" href="ext/resources/css/ext-all.css" />
+        <link rel="stylesheet" type="text/css" href="ext/resources/css/xtheme-gray.css" />
+
+
+        <!-- overrides to base library -->
+
+
+        <!-- ** Javascript ** -->
+        <!-- base library -->
+        <script type="text/javascript" src="ext/adapter/ext/ext-base.js"></script>
+        <script type="text/javascript" src="ext/ext-all.js"></script>
+
+
+		<STYLE type="text/css">
+			.x-grid3-header table{table-layout: fixed;}
+   			.x-grid3-row table{table-layout: fixed;}
+   			.x-grid3-row-selected{background:#cbefa3!important;border:1px dotted #cbefa3;}
+   			.x-btn-icon .x-btn-center .x-btn-text{background-position:center;background-repeat:no-repeat;height:18px;width:18px;cursor:pointer;white-space:nowrap;padding:0;}
+   			.x-tbar-page-first{background-image:url(ext/resources/images/default/grid/page_end_back.png)!important;}
+			.x-tbar-page-last{background-image:url(ext/resources/images/default/grid/page_end_forward.png)!important;}
+			.x-tbar-page-next{background-image:url(ext/resources/images/default/grid/page_forward.png)!important;}
+			.x-tbar-page-prev{background-image:url(ext/resources/images/default/grid/page_back.png)!important;}
+			.x-item-disabled .x-tbar-page-first{background-image:url(ext/resources/images/default/grid/page_end_back_disabled.png)!important;}
+			.x-item-disabled .x-tbar-page-last{background-image:url(ext/resources/images/default/grid/page_end_forward_disabled.png)!important;}
+			.x-item-disabled .x-tbar-page-next{background-image:url(ext/resources/images/default/grid/page_forward_disabled.png)!important;}
+			.x-item-disabled .x-tbar-page-prev{background-image:url(ext/resources/images/default/grid/page_back_disabled.png)!important;}
+   			
+		</STYLE>
+		
+
+        <!-- page specific -->
+        <script type="text/javascript">
+            Ext.namespace("Ext.ux");
+            Ext.namespace("Ext.ux.data");
+
+            Ext.ux.data.PagingMemoryProxy = function(data, config) {
+              Ext.ux.data.PagingMemoryProxy.superclass.constructor.call(this);
+              this.data = data;
+              Ext.apply(this, config);
+            };
+
+            Ext.extend(Ext.ux.data.PagingMemoryProxy, Ext.data.MemoryProxy, {
+              customFilter : null,
+              start: 0,
+              limit: 20,
+
+              load : function(params, reader, callback, scope, arg) {
+                params = params || {};
+                var result;
+                try {
+                  result = reader.readRecords(this.data);
+                } catch (e) {
+                  this.fireEvent("loadexception", this, arg, null, e);
+                  callback.call(scope, null, arg, false);
+                  return;
+                }
+
+                // filtering
+              if (this.customFilter != null) {
+                result.records = result.records.filter(this.customFilter);
+                result.totalRecords = result.records.length;
+              } else if (params.filter !== undefined) {
+                result.records = result.records.filter( function(el) {
+                  if (typeof (el) == "object") {
+                    var att = params.filterCol || 0;
+                    return String(el.data[att]).match(params.filter) ? true : false;
+                  } else {
+                    return String(el).match(params.filter) ? true : false;
+                  }
+                });
+                result.totalRecords = result.records.length;
+              }
+
+              // sorting
+              if (scope.sortInfo !== undefined) {
+                // use integer as params.sort to specify column, since arrays are not named
+                // params.sort=0; would also match a array without columns
+                var dir = String(scope.sortInfo.direction).toUpperCase() == "DESC" ? -1 : 1;
+                var fn = function(r1, r2) {
+                  return r1 == r2 ? 0 : r1 < r2 ? -1 : 1;
+                };
+                var st = reader.recordType.getField(scope.sortInfo.field).sortType;
+                result.records.sort( function(a, b) {
+                  var v = 0;
+                  if (typeof (a) == "object") {
+                    v = fn(st(a.data[scope.sortInfo.field]), st(b.data[scope.sortInfo.field])) * dir;
+                  } else {
+                    v = fn(a, b) * dir;
+                  }
+                  if (v == 0) {
+                    v = (a.index < b.index ? -1 : 1);
+                  }
+                  return v;
+                });
+              }
+
+              // paging (use undefined cause start can also be 0 (thus false))
+              if (params.start !== undefined && params.limit !== undefined) {
+                result.records = result.records.slice(params.start, params.start + params.limit);
+                this.start = params.start;
+                this.limit = params.limit;
+              }
+
+              callback.call(scope, result, arg, true);
+            }
+            });
+        </script>
+
+        <script type="text/javascript">
+
+        Ext.BLANK_IMAGE_URL = 'ext/resources/images/default/s.gif';
+        
+        Ext.onReady(function(){
+
+    var myData = @{drillBean.values};
+
+    var fields = @{drillBean.fields};
+
+
+    var store = new Ext.data.SimpleStore( {
+          fields : fields,
+          proxy : new Ext.ux.data.PagingMemoryProxy(myData),
+          remoteSort: true
+        });
+
+    var colModel = new Ext.grid.ColumnModel(@{drillBean.columns});
+
+
+    var paging_toolbar = new Ext.PagingToolbar( {
+          pageSize : 20,
+          displayInfo : true,
+          emptyMsg : 'No data found',
+          store : store
+        });
+
+
+    new Ext.Viewport(
+    	    {
+    	        layout: 'fit',
+    	        items: [
+    	            {
+    	                xtype: 'panel',
+    	                title: '@{drillBean.context} <a style="color: #E17B03;" href="javascript:window.opener.cv.getActiveReport().getReportDrillCSV(@{drillBean.indexes});">Export to CSV</a> @{drillBean.rowcount}',
+    	                layout: 'fit', 
+    	                items: [
+    	                    {
+    	                        xtype: 'grid',
+    	                        store : store,
+    	                          cm : colModel,
+    	                          stripeRows : true,
+    	                        bbar : paging_toolbar,
+    	                        autoSizeColumns : false
+    	                    }]
+    	            }]        
+    	    });
+    
+    store.load( {
+          params : {
+            start : 0,
+            limit : 20
+          }
+        });
+
+        }); //end onReady
+        </script>
+
+    </head>
+    <body>
+
+
+    </body>
+</html>

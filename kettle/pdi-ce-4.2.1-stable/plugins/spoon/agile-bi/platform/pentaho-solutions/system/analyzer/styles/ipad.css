@@ -1,0 +1,38 @@
+// Specify iPad specific CSS that should override existing CSS
+
+#searchBox {
+	width: 110px !important;
+}
+
+#searchField {
+	width: 90px !important;
+}
+
+#fieldList #fieldListTop #viewFieldOptions {
+	border-top: 1px solid white;
+	border-left: 1px solid white;
+	border-bottom: 1px solid gray;
+	border-right: 1px solid gray;
+	float: right;
+	height: 20px;
+	padding: 2px 3px 0 3px;
+	cursor: pointer;
+}
+
+#standardDialog .selectableList {
+	width: 215px;
+	height: 180px;
+	border: 1px solid #c8c8c8;
+	background-color: white;
+	margin-top: 2px;
+	overflow: auto;
+	cursor: pointer;
+}
+
+TD.dropZoneLabel {
+	width: 140px; /* Must be wide enough for iPad */
+}
+
+#reportContextHelp {
+	font-size: .55em !important;
+}	

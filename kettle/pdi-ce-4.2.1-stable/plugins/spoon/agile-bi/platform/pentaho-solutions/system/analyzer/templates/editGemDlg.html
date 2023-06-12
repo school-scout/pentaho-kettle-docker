@@ -1,0 +1,69 @@
+<div id="standardDialog" style="width:550px;">
+	<div id="standardDialogHeader" class="Caption">
+		<div id="dialogTitleBar">
+		<table width=100%>
+		<tr>
+			<td width="*">%{0}</td>
+			<td width="19"><img id="dlgHelp" src="images/help_link.png" class="titleBarButton"></td>
+			
+		</tr>
+		</table>
+		</div>
+	</div>
+
+	<div id="dialogMessageBar" class="hidden"></div>				
+
+	<div class="dialog-content" style="overflow:auto;">
+		<table><tbody>
+			<tr height=20><td id="ED_nameTD" class="fieldLabel" style="width:210px;"><div id="ED_displayLabelDiv">@{dlgSharedName}:</div></td><td><input type="text" id="ED_displayLabel" style="width:300px"></input></td></tr>
+			<tr id="ED_pluralLabelRow"><td class="fieldLabel" style="margin-top:3px;">@{dlgEditColumnPluralName}:</td><td><input type="text" id="ED_displayLabelPlural" style="width:300px"></input></td></tr>
+			<tr id="blankRow" height=10><td></td></tr>
+			<tr id="ED_nameRow" height=20><td class="fieldLabel"><div style="margin-top:3px;">@{dlgEditColumnOrigName}:</div></td><td><div id="ED_name" style="margin-top:3px;float:left"></div></td></tr>
+			<tr id="ED_pluralNameRow" height=20><td class="fieldLabel"><div style="margin-top:3px;">@{dlgEditColumnOrigPluralName}:</div></td><td><div id="ED_namePlural" style="margin-top:3px;float:left"></div></td></tr>
+            <tr height=10><td class="fieldLabel">&nbsp;</td><td>&nbsp;</td></tr>
+            <tr id="ED_formatRow" height=30><td align="right"><div style="margin-top:3px;">@{dlgSharedNumFormat}:</div></td><td>
+                <select id="ED_formatCategory" name="ED_formatCategory" size="1" style="margin-right:5px;">
+                    <option value="Default" selected="selected">@{dlgSharedNumFormatDefault}</option>
+                    <option value="General Number">@{dlgSharedNumFormatGeneral}</option>
+                    <option value="Currency ($)">@{dlgSharedNumFormatCurrency}</option>
+                    <option value="Percentage (%)">@{dlgSharedNumFormatPct}</option>
+                    <option value="Expression">@{dlgSharedNumFormatExp}</option>                    
+                </select>
+                <span style="padding-left: 15px;">@{dlgSharedNumDecimalPlaces}:</span>
+                <select id="ED_formatScale" name="ED_formatScale" size="1">
+                    <option value="0" selected="selected">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                </td>
+            </tr>
+            <tr id="ED_formatExpRow"><td align="right"><div style="margin-top:3px;">@{dlgEditColumnMDXFormatExp}:</div></td><td>
+                <textarea style="display:block;width:100%;height:100px;" id="ED_formatExpression"></textarea>
+                </td>
+            </tr>
+		</tbody></table>
+	</div>
+
+	<div>
+	<table width=100% class="button-panel">
+            <tr>
+                <td width="100%" class="standardDialogFooter">&nbsp;</td>
+                <td>
+                  <button class="pentaho-button" id="dlgBtnSave">@{btnLabelOK}</button>
+                </td>
+                <td>
+                  <button class="pentaho-button" id="dlgBtnCancel">@{btnLabelCancel}</button>
+                </td>
+            </tr>
+	</table>
+	</div>
+	
+</div>

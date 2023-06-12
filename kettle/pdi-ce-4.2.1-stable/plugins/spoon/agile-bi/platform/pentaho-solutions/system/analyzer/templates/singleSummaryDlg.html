@@ -1,0 +1,143 @@
+<div id="standardDialog" style="width:550px;">
+	<div id="standardDialogHeader" class="Caption">
+		<div id="dialogTitleBar">
+		<table width=100%>
+		<tr>
+			<td width="*"><span class="standardDialogHeaderText">%{0}</span></td>
+			<td width="19"><img id="dlgHelp" src="images/help_link.png" class="titleBarButton"></td>
+			
+		</tr>
+		</table>
+		</div>
+	</div>
+
+	<div id="dialogMessageBar" class="hidden"></div>				
+
+	<div class="dialog-content">
+		<table><tbody>
+            <tr height="25px" valign="top">
+                <td width=*><span style="width:94px;display:block;float:left;margin-top:3px">@{dlgSharedName}:</span>
+                <input type=text id="SM_name" value="" style="width:300px;float:left;"></td>
+            </tr>
+            <tr height="30px" valign="top">
+                <td>
+                <span style="width:94px;display:block;float:left;margin-top:3px">@{dlgSharedNumFormat}:</span>
+                <select id="SM_formatCategory" name="SM_formatCategory" size="1" style="margin-right:5px;float:left;">
+                    <option value="Default">@{dlgSharedNumFormatDefault}</option>
+                    <option value="General Number" selected="selected">@{dlgSharedNumFormatGeneral}</option>
+                    <option value="Currency ($)">@{dlgSharedNumFormatCurrency}</option>
+                    <option value="Percentage (%)">@{dlgSharedNumFormatPct}</option>
+                    <option value="Expression">@{dlgSharedNumFormatExp}</option>
+                </select>    
+                <span style="display:block;float:left;margin:0 10px;margin-top:3px">@{dlgSharedNumDecimalPlaces}:</span>
+                <select id="SM_formatScale" name="SM_formatScale" size="1">
+                    <option value="0" selected="selected">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                </td>
+            </tr>
+            <tr height="23px" valign="top"><td><span style="width:94px;display:block;float:left;">@{dlgSummaryEditBaseNumber}:</span><span style="float:left">%{1}</span>
+            </td></tr>
+
+			<tr><td>
+				<!--  TOGGLED DIALOG FORM CONTROLS GO HERE -->
+				<div id="SM_PCTOF" class="hidden">
+					<table border="0" cellpadding="0" cellspacing="0">
+						<tr><td>@{dlgSummaryEditPctOf} <b>%{1}</b></td></tr>
+						<tr><td>&nbsp;</td></tr>
+						<tr><td class="tabbedLabel">
+							<div class="tabbedGroup">
+								<input type="radio" id="SM_COLS_PCTOF" name="SM_RD_PCTOF" value="ROWS" checked>&nbsp;&nbsp;@{dlgSummaryEditPctOfColGrand}</input><br/>	
+								<input type="radio" id="SM_ROWS_PCTOF" name="SM_RD_PCTOF" value="COLS">&nbsp;&nbsp;@{dlgSummaryEditPctOfRowGrand}</input><br/>
+								<input type="radio" id="SM_GRAND_PCTOF" name="SM_RD_PCTOF" value="GRAND">&nbsp;&nbsp;@{dlgSummaryEditPctOfReportGrand}</input><br/>		
+								<input type="radio" id="SM_LABEL_PCTOF" name="SM_RD_PCTOF" value="LABEL">&nbsp;&nbsp;@{dlgSummaryEditPctOfEach} </input>
+								<select id="SM_field_PCTOF" size="1"  class="inputTxt"></select><span for="SM_LABEL_PCTOF">&nbsp;&nbsp;@{dlgSummaryEditPctOfEachTotal}</span>
+							</div>
+						</td></tr>
+					</table>
+				</div>
+			</td></tr>
+			
+			<tr><td>
+				<!--  TOGGLED DIALOG FORM CONTROLS GO HERE -->
+				<div id="SM_RANK" class="hidden">
+					<table border="0" cellpadding="0" cellspacing="0">
+						<tr><td>@{dlgSummaryEditRank} <b>%{1}</b></td></tr>
+						<tr><td>&nbsp;</td></tr>
+						<tr><td class="tabbedLabel">
+							<div class="tabbedGroup">
+								<input type="radio" id="SM_ROWS_RANK" name="SM_RD_RANK" value="ROWS" checked>&#160;@{dlgSummaryEditRankRows}</input><br/>
+								<input type="radio" id="SM_COLS_RANK" name="SM_RD_RANK" value="COLS">&#160;@{dlgSummaryEditRankCols}</input><br/>
+								<input type="radio" id="SM_LABEL_RANK" name="SM_RD_RANK" value="LABEL">&#160;@{dlgSummaryEditRankWithin} </input>
+								<select id="SM_field_RANK" size="1" class="inputTxt"></select>
+							</div>
+						</td></tr>
+					</table>
+				</div>
+			</td></tr>
+			
+			<tr><td>
+				<!--  TOGGLED DIALOG FORM CONTROLS GO HERE -->
+				<div id="SM_RSUM" class="hidden">
+					<table border="0" cellpadding="0" cellspacing="0">
+						<tr><td>@{dlgSummaryEditRSUM} <b>%{1}</b></td></tr>
+						<tr><td>&nbsp;</td></tr>
+						<tr><td class="tabbedLabel">
+							<div class="tabbedGroup">
+								<input type="radio" id="SM_ROWS_RSUM" name="SM_RD_RSUM" value="ROWS" checked>&#160;@{dlgSummaryEditRSUMRows}</input><br/>
+								<input type="radio" id="SM_COLS_RSUM" name="SM_RD_RSUM" value="COLS">&#160;@{dlgSummaryEditRSUMCols}</input><br/>
+								<input type="radio" id="SM_LABEL_RSUM" name="SM_RD_RSUM" value="LABEL">&#160;@{dlgSummaryEditRSUMBreakBy} </input>
+								<select id="SM_field_RSUM" size="1" class="inputTxt"></select>
+							</div>
+						</td></tr>
+					</table>
+				</div>
+			</td></tr>
+			
+			<tr><td>
+				<!--  TOGGLED DIALOG FORM CONTROLS GO HERE -->
+				<div id="SM_PCTRSUM" class="hidden">
+					<table border="0" cellpadding="0" cellspacing="0">
+						<tr><td>@{dlgSummaryEditPctRSUM} <b>%{1}</b></td></tr>
+						<tr><td>&nbsp;</td></tr>
+						<tr><td class="tabbedLabel">
+							<div class="tabbedGroup">
+								<input type="radio" id="SM_ROWS_PCTRSUM" name="SM_RD_PCTRSUM" value="ROWS" checked>&#160;@{dlgSummaryEditPctRSUMRows}</input><br/>
+								<input type="radio" id="SM_COLS_PCTRSUM" name="SM_RD_PCTRSUM" value="COLS">&#160;@{dlgSummaryEditPctRSUMCols}</input><br/>
+								<input type="radio" id="SM_LABEL_PCTRSUM" name="SM_RD_PCTRSUM" value="LABEL">&#160;@{dlgSummaryEditRSUMBreakBy} </input>
+								<select id="SM_field_PCTRSUM" size="1" class="inputTxt"></select>
+							</div>
+						</td></tr>
+					</table>
+				</div>
+			</td></tr>
+		</tbody></table>
+	</div>
+
+	<div>
+	<table width=100% class="button-panel">
+	<tr>
+        <td width="100%" class="standardDialogFooter">&nbsp;</td>
+		<td>
+      <button class="pentaho-button" id="dlgBtnPrev">@{btnLabelBack}</button>
+		</td>
+		<td>
+      <button class="pentaho-button" id="dlgBtnSave">@{btnLabelDone}</button>
+		</td>
+		<td>
+      <button class="pentaho-button" id="dlgBtnCancel">@{btnLabelCancel}</button>
+		</td>
+	</tr>
+	</table>
+	</div>
+	
+</div>

@@ -1,0 +1,126 @@
+<div id="rptDialog" class="rptInfo">
+	<div id="rptDialogHeader" class="cvRptInfoTooltipHeader">
+		<table width="100%">
+		<tr>
+		    <td width="360" id="nameDiv" style="padding-left: 20px;padding-top:0px;">
+		    <div id="name" style="font-weight: bold;width:360px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">&nbsp;</div>
+		    </td>
+		    <td style="text-align: right; padding-top: 2px;">
+			    <!-- <img id="editNameButton" src="images/report/Edit.png" style="cursor: pointer;"> -->
+			    <img id="closeButton" src="images/report/Close_over.png" style="cursor: pointer;">
+		    </td>
+		</tr>
+		</table>
+	</div>
+	<div  class="rptInfoContent">
+		<!-- <table id="nameBtn" width="100%" class="hidden">
+			<tr height="21">
+				<td width="100%">&nbsp;</td>
+				<td>
+					
+					<table cellspacing="0" cellpadding="0" class="roundedbutton" id="nameBtnSave">
+						<tbody>
+							<tr>
+								<td align="left" style="vertical-align: top;">
+									<div class="roundedbutton-left"/>
+								</td>
+								<td align="left" style="vertical-align: top;">
+									<div class="roundedbutton-middle">Save</div>
+								</td>
+								<td align="left" style="vertical-align: top;">
+									<div class="roundedbutton-right"/>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					
+				</td>
+                <td>
+					<table cellspacing="0" cellpadding="0" class="roundedbutton" id="nameBtnCancel">
+						<tbody>
+							<tr>
+								<td align="left" style="vertical-align: top;">
+									<div class="roundedbutton-left"/>
+								</td>
+								<td align="left" style="vertical-align: top;">
+									<div class="roundedbutton-middle">Cancel</div>
+								</td>
+								<td align="left" style="vertical-align: top;">
+									<div class="roundedbutton-right"/>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>				
+				<td width="8px">&nbsp;</td>
+			</tr>
+        </table>
+        -->
+        <table width="100%">
+			<tr id="descDivTR" style="vertical-align: top; padding-top:20px;">
+				<td id="editDescDiv" width="370px" colspan="2">
+					<div id="description" style="word-break:break-all;padding-left:10px;overflow:auto;"></div>
+				</td>
+				<td width="20" id="editDescButtonTR">
+					<img id="editDescButton" src="images/report/icon_object_desc.png" style="cursor: pointer;float:right;padding-right:4px;">
+				</td>
+                <td width="8px">&nbsp;</td>
+			</tr>
+            <tr id="editDescTextAreaTR" style="vertical-align: top; padding-top:20px;" class="hidden">
+                <td id="editDescTextArea" width="370px" colspan="3" class="reportTooltipTextArea">
+                    <input id='hiddenDesc' type='hidden'>
+                    <textarea id='description' style='width:370px;' rows=3></textarea>
+                </td>
+                <td width="8px">&nbsp;</td>
+            </tr>
+        </table>
+        <table id="descBtn" class="hidden" width="100%">
+			<tr height="21">
+				<td width="100%">&nbsp;</td>
+				
+				<td>
+          <button class="pentaho-button" id="descBtnSave">@{btnLabelSave}</button>
+				</td>
+        <td>
+          <button class="pentaho-button" id="descBtnCancel">@{btnLabelCancel}</button>			
+				</td>				
+                
+				<td width="8px">&nbsp;</td>
+			</tr>
+		</table>
+	</div>
+	<div class="cvRptInfoTooltipBody_2">	
+	    <table width="100%">
+			<tr height="18" class="hidden">
+                <td style="font-weight: bold;font-size:11px;text-align: right;padding-right: 5px;"  width="175">@{dlgReportPropsLocation}:</td>
+                <td colspan="2"><div id="folder" style="padding-left: 10px;font-size:11px;width:250px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;"/></td>
+			</tr>	
+			<tr height="18">
+				<td style="font-weight: bold;font-size:11px;text-align: right;padding-right: 5px;"  width="175">@{dlgReportPropsCreated}:</td>
+				<td id="created" colspan="2" style="padding-left: 10px;font-size:11px;">&nbsp;</td>
+		    </tr>						
+			<tr height="18">
+				<td style="font-weight: bold;font-size:11px;text-align: right;padding-right: 5px;"  width="175">@{dlgReportPropsModified}:</td>
+				<td colspan="2" style="padding-left: 10px;font-size:11px;"><div id="update">&nbsp;</div></td>
+		    </tr>
+			<tr height="18px">
+				<td style="font-weight: bold;font-size:11px;text-align: right;padding-right: 5px;"  width="175">@{dlgReportPropsModifiedBy}:</td>
+				<td colspan="2" style="padding-left: 10px;font-size:11px;"><div id="updatedBy">&nbsp;</div></td>
+		    </tr>
+			<tr height="18">
+				<td style="font-weight: bold;font-size:11px;text-align: right;padding-right: 5px;"  width="175">@{dlgReportPropsCube}:</td>
+				<td id="cube" colspan="2" style="padding-left: 10px;font-size:11px;">&nbsp;</td>
+		    </tr>
+		</table>
+	</div>
+	<div class="rptInfoContent hidden">
+		<table width="100%">
+			<tr height="18">
+				<td style="font-weight: bold;font-size:11px;text-align: right;padding-right: 5px;"  width="175">Based on Data as of:</td>
+				<td id="refreshDates_2" colspan="2" style="padding-left: 10px;font-size:11px;">&nbsp;</td>
+		    </tr>
+		</table>
+	</div>
+	<div class="cvRptInfoTooltipFooter"/>
+	
+</div>

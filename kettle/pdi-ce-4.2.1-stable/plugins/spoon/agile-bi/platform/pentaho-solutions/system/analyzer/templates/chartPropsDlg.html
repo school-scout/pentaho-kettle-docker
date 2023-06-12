@@ -1,0 +1,239 @@
+<div id="standardDialog" style="width:500px;">
+	<div id="standardDialogHeader" class="Caption">
+		<div id="dialogTitleBar">
+		<table width=100%>
+		<tr>
+			<td width="*">@{dlgChartPropsTitle}</td>
+			
+		</tr>
+		</table>
+		</div>
+	</div>
+
+	<div id="dialogMessageBar" class="hidden"></div>				
+
+	<div class="dialog-content" style="padding-bottom: 8px">
+		<div id="mainTabContainer" dojoType="TabContainer" style="width: 100%; height: 290px" selectedTab="tab1" >
+			<div id="tab1" dojoType="ContentPane" label="General" >
+				<table style="width:470px;"><tbody>
+					<tr><td>&nbsp;</td></tr>
+					<tr><td class="labelTitle">@{dlgChartPropsBackgroundTitle}:</td></tr>
+					<tr><td class="tabbedLabel">
+	                	<div class="inlineInput">@{dlgChartPropsBackgroundFillType}:  
+		                	<select id="CP_backgroundFill" size="1">
+			                    <option value="NONE">@{dlgChartPropsBackgroundFillTypeNone}</option>
+			                    <option value="SOLID">@{dlgChartPropsBackgroundFillTypeSolid}</option>
+			                    <option value="GRADIENT">@{dlgChartPropsBackgroundFillTypeGradient}</option>
+			                </select>
+		                </div>
+						<div class="inlineInput" style="margin-left: 20px;" id="CP_backgroundColorWrapper"><div class="colorLabel">@{dlgChartPropsBackgroundColor}:</div> <input type="hidden" id="CP_backgroundColor"><div id="CP_backgroundColorDiv" class="colorPicker"></div>
+							<div id="CP_backgroundColorPalette" class="colorPalette hidden"><div id="CP_backgroundColorPaletteWidget"></div></div></div>                							
+	                	<div class="inlineInput"  id="CP_backgroundColorEndWrapper"><div class="colorLabel">@{dlgChartPropsBackgroundColorEnd}:</div> <input type="hidden" id="CP_backgroundColorEnd"><div id="CP_backgroundColorEndDiv" class="colorPicker"></div>
+							<div id="CP_backgroundColorEndPalette" class="colorPalette hidden" style="margin-left: -20px"><div id="CP_backgroundColorEndPaletteWidget"></div></div></div>
+							</td></tr>
+	                <tr><td>&nbsp;</td></tr>
+	                <tr><td class="labelTitle">@{dlgChartPropsLabelsTitle}:</td></tr>
+	                <tr><td class="tabbedLabel">
+	                	<div class="inlineInput">
+	                	<select id="CP_labelFontFamily" size="1">
+		                    <option value='Default'>Default</option>
+		                    @{contentGenerator.fontOptions}
+		                </select>
+		                </div>
+	                	<div class="inlineInput">  
+	                	<select id="CP_labelSize" size="1">
+		                    <option value="7">7</option>
+		                    <option value="8">8</option>
+		                    <option value="9">9</option>
+		                    <option value="10">10</option>
+		                    <option value="11">11</option>
+		                    <option value="12">12</option>
+		                    <option value="14">14</option>
+		                    <option value="16">16</option>
+		                    <option value="18">18</option>
+		                    <option value="20">20</option>
+		                    <option value="24">24</option>
+		                    <option value="28">28</option>
+		                    <option value="32">32</option>
+		                    <option value="36">36</option>
+		                    <option value="40">40</option>
+		                </select>
+		                </div>
+		                <div class="inlineInput">  
+	                	<select id="CP_labelStyle" size="1">
+		                    <option value="PLAIN">Normal</option>
+		                    <option value="BOLD">Bold</option>
+		                    <option value="ITALIC">Italic</option>
+		                </select>
+		                </div>
+		                <div class="inlineInput"><div class="colorLabel"></div> <input type="hidden" id="CP_labelColor"><div id="CP_labelColorDiv" class="colorPicker"></div>
+												<div id="CP_labelColorPalette" class="colorPalette hidden" style="margin-left: -90px"><div id="CP_labelColorPaletteWidget"></div></div></div>
+		                </td></tr>
+	                <tr><td>&nbsp;</td></tr>
+	                <tr><td class="labelTitle">@{dlgChartPropsAxisTitle}:</td></tr>
+	                <tr>
+	                	<td class="tabbedLabel">
+	                		<div class="inlineInput"><input type="checkbox" id="CP_autoRange" class="inputChk">&nbsp;&nbsp;@{dlgChartPropsAxisAutoRange}</input></div>
+	                		<div class="inlineInput" style="margin-left: 20px;">@{dlgChartPropsAxisStart}: <input type="text" id="CP_valueAxisLowerLimit" class="inputTxt" style="width:80px;" /></div>
+							<div class="inlineInput">@{dlgChartPropsAxisStop}: <input type="text" id="CP_valueAxisUpperLimit" class="inputTxt" style="width:80px;" /></div>
+						</td></tr>
+					<tr><td>&nbsp;</td></tr>
+					<tr>						
+	                	<td class="tabbedLabel">
+		                	<div style="overflow:auto">@{dlgChartPropsAxisUnits}:  
+		                	<select id="CP_displayUnits" size="1">
+			                    <option value="UNITS_0">@{dlgChartOption_UNITS_0}</option>
+			                    <option value="UNITS_2">@{dlgChartOption_UNITS_2}</option>
+			                    <option value="UNITS_3">@{dlgChartOption_UNITS_3}</option>
+			                    <option value="UNITS_4">@{dlgChartOption_UNITS_4}</option>
+			                    <option value="UNITS_5">@{dlgChartOption_UNITS_5}</option>
+			                    <option value="UNITS_6">@{dlgChartOption_UNITS_6}</option>
+			                </select>
+			                </div></td></tr>	
+	                <tr>
+	                	
+					<tr><td>&nbsp;</td></tr>
+				</tbody></table>
+			
+			
+			</div>
+			<div id="tab2" dojoType="ContentPane" label="@{dlgChartPropsLegendTitle}" >
+				
+				<table style="width:470px;"><tbody>
+					<tr><td colspan="2">&nbsp;</td></tr>
+					<tr>
+						<td class="tabbedLabel" style="width: 200px" colspan="2"><input type="checkbox" id="CP_showLegend" checked="false" class="inputChk"> @{dlgChartPropsShowLegend}
+						</td></tr>
+					<tr><td colspan="2">&nbsp;</td></tr>						
+					<tr>
+						<td class="tabbedLabel">@{dlgChartPropsLegendPos}:</td><td>@{dlgChartLegendBackgroundColor}:</td></tr>
+					<tr>
+						<td class="tabbedLabel"> 
+		                	<select id="CP_legendPosition" size="1">
+			                    <option value="TOP">@{dlgChartPropsLegendPosTop}</option>
+			                    <option value="RIGHT">@{dlgChartPropsLegendPosRight}</option>
+			                    <option value="BOTTOM">@{dlgChartPropsLegendPosBottom}</option>
+			                    <option value="LEFT">@{dlgChartPropsLegendPosLeft}</option>
+			                </select>
+		                </div></td>
+		                <td>
+		                	<div class="inlineInput"><input type="hidden" id="CP_legendBackgroundColor"><div id="CP_legendBackgroundColorDiv" class="colorPicker"></div>
+								<div id="CP_legendBackgroundColorPalette" class="colorPalette hidden"><div id="CP_legendBackgroundColorPaletteWidget"></div></div></div>
+		                </td></tr>
+					<tr><td colspan="2">&nbsp;</td></tr>
+					<tr><td colspan="2" class="tabbedLabel">Font:</td></tr>		
+					<tr><td class="tabbedLabel" colspan="2">
+						<div class="inlineInput">
+	                	<select id="CP_legendFontFamily" size="1">
+		                    <option value='Default'>Default</option>
+		                    @{contentGenerator.fontOptions}
+		                </select>
+		                </div>
+	                	<div class="inlineInput">  
+	                	<select id="CP_legendSize" size="1">
+		                    <option value="7">7</option>
+		                    <option value="8">8</option>
+		                    <option value="9">9</option>
+		                    <option value="10">10</option>
+		                    <option value="11">11</option>
+		                    <option value="12">12</option>
+		                    <option value="14">14</option>
+		                    <option value="16">16</option>
+		                    <option value="18">18</option>
+		                    <option value="20">20</option>
+		                    <option value="24">24</option>
+		                    <option value="28">28</option>
+		                    <option value="32">32</option>
+		                    <option value="36">36</option>
+		                    <option value="40">40</option>
+		                </select>
+		                </div>
+		                <div class="inlineInput">  
+	                	<select id="CP_legendStyle" size="1">
+		                    <option value="PLAIN">Normal</option>
+		                    <option value="BOLD">Bold</option>
+		                    <option value="ITALIC">Italic</option>
+		                </select>
+		                </div>
+		                <div class="inlineInput"><div class="colorLabel"></div> <input type="hidden" id="CP_legendColor"><div id="CP_legendColorDiv" class="colorPicker"></div>
+												<div id="CP_legendColorPalette" class="colorPalette hidden" style="margin-left: -90px"><div id="CP_legendColorPaletteWidget"></div></div></div>
+		                </td></tr>		                
+				</tbody></table>
+			
+			</div>
+			<div id="tab3" dojoType="ContentPane" label="@{dlgChartPropsOtherTitle}" >
+				
+				<table style="width:470px;"><tbody>
+					<tr><td colspan="2">&nbsp;</td></tr>
+					<tr><td class="labelTitle" colspan="2">@{dlgChartPropsLineTitle}:</td></tr>
+	                <tr><td class="tabbedLabel">
+	                	<div style="overflow:auto">@{dlgChartPropsLineBullet}:  
+	                	<select id="CP_lineShape" size="1">
+		                    <option value="NONE">@{dlgChartPropsBulletNone}</option>
+		                    <option value="CIRCLE">@{dlgChartPropsBulletCircle}</option>
+		                    <option value="SQUARE">@{dlgChartPropsBulletSquare}</option>
+		                    <option value="DIAMOND">@{dlgChartPropsBulletDiamond}</option>
+		                    <option value="TRIANGE">@{dlgChartPropsBulletTriangle}</option>
+		                </select>
+		                </div></td>
+						<td class="tabbedLabel">
+	                	<div style="overflow:auto">@{dlgChartPropsLineWidth}: 
+	                	<select id="CP_lineWidth" size="1">
+		                    <option value="1">1px</option>
+		                    <option value="2">2px</option>
+		                    <option value="3">3px</option>
+		                    <option value="4">4px</option>
+		                    <option value="5">5px</option>
+		                    <option value="6">6px</option>
+		                    <option value="7">7px</option>
+		                    <option value="8">8px</option>
+		                </select>
+		                </div></td></tr>
+					<tr><td colspan="2">&nbsp;</td></tr>		                
+					<tr><td class="labelTitle" colspan="2">@{dlgChartPropsMultiChartTitle}:</td></tr>
+	                <tr><td class="tabbedLabel" colspan="2">		                
+		                <div style="overflow:auto">@{dlgChartPropsMaxChartsPerRow}: 
+	                	<select id="CP_maxChartsPerRow" size="1">
+		                    <option value="1">1</option>
+		                    <option value="2">2</option>
+		                    <option value="3">3</option>
+		                    <option value="4">4</option>
+		                    <option value="5">5</option>
+		                </select>
+		                </div></td></tr>		                
+		            <tr><td colspan="2">&nbsp;</td></tr>					
+					<tr><td class="labelTitle" colspan="2">@{dlgChartPropsDomainTitle}:</td></tr>
+	                <tr><td class="tabbedLabel" colspan="2">
+	                	<div style="overflow:auto">@{dlgChartPropsDomainMaxValues}: 
+	                	<select id="CP_maxValues" size="1">
+		                    <option value="100">100</option>
+		                    <option value="150">150</option>
+		                    <option value="200">200</option>
+		                    <option value="250">250</option>
+		                </select>
+		                </div></td></tr>
+					<tr><td colspan="2">&nbsp;</td></tr>	                
+				</tbody></table>
+			
+			</div>
+		</div>			
+	</div>
+
+	<div>
+	<table width=100% class="button-panel">
+	<tr>
+		<td width="100%" class="standardDialogFooter">&nbsp;</td>
+		<td>
+      <button class="pentaho-button" id="dlgBtnApply">Apply</button>
+    </td>
+		<td>
+      <button class="pentaho-button" id="dlgBtnSave">@{btnLabelOK}</button>
+		</td>
+		<td>
+      <button class="pentaho-button" id="dlgBtnCancel">@{btnLabelCancel}</button>
+		</td>
+	</tr>
+	</table>
+	</div>
+	
+</div>

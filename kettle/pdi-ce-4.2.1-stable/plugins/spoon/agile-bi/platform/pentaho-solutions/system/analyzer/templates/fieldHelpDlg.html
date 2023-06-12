@@ -1,0 +1,57 @@
+<div id="standardDialog" style="width:500px;">
+	<div id="standardDialogHeader" class="Caption">
+		<div id="dialogTitleBar">
+		<table width=100%>
+		<tr>
+			<td width="*">@{dlgAboutFieldTitle}</td>
+			<td width="19"><img id="dlgHelp" src="images/help_link.png" class="titleBarButton"></td>
+			
+		</tr>
+		</table>
+		</div>
+	</div>
+
+	<div id="FH_fieldHelp" class="dialog-content">
+		<div style="width:50px;float:left;font-weight:bold;">@{dlgSharedName}:</div>
+		<div style="width:400px;float:left;">
+			<div id="FH_displayLabel">%{1}</div>
+			<div id="FH_customLabel" class="hidden">@{dlgAboutFieldRenamed}</div>
+			<div id="FH_name" class="hidden">NOTE: the original name was "%{2}". An Administrator renamed this field.</div>
+		</div>
+		<div class="linebreak">&nbsp;</div>
+		
+		<div style="width:50px;float:left;font-weight:bold;">@{dlgAboutFieldType}:</div>
+		<div style="width:400px:float:left;" id="FH_type"></div>
+		<div class="linebreak">&nbsp;</div>
+		
+		<div>
+			<span style="display:inline;font-weight:bold;">@{dlgAboutFieldDescription}:&nbsp;</span>
+			<span id="FH_displayDescription">&nbsp;</span>
+		</div>
+		<div class="linebreak">&nbsp;</div>
+		
+		<div style="width:50px;float:left;font-weight:bold;">@{dlgAboutFieldMDX}:</div>
+		<div style="width:400px:float:left;" id="FH_formula"></div>
+		
+		
+		<div id="FH_memberProperties" class="hidden">
+			<div class="linebreak">&nbsp;</div>
+	        <div>
+	            <span style="display:inline;font-weight:bold;">@{dlgAboutFieldMemberProps}:&nbsp;</span>
+	            <span id="FH_memberPropertiesDescription">&nbsp;</span>
+	        </div>
+        </div>
+		<div class="linebreak">&nbsp;</div>
+	</div>
+
+	<div>
+	<table width=100% class="button-panel">
+	<tr>
+		<td width="100%" class="standardDialogFooter">&nbsp;</td>
+		<td>
+      <button class="pentaho-button" id="dlgBtnCancel">@{btnLabelOK}</button>
+		</td>
+	</tr>
+	</table>
+	</div>
+</div>

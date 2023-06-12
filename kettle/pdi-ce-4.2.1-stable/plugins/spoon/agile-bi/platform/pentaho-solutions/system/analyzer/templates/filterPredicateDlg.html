@@ -1,0 +1,261 @@
+<div id="standardDialog" style="width:534px;">
+	<div id="standardDialogHeader" class="Caption">
+		<div id="dialogTitleBar">
+		<table width=100%>
+		<tr>
+			<td width="*">@{dlgAttributeFilterTitle}</td>
+			<td width="19"><img id="dlgHelp" src="images/help_link.png" class="titleBarButton"></td>
+			
+		</tr>
+		</table>
+		</div>
+	</div>
+
+	<div id="dialogMessageBar" class="hidden"></div>			
+
+	<div class="dialog-content">
+		<div id="FT_filterTypeTime">
+			<input type=radio name="FT_filterType" id="FT_filterTypePreset" value="FILTER_PRESET">
+				@{dlgAttributeFilterTimeLabel} 
+				<span class="filterOpLink">
+				<a href="#" id="FT_filterOp_PRESET_EQUAL" class="underline hidden">@{dlgAttributeFilterIs}</a>
+				<a href="#" id="FT_filterOp_PRESET_NOT_EQUAL" class="underline hidden">@{dlgAttributeFilterIsNot}</a>
+				</span>
+			</input><br/>
+			<input type=radio name="FT_filterType" id="FT_filterTypeSelect" value="FILTER_PICKLIST">
+				@{dlgAttributeFilterSelectLabel} 
+				<span class="filterOpLink">
+				(<a href="#" id="FT_filterOp_EQUAL" class="underline">@{dlgAttributeFilterIncludes}</a>, <a href="#" id="FT_filterOp_NOT_EQUAL" class="underline">@{dlgAttributeFilterExcludes}</a>)
+				</span>
+			</input><br/>
+			<input type=radio name="FT_filterType" id="FT_filterTypeRange" value="FILTER_RANGE">
+				@{dlgAttributeFilterRangeLabel} 
+				<span class="filterOpLink">
+				(<a href="#" id="FT_filterOp_BETWEEN" class="underline">@{filterConditionOperators_BETWEEN}</a>, <a href="#" id="FT_filterOp_AFTER" class="underline">@{dlgAttributeFilterAfter}</a>, 
+				<a href="#" id="FT_filterOp_BEFORE" class="underline">@{dlgAttributeFilterBefore}</a>)
+				</span>
+			</input>
+			<p/>
+		</div>
+		
+		<div id="FT_filterTypeText">
+			<input type=radio name="FT_filterType" id="FT_filterTypeSelect" value="FILTER_PICKLIST">
+				@{dlgAttributeFilterSelectLabel} 
+				<span class="filterOpLink">
+				(<a href="#" id="FT_filterOp_EQUAL" class="underline">@{dlgAttributeFilterIncludes}</a>, <a href="#" id="FT_filterOp_NOT_EQUAL" class="underline">@{dlgAttributeFilterExcludes}</a>)
+				</span>
+			</input><br/>
+			<input type=radio name="FT_filterType" id="FT_filterTypeMatch" value="FILTER_MATCH">
+				@{dlgAttributeFilterMatchLabel} 
+				<span class="filterOpLink">
+				(<a href="#" id="FT_filterOp_CONTAIN" class="underline">@{dlgAttributeFilterContains}</a>, <a href="#" id="FT_filterOp_NOT_CONTAIN" class="underline">@{dlgAttributeFilterNotContains}</a>)
+				</span>
+			</input>
+			<p/>
+		</div>
+
+		<div class="filterDetails">
+		
+		<!-- Include/Exclude -->
+		<table id="FT_FILTER_PICKLIST" valign=middle>
+		<tr>
+			<td colspan=2><b>@{dlgAttributeFilterChooseValueLabel}:</b></td>
+			<td><b>@{dlgAttributeFilterCurrently}&nbsp;
+				<select id="FT_picklistOp" size=1 width="*">
+					<option value='EQUAL' selected>@{dlgAttributeFilterIncluded}</option>
+					<option value='NOT_EQUAL'>@{dlgAttributeFilterExcluded}</option>
+				</select>&nbsp;:</b>
+			</td>
+			</tr>
+		<tr>
+			<td colspan=2>
+				<input id="FT_searchText" type="text" style="width: 100px">
+				<button class="pentaho-button" id="FT_searchBy">@{fieldListFind}</button>
+			</td>
+			<td>
+				&nbsp; <!-- %{1} -->
+			</td>
+			</tr>
+		<tr>
+			<td width="220">
+				<div id="FT_valueList" class="selectableList"></div>
+			</td>
+			<td width="60" valign="middle" align="center">
+				<img src="images/dialog/add_selected.png" class="FT_picklistCmd" id="FT_select_add" title="Add Selected"><br/>
+				<img src="images/dialog/remove_selected.png" class="FT_picklistCmd" id="FT_select_remove" title="Remove Selected"><br/>
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+				<img src="images/dialog/add_all.png" class="FT_picklistCmd" id="FT_select_addAll" title="Add All"><br/>
+				<img src="images/dialog/remove_all.png" class="FT_picklistCmd" id="FT_select_removeAll" title="Remove All">
+			</td>
+			<td width="220">
+				<div id="FT_memberList" class="selectableList"></div>
+			</td>	
+			</tr>
+		<tr>
+			<td id="FT_valueListStat" colspan=2>
+				@{dlgAttributeFilterShowAllValues}
+			</td>
+			<td id="FT_memberListStat">
+				@{dlgAttributeFilterNoValuesSelected}
+			</td>
+			</tr>
+		</table>
+	
+		<!-- Contain/Doesn't Contain -->
+		<table id="FT_FILTER_MATCH" cellspacing=5 cellpadding=0>
+		<tr>
+			<td width=*>%{0}&nbsp;&nbsp;
+				<select id="FT_matchOp" size=1>
+					<option value='CONTAIN' selected>@{dlgAttributeFilterContains}</option>
+					<option value='NOT_CONTAIN'>@{dlgAttributeFilterNotContains}</option>
+				</select>
+			</td>
+			<td class="FT_expression" width=100><input type="text" id="FT_expression_0"></td>
+			<td class="FT_removeExp" id="FT_exp_remove_0" width=20>&nbsp;</td>
+		</tr>
+<!--
+		<tr><td class="FT_expressionOr">or</td><td><input type="text" id="FT_expression_1" class="FT_expression"></td><td class="FT_removeExp" id="FT_exp_remove_1">&nbsp;</td></tr>
+-->
+		<tr><td></td><td class="filterOpLink">[+] <a href="#" id="FT_exp_add" class="underline">@{dlgAttributeFilterAddAnother}</a></td><td>&nbsp;</td></tr>
+
+		</table>
+		
+		<!-- Time presets -->
+		<table id="FT_FILTER_PRESET" class="hidden" border="0">
+		<tr>
+			</tr>
+			<tr valign="middle">
+				<td>
+					<input type="checkbox"  id="FT_CURRENT_TIME"   value="EQUAL" style="margin-bottom:1px"/>
+				</td>
+				<td colspan="2" valign="middle">
+    				<label id="FT_CURRENT_TIME_L" for="FT_CURRENT_TIME" style="text-align:center;">%{1}</label>
+				</td>
+			</tr>
+			<tr valign="middle">
+				<td>
+					<input type="checkbox" id="FT_PREVIOUS_TIME"  value="EQUAL" style="margin-bottom:1px"/>
+				</td>
+				<td colspan="2" valign="middle">
+                    <label id="FT_PREVIOUS_TIME_L" for="FT_PREVIOUS_TIME">%{2}</label>
+				</td>
+            </tr>
+            <tr valign="middle">
+            	<td>
+            		<input type="checkbox" id="FT_NEXT_TIME" value="EQUAL" style="margin-bottom:1px"/>
+            	</td>
+            	<td colspan="2" valign="middle">
+                    <label id="FT_NEXT_TIME_L" for="FT_NEXT_TIME">%{3}</label>
+            	</td>
+            </tr>
+            <tr valign="middle" id="TD_FT_TIME_YAGO">
+            	<td>
+            		<input type="checkbox" id="FT_TIME_YAGO"  value="TIME_YAGO" style="margin-bottom:1px"/>
+            	</td>
+            	<td colspan="2" valign="middle">
+                    <label id="FT_YAGO_L" for="FT_YAGO">@{dlgAttributeFilterSameLastYear}</label>
+            	</td>
+            </tr>
+            <tr valign="middle">
+            	<td>
+            		<input type="checkbox" id="FT_TIME_RANGE_PREV"  value="TIME_RANGE_PREV" style="margin-bottom:1px"/>
+            	</td>
+            	
+            	<td width="53px">
+            		<label for="FT_TIME_RANGE_PREV" >@{dlgAttributeFilterPrevious}</label>
+            	</td>
+            	
+            	<td>
+            		<input type="text" name="txtsearch" id="FT_TIME_RANGE_PREV_NUM" maxlength="3" size="3" style="margin-bottom:1px"/> %{0}
+            	</td>
+            </tr>
+            <tr valign="middle">
+            	<td>
+            		<input type="checkbox" id="FT_TIME_RANGE_NEXT"  value="TIME_RANGE_NEXT" style="margin-bottom:1px"/>
+            	</td>
+            	<td>
+            		<label style="text-align:center;" for="FT_TIME_RANGE_NEXT">@{dlgAttributeFilterNext}</label>
+            	</td>
+                <td>
+                    <input type="text" name="txtsearch" id="FT_TIME_RANGE_NEXT_NUM" maxlength="3" size="3" style="margin-bottom:1px"/> %{0}
+                </td>
+            </tr>
+            
+            <tr valign="middle">
+            	<td>
+            		<input type="checkbox" id="FT_TIME_AGO"  value="TIME_AGO" style="margin-bottom:1px"/>
+            	</td>
+            	<td colspan="2" valign="middle">
+            		<input type="text" name="txtsearch" id="FT_TIME_AGO_NUM" maxlength="3" size="3" style="margin-bottom:1px"/> %{0} @{dlgAttributeFilterAgo}
+            	</td>
+            </tr>
+            <tr valign="middle">
+            	<td>
+                    <input type="checkbox" id="FT_TIME_AHEAD"  value="TIME_AHEAD" style="margin-bottom:1px"/>
+                </td>
+            	<td colspan="2" valign="middle">
+            		<input type="text" name="txtsearch" id="FT_TIME_AHEAD_NUM" maxlength="3" size="3" style="margin-bottom:1px"/> %{0} @{dlgAttributeFilterAhead}
+            	</td>
+            </tr>
+            
+		</table>
+		
+		<!-- Time range -->
+		<table id="FT_FILTER_RANGE" class="hidden">
+		<tr id='FT_rangeLoading' >
+			<td colspan=4>@{dlgAttributeFilterLoading}</td>
+			</tr>
+		<tr id='FT_rangeWarning' class="hidden">
+			<td colspan=4 style="color:red;" id="FT_rangeWarningText">@{dlgAttributeFilterTooManyValues}</td>
+			</tr>
+		<tr id='FT_range1_row' class="hidden">
+			<td>%{0} is&nbsp;&nbsp;</td>
+			<td align=right><select id="FT_rangeOp" size=1>
+				<option value="BETWEEN" selected>@{filterConditionOperators_BETWEEN} (and incl.)</option>
+				<option value="AFTER">@{dlgAttributeFilterAfter} (and incl.)</option>
+				<option value="BEFORE">@{dlgAttributeFilterBefore} (and incl.)</option>
+			</select>&nbsp;
+			</td>
+			<td><select id='FT_range1' size=1><option>@{dlgAttributeFilterLoadingShort}</option></select></td>
+			<td width='*'>&nbsp;</td>
+			</tr>
+		<tr id='FT_range2_row' class="hidden">
+			<td colspan=2 align=right>and&nbsp;</td>
+			<td><select id='FT_range2' size=1><option>@{dlgAttributeFilterLoadingShort}</option></select></td>
+			<td>&nbsp;</td>
+			</tr>
+		</table>
+		
+		</div> <!-- end of filter content -->
+		
+		<div id="FT_PARAMETER" style="margin-bottom: 5px; margin-left: 5px;">
+		    <!-- Time presets -->
+            <table border="0">
+	            <tr valign="middle">
+	                <td>
+	                    <input type="checkbox" id="FT_PARAMETER_ENABLE" style="margin-bottom:1px" />
+	                </td>
+	                <td valign="middle">
+	                    <input type="text" name="txtsearch" id="FT_PARAMETER_NAME" disabled maxlength="20" size="20" style="margin-bottom:1px;"/> @{dlgAttributeFilterParamName}
+	                </td>
+	            </tr>
+	        </table>
+		</div>
+	</div>
+
+	<div>
+	<table width=100% class="button-panel">
+	<tr>
+		<td width="100%" class="standardDialogFooter">&nbsp;</td>
+		<td>
+      <button class="pentaho-button" id="dlgBtnSave">@{btnLabelOK}</button>
+		</td>
+		<td>
+      <button class="pentaho-button" id="dlgBtnCancel">@{btnLabelCancel}</button>
+		</td>
+	</tr>
+	</table>
+	</div>
+	
+</div>

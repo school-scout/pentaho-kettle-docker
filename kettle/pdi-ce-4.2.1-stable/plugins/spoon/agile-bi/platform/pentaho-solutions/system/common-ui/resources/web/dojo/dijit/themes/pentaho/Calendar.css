@@ -1,0 +1,95 @@
+/* Calendar*/
+
+.tundra .dijitCalendarIncrementControl {
+	/* next/prev month buttons */
+}
+.dj_ie6 .tundra .dijitCalendarIncrementControl {
+}
+
+.tundra .dijitA11ySideArrow {
+	display: none;
+}
+
+.tundra .dijitCalendarDecrease {
+}
+.tundra .dijitCalendarIncrease {
+}
+
+.tundra .dijitCalendarContainer {
+}
+
+.tundra .dijitCalendarMonthContainer th {
+}
+.dj_ie6 .tundra .dijitCalendarMonthContainer th {
+}
+
+.tundra .dijitCalendarDayLabelTemplate {
+}
+
+.tundra .dijitCalendarBodyContainer {
+}
+
+.tundra .dijitCalendarMonthLabel {
+}
+
+.tundra .dijitCalendarDateTemplate {
+	/* style for each day cell */
+	text-align: center;
+    width:24px;
+}
+
+.dj_ie .tundra .dijitCalendarDateTemplate {
+}
+
+.tundra .dijitCalendarPreviousMonth,
+.tundra .dijitCalendarNextMonth 		{
+}
+
+.tundra .dijitCalendarCurrentMonth {
+}
+
+.tundra .dijitCalendarCurrentDate {
+}
+
+.tundra .dijitCalendarHoveredDate {
+	background-color: #e2ebf2;
+}
+
+.tundra .dijitCalendarDisabledDate {
+	text-decoration: line-through;
+	background-color: white;	/* override hover effects above, hover and click on disabled date should have no effect */
+}
+
+.tundra .dijitCalendarSelectedDate {
+}
+.tundra .dijitCalendarYearContainer {
+}
+
+.tundra .dijitCalendarYearLabel {
+}
+
+.tundra .dijitCalendarSelectedYear {
+}
+
+.tundra .dijitCalendarNextYear,
+.tundra .dijitCalendarPreviousYear {
+}
+
+/* Styling for month DropDownButton */
+
+.tundra .dijitCalendar .dijitDropDownButton {
+	margin: 0;
+}
+.tundra .dijitCalendar .dijitButtonText {
+	padding: 0;
+}
+.tundra .dijitCalendar .dijitDropDownButton .dijitButtonNode {
+	background-color: transparent;
+	background-image: none;
+	padding: 0;
+}
+
+/* Styling for month drop down list */
+
+.tundra .dijitCalendarMonthMenu .dijitCalendarMonthLabelHover {
+}

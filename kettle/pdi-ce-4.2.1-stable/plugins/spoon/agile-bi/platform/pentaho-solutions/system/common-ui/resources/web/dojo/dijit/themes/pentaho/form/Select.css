@@ -1,0 +1,45 @@
+.tundra .dijitSelect .dijitButtonNode {
+	padding: 0;
+}
+.tundra .dijitSelect .dijitButtonNode .dijitArrowButtonInner {
+	margin: 0 4px 0 5px;
+}
+
+/* Make unselected content portion "look" more like a text box and less like a button */
+.tundra .dijitSelect .dijitButtonContents {
+}
+.tundra .dijitSelectHover .dijitButtonContents,
+.tundra .dijitSelectActive .dijitButtonContents,
+.tundra .dijitSelectOpened .dijitButtonContents,
+.tundra .dijitSelectDisabled .dijitButtonContents,
+.tundra .dijitSelectReadOnly .dijitButtonContents{
+	background: transparent none;
+}
+.dj_ie .tundra .dijitSelect .dijitButtonContents {
+	padding-top: 0;
+}
+
+/* Mirror DropDownButton */
+.tundra .dijitSelectDisabled .dijitButtonNode {
+}
+.dj_ie .tundra .dijitSelectDisabled  .dijitButtonNode * {
+	filter: gray() alpha(opacity=50);
+}
+
+.tundra .dijitSelectHover .dijitButtonNode {
+}
+
+.tundra .dijitSelectActive .dijitButtonNode,
+.tundra .dijitSelectOpened .dijitButtonNode {
+}
+
+/* Make the menu look more combobox-like */
+.tundra .dijitSelectMenu td {
+	padding: 0;
+}
+.tundra .dijitSelectMenu .dijitMenuItemLabel,
+.tundra .dijitSelectMenu .dijitMenuArrowCell {
+	padding: 0.1em 0.2em;
+}
+
+

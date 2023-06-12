@@ -1,0 +1,35 @@
+<html>
+<head>
+   <title>Pentaho Help and Training</title>
+   <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+   <link href="screen.css" type="text/css" rel="stylesheet"  media="screen">
+</head>
+
+<script type="text/javascript" src="../scripts/dojo/dojo.js"></script>
+<script type="text/javascript">
+
+var defaultHelp = "CV/Business_User/about_reports.html";
+
+dojo.addOnLoad(function() {
+	var url = window.top.location.href;
+	var id = url.indexOf('?');
+	url = (id>0 && id<url.length-1) ? url.substring(id+1):defaultHelp;
+    if (url.indexOf('CV/')!=0) // Whitelist security requirement for help page
+        url='blank.html'; 	
+	window.top.helpMain.location.href=url;
+});
+	
+</script>
+
+<frameset rows="20,*" cols="*" framespacing="0" frameborder="no" border="0">
+   <frame src="top.html" scrolling="no" noresize="false" title="top" />
+   <frameset rows="*" cols="300,*" framespacing="0" frameborder="no" border="1">
+      <frame src="./menu.html" scrolling="auto" noresize="false" name="helpNav" id="helpNav" title="menu" />
+      <frame src="./blank.html" scrolling="auto" noresize="false" name="helpMain" id="helpMain" title="body" />
+   </frameset>      
+</frameset>
+<noframes>
+<body>
+</noframes>
+</body>
+</html>

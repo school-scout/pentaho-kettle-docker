@@ -1,0 +1,241 @@
+<html>	
+<head>
+<title>Working with Fields</title>
+	<link rel="StyleSheet" href="../../screen.css" type="text/css" />
+    <style type="text/css">
+<!--
+td.nodatacell {	font-family: verdana, arial , helvetica, sans-serif;
+	font-size: 9pt;
+	font-color: #000000;
+	background-color: #FFFFFF;
+	border-left: 1px solid #000000;
+	border-bottom: 1px solid #000000;
+	text-align: left;
+	padding: 6px 6px 6px 12px;
+	width: 25%;
+}
+td.nodatacellright {	font-family: verdana, arial , helvetica, sans-serif;
+	font-size: 9pt;
+	font-color: #000000;
+	background-color: #FFFFFF;
+	border-right: 1px solid #000000;
+	border-left: 1px solid #000000;
+	border-bottom: 1px solid #000000;
+	text-align: left;
+	padding: 6px 6px 6px 12px;
+	width: 25%;
+}
+th.nodata {	font-family: verdana, arial , helvetica, sans-serif;
+	font-size: 9pt;
+	font-color: #000000;
+	background-color: #999999;
+	font: bold;
+	border-left: 1px solid #000000;
+	border-bottom: 1px solid #000000;
+	border-top: 1px solid #000000;
+	text-align: left;
+	padding: 6px 6px 6px 12px;
+	width: 25%;
+}
+th.nodataright {	font-family: verdana, arial , helvetica, sans-serif;
+	font-size: 9pt;
+	font-color: #000000;
+	background-color: #999999;
+	font: bold;
+	border-left: 1px solid #000000;
+	border-right: 1px solid #000000;
+	border-bottom: 1px solid #000000;
+	border-top: 1px solid #000000;
+	text-align: left;
+	padding: 6px 6px 6px 12px;
+	width: 25%;
+}
+#nodatatable {	width: 100%;
+}
+-->
+    </style>
+</head>	
+<body style="padding: 10px 20px 0px 10px;">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="height: 124px">
+   <tr>
+      <td><img src="../../images/spacer.gif" height="33" width="100" border="0" alt="0"></td>
+   </tr>
+   <tr>
+      <td class="main_title">Working with Fields</td>
+   </tr>
+   <tr>
+      <td><img src="../../images/spacer.gif" height="5" width="100" border="0" alt="0"></td>
+   </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding: 10px 0px 20px 10px">
+   <tr>
+      <td>
+         <ul>
+            <li><a href="#about_fields">About Fields</a></li>
+            <li><a href="#viewing_the_definition_of_a_field">Viewing the Definition of a Field</a></li>
+            <li><a href="#viewing_the_list_of_available_fields">Viewing the List of Available Fields</a></li>
+            <li><a href="#finding_a_field">Finding a Field</a> </li>
+            <li><a href="#adding_a_field">Adding a Field</a></li>
+            <li><a href="#arranging_fields">Re-Arranging Fields</a></li>
+            <li><a href="#renaming_a_field">Renaming a Field</a></li>
+            <li><a href="#5">Removing a Field</a></li>
+            <li><a href="#about_field_hierarchies">About Field Hierarchies</a></li>
+			<li><a href="#managing_fields_large_reports">Managing Fields in Large Reports</a></li>
+			<li><a href="#incompatible_fields">Incompatible Fields (...&quot;cannot be broken down by...&quot;)</a></li>
+			<li><a href="#when_the_report_returns_no_data">When Your Report Does Not Display Any Data</a></li>
+         </ul>
+         <h2 class="line"><a name="about_fields"></a>About Fields</h2>
+         <p>Examples of <strong>Fields</strong> include "Sales Revenue," "Profit Margin," "Product Name," "Region Name," and "Fiscal Year." Fields are what define the content of your report. 
+         <p>The following types of fields are available:</p>
+        <ul> 
+               <li><b>Text Fields (Names, Types, Categories, etc.):</b> <em>Product Name</em> is an example of a <strong>Text</strong> field. <em>Snow sports</em> and <em>Cycling</em> are examples of possible values for the <em>Product Name</em> field.</li>
+               <li><b>Time Period Fields:</b> <strong>Fiscal Year</strong> and <strong>Order Month</strong> are examples of <strong>Time Period</strong> fields. Possible values for those fields could be <strong>2004</strong> and <strong>Jan-2006</strong>, respectively.</li>
+               <li><b>Number Fields</b>: These types of fields are designed for summing, dividing, creating averages, etc. <strong>Sales Revenue</strong> and <strong>Profit Margin</strong> are examples of <strong>Number</strong> fields.</li>
+        </ul>
+        
+         <p>Fields are color-coded by type in both the report and the <strong>Available Fields</strong> pane. The colors are assigned as follows:</p>
+        <ul> 
+               <li><strong>Text Fields and Time Period Fields:</strong> <font style="color:orange">Orange</font></li>
+               <li><strong>Number Fields:</strong> <font style="color:blue">Blue</font></li>
+        </ul>
+      <p>You can create a report without any knowledge of field types, but knowing how field types work can sometimes help you understand how different charts display data and how filters work together.</p>
+      <h2 class="line"><a name="viewing_the_definition_of_a_field"></a>Viewing the Definition of a Field</h2>
+         <p>Complete the following steps to view the definition of a field:</p>
+		 <ol>
+		 <li>Right-click the field name (in the report or in the list of available fields).</li>
+		 <li>Select <strong>Tell me about...</strong> from the menu to open the <strong>About...</strong> dialog box.</li>
+		 </ol>
+		 <p>The <strong>About...</strong> dialog box provides the following information:</p>
+                     <ul> 
+               <li><b>Name</b>: The name of the field as it appears in this report.</li> 
+	       <li><b>Type</b>: The type of field. For more about field types, see <a href="#about_fields">About Fields</a></li>             
+               <li><b>Description</b>: The description of the field.</li>               
+            </ul>
+<p>If a dimension has a number in parenthesis next to it in the field list, that means that it has <strong>member properties</strong> associated with it. If you open the field layout, you can see your dimensions in either the <strong>Row Labels</strong> or <strong>Col Headers</strong> fields, depending on how you have them oriented. To constrain a dimension by controlling its member properties, right-click on a dimension in the row label or column header fields, then select <strong>Show Properties</strong> from the context menu. A sub-menu with all available member properties will appear. Check or un-check the member property boxes to add or remove them from the report.</p>
+         <h2 class="line"><a name="viewing_the_list_of_available_fields" id="#viewing_the_list_of_available_fields"></a>Viewing the List of Available Fields</h2>
+         <p>To see the list of fields that are available to you when you build your report, click the <b>Show Fields</b> button to display the <b>Available Fields</b> pane. You may organize the list in three ways:</p>
+         <ul>
+           <li>By <strong>Category</strong> (default). This grouping can be changed by an administrator. See <a href="../Administrator_User/managing_fields_and_analysis_areas.html">Managing Fields and Analysis Areas</a>. </li>
+           <li>By <strong>Type</strong>. Lets you see the list where all number fields (blue) come first, followed by text fields (orange). </li>
+           <li><strong>A-&gt;Z</strong>. No grouping.</li>
+         </ul>
+          
+         <p>To change the organization, simply click the <strong>View button</strong> next at the top of the pane.</p>
+         <h2 class="line"><a name="finding_a_field" id="#finding_a_field"></a>Finding a Field </h2>
+         <p>To find a field, first the <b>Show Fields</b> button to display the <b>Available Fields</b> pane.</p>
+           <p>Then, type in the first characters of the field name in the <strong>Find box</strong>.</p>
+         <h2 class="line"><a name="adding_a_field" id="#adding_a_field"></a>Adding a Field</h2>
+         <p>Complete the following steps to add a field to the report.</p>
+         <ol>
+           <li>Click the <b>Show Fields</b> button to display the <b>Available Fields</b> pane.</li>
+           <li>Choose from one of the following methods to add a field to the report:
+             <ul>
+                 <li>Select a field, and drag it into the <strong>Report</strong> pane. A visual indicator (black line) lets you place the field where you want it.</li>
+               <li>Right-click a field, and select <strong>Add to Report</strong>.</li>
+               <li>Double-click a field.</li>
+             </ul>
+           </li>
+         </ol>
+         <p><strong>Note:</strong> If a field that is already in the report is part of a hierarchy, you can access related fields by clicking the field in the report and selecting <strong>Also Show</strong> from the menu. See <a href="#about_field_hierarchies">About Field Hierarchies</a>.</p>
+         <p>
+        <h2 class="line"><a name="arranging_fields"></a>Re-Arranging Fields</h2>
+                  <p>Sometimes you need to re-arrange the fields that are already in your report. In a table report, the easiest method is to simply drag the field to a new location. In chart mode, you open the <strong>Field Layout</strong> area.</p>
+                  <p>Method 1: For table reports, simply drag the field header to the new location. Note that number fields (blue) will always be placed on the right side.</p>
+        <p>Method 2: To re-arrange fields using the <strong>Field Layout </strong>pane, do the following:</p>
+        <ol>
+            <li>Click the <b>Show Field Layout</b> button to display the <strong>Field Layout</strong> pane.</li> 
+            <li>Select and drag field symbols within and between the three different zones.You can only move a field within zones of the same color (<font style="color:blue"><strong>blue</strong> for numbers </font> and <font style="color:orange"><strong>yellow</strong> for text</font>) as the field.</li>
+        </ol>
+         <h2 class="line"><a name="renaming_a_field"></a>Renaming a Field</h2>
+         <p>To rename a field within a report, do the following: </p>
+         <ol>
+            <li>Right-click the field you want to rename in the report.</li>
+			<li>Select <b>Edit...</b> or <b>Column Name and Format...</b> from the menu to open the <strong>Edit...</strong> dialog box.</li>
+            <li>Enter the new name in the <strong>Name</strong> field. (<strong>Note:</strong> You can also view the original name of the field from this dialog box.)</li>
+			<li>Enter the plural version of the new name (if applicable) in the <strong>Plural Name used within this report</strong> field. (<strong>Note:</strong> Plural versions of a field name are useful because the Pentaho interface often uses field names in menus and dialog boxes. If you enter a plural version of the new field name, it automatically will be used in situations where the plural form is grammatically correct.</li>
+			<li>Click the <strong>OK</strong> button to save the new field name.</li>
+         </ol>
+         <p>The renaming has no effect outside the report and a user can always find out the original name by <a href="#viewing_the_definition_of_a_field">viewing the definition of the field</a>.</p>
+         <p><strong>Note:</strong>To remove a modified (renamed) field name, open the <strong>Edit...</strong>dialog box and delete the existing entries using the <strong>Backspace</strong> key.
+         <h2 class="line"><a name="5"></a>Removing a Field</h2>
+         <p>Complete one of the following actions to remove a field from a report:</p>
+		 <ul>
+		   <li>Method 1: Drag the field to the lower right corner (a trash can will appear) or into the <b>Available Fields</b> area.</li>
+           <li>Method 2: Click on then name of the field you want to remove, and select <b>Remove from Report</b> from the menu.</li>
+         </ul>
+         <h2 class="line"><a name="about_field_hierarchies"></a>About Field Hierarchies</h2>
+         <p>Some text fields (time periods, names, types, categories, etc.) belong to field hierarchies. Here are two examples of field hierarchies:</p>
+		 <ul><li>Product Line -> Product Name</li>
+		 <li>Year -> Quarter -> Month -> Week -> Day</li></ul>
+		 <p>The field hierarchies have the purpose of making it easier and faster to drill down into detailed data on a report and as a user, you can work with reports without realizing that some fields are grouped into hierarchies.</p>
+         <p>The field hierarchies help you in two primary ways. First, it provides a quick and easy way to drill into more details on a report:</p>
+         <ul>
+            <li>Clicking on a text field (e.g. "Fiscal Quarter ") on the report and select Also Show from the menu. If the field is part of a hierarchy, all these fields will be available for selection.</li>
+            <li>Clicking on a text field value (e.g. "2007") on the report. The menu contains the option <b>Keep Only 2007 and Show its Quarters</b></li>
+         </ul>
+         <p>Second, when creating a filter, field hierarchies narrow down the list of available values. For example, if you have a filter Product Line="Snow Sports", then the list of possible choices when you filter Product Names are limited to the products that are part of the Snow Sports product line.</p>
+         <p>In addition, field hierarchies sometimes control how fields are placed onto the report. For example, fields from the same field hierarchy need to be placed on the same axis (row/column) and the report will automatically enforce this rule as you move and arrange your fields.</p>
+      <h2 class="line"><a name="managing_fields_large_reports"></a>Managing Fields in Large Reports</h2>
+         <p>You can add fields that have an arbitrary number of values, but large reports will be truncated.</p>
+         <p>Truncated<strong> table reports</strong> differ from full reports in the following three ways:</p>
+         <ul>
+           <li>The <strong>Report Status Bar</strong> will display the number of rows/columns shown versus the number of rows/columns in the full report. Cells will be cut until the number of cells is less than or equal to 2000. Rows are cut first (down to a minimum of 10 rows), followed by columns. This technique ensures that you still get a good sample of the row values despite the truncation.</li>
+         </ul>
+         <ul>
+           <li><strong>Subtotals</strong> and <strong>Grand Totals</strong> are not displayed unless all participating data is displayed.</li>
+           <li>A message at the end of the report will inform you of the truncation. Note that the data in the cells does not change because of the truncation.</li>
+         </ul>
+         <p>For <strong>charts</strong>, a maximum of 100 values can be displayed on any axis.</p>
+         
+        <h2 class="line"><a name="when_the_report_returns_no_data"></a>When Your Report Does Not Display Any Data</h2>
+ 
+         <p>In some situations, your report might not display any data. The table below outlines the most likely scenarios and their solutions.</p>
+         <table width="90" height="534" cellspacing="0" id="nodatatable">
+           <tr>
+             <th width="20%" class="nodata">What you did </th>
+             <th width="20%" class="nodata">What happened </th>
+             <th width="20%" class="nodata">Likely Reason</th>
+             <th width="15%" class="nodata">Example</th>
+             <th width="25%" class="nodataright">Solution</th>
+           </tr>
+           <tr>
+             <td class="nodatacell"><p>You <strong>added or modified a filter.</strong></p></td>
+             <td class="nodatacell"><em>The report turned blank.</em></td>
+             <td class="nodatacell">The filter(s) you added are too restrictive.</td>
+             <td class="nodatacell">Your filter only includes the year 1997 but you have sales revenue only for 2005.</td>
+             <td class="nodatacellright">Change your <a href="working_with_filters.html">filters</a> or change the report options to <a href="setting_report_preferences.html#0">show rows or columns where the number cell is blank</a>.</td>
+           </tr>
+           <tr>
+             <td class="nodatacell"><p>You <strong>added a new number field.</strong></p></td>
+             <td class="nodatacell"><em>As above </em></td>
+             <td class="nodatacell">There are no values for the number field(s) that are in the report. </td>
+             <td class="nodatacell">You added  the "Quota" field but you have not yet loaded any Quota data into Pentaho. </td>
+             <td class="nodatacellright"> Contact your administrator to: 1) get data loaded into this field OR 2) hide this field.</td>
+           </tr>
+           <tr>
+             <td class="nodatacell"><p>You <strong>added a new text field</strong>.</p></p>
+               <p>You have no number fields on the report. </p></td>
+             <td class="nodatacell"><em>As above </em></td>
+             <td class="nodatacell">You have two or more text fields on the report but in some cases Pentaho Analyzer needs a number field to tie it all together. </td>
+             <td class="nodatacell">You have Account Name and Order Status on the report.</td>
+             <td class="nodatacellright">Add a number field </td>
+           </tr>
+        </table>
+         <p>         
+        <p>
+     <p>	 </td>
+  </tr>
+   <tr>
+      <td><div class="bottom_title">Related Topics</div></td>
+   </tr>
+   <tr>
+      <td>
+         <p>
+         <ul>
+            <li><a href="working_with_filters.html">Working with Filters</a></li>
+            <li><a href="working_with_calculations.html">Working with Calculations</a></li>
+         </ul>      </td>
+   </tr>
+</table>
+</body>
+</html>

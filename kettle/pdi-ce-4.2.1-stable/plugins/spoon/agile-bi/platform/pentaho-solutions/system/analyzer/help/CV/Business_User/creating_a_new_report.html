@@ -1,0 +1,86 @@
+<html>	
+<head>
+<title>Creating a New Report</title>
+	<link rel="StyleSheet" href="../../screen.css" type="text/css" />
+</head>	
+<body style="padding: 10px 20px 0px 10px;">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="height: 124px">
+   <tr>
+      <td><img src="../../images/spacer.gif" height="33" width="100" border="0" alt="0"></td>
+   </tr>
+   <tr>
+      <td class="main_title">Creating a New Report</td>
+   </tr>
+   <tr>
+      <td><img src="../../images/spacer.gif" height="7" width="100" border="0" alt="0"></td>
+   </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding: 10px 0px 20px 10px">
+   <tr>
+      <td>
+           <ul>
+            <li><a href="#choosing_an_analysis_area">Choosing a Data Source</a></li>
+            <li><a href="#start_adding_fields_and_filters">Adding Fields and Filters</a></li>
+         </ul>
+         <h2 class="line"><a name="choosing_an_analysis_area"></a>Choosing a Data Source</h2>
+         <p>To create a new blank report from scratch, complete the following steps:</p>
+         <ol>
+		 <li>Select <b>File -> New -> Analyzer Report ...</b> to open the <strong>Select Data Source </strong> dialog box.</li>
+         <li>Choose a data source which consists of a schema and cube from the list box in the <strong>Select Data Source</strong> dialog box. This choice simply determines which fields will be available when you build your report. For example, if you selected a Cube called <strong>Orders</strong>, all order-related fields (e.g. Order Revenue) would be available.</li>
+		 </ol>         
+      <p>Once you choose a Cube, you are ready to start <a href="#start_adding_fields_and_filters">adding fields and filters</a>.</p>
+         <p>More about Cubes:</p>
+          
+        <ul> 
+               <li>Every report is tied to one Cube (or Virtual Cube).</li>
+               <li>You cannot change the Cube for a report.</li>
+               <li>Many Cube have overlapping fields. For example, the <strong>Product Name</strong> field might occur in many Cubes. Thus, there could be multiple Cube that would work for a specific report.</li>
+               <li>The reason you are asked to choose a Cube before you add fields is that certain fields don't work well together, and using them in the same report leads to incorrect or confusing results. Therefore, Cubes bundles the right fields together with the goal that your report should make sense.</li>
+        </ul>
+        <h2 class="line"><a name="start_adding_fields_and_filters"></a>Adding Fields and Filters</h2>
+        <p>Once you are on the <strong>View Report</strong> page, you are ready to add fields and filters. You can do this in any order, but here is a good way to get started:</p>
+        <ol>
+               <li>Drag a <strong>Time Period</strong> field (such as <strong>Year</strong> or <strong>Quarter</strong>) onto the report.</li>
+               <li>Add a <strong>Number</strong> field (such as <strong>Revenue</strong>, etc).</li>
+               <li>Click the <strong>Time Period</strong> field on the report, and select <strong>Filter</strong> from the menu. Choose the time periods you are interested in from the <strong>Filter</strong> dialog box.</li>
+        </ol>
+			<p><strong>Note:</strong> You can view the definition of a field by clicking on the field and selecting <strong>Tell me About...</strong> from the menu.</p>
+			         <h2 class="line"><a name="0"></a>Adding a Description</h2>
+         
+      <p>A description of your report will help other users make quick sense of it. Complete the following steps to add, edit, or view a description of a report.</p>
+	  <ol><li>Open the report.</li>
+	  <li>Click the <strong>Information</strong> symbol (<strong>i</strong>) next to the report name to open the <strong>Report Properties</strong> 
+        dialog box.</li>
+		<li>Use the <strong>Description</strong> field to add, edit, or view the report description.</li></ol>
+         <p><strong>Note:</strong> You also can view the description on the <strong>Report Home</strong> page by clicking the <strong>Information</strong> symbol (<strong>i</strong>) next to the report.         
+         <h2 class="line"><a name="1"></a>Saving the Report in a Shared Folder</h2>
+         <p>To let other users access a report you create, save your report into a shared folder. To view which users can access a particular folder, please contact your administrator.</p>
+         <h2 class="line"><a name="3"></a>Additional Tips</h2>
+         <ul>
+            <li><strong>Providing placeholder filters for <strong>Report Analyzer</strong> users:</strong> If some of your audience are <strong>Report Analyzers</strong>, be aware that these users cannot create new filters on fields that are not already in the report. (They cannot display the Available Fields pane.) To ensure that these users can access all relevant data in the report, you can create filters that initially include all values. These filters will not change the report, but they will appear in the list of filters. A <strong>Report Analyzer</strong> can then open the filter he needs to adjust and change its values. For example, let's say your report shows data for all product lines. You know that many users want to filter to see only a specific product line. To accomplish this, simply add a filter on product lines, but include all values in the filter.</li>
+            
+        <li><strong>Providing extra number fields when users switch to table format:</strong> 
+          When creating reports for others, it is common to let the final presentation 
+          be a standard chart. However, a user can choose to view the data in 
+          table report format. As a <strong>Report Creator</strong>, you can offer 
+          extra number fields in this display. See the feature Hiding Fields in Standard Charts.</li>       
+         </ul>
+         <p>More tips:</p>
+        <ul> 
+               <li>Reports make the most sense when they display at least one number field. (Number fields are highlighted <font style="color: blue">blue</font>.)</li>
+               <li>Add filters early on. To get the best response time and avoid too much data being displayed, add filters before you drag lots of fields onto the report. For example, if you already have a couple of fields in the report and you want to add another field that you suspect has hundreds or thousands of values, add a filter on this field before you add the field to the report.</li>
+        </ul>
+ </td>
+   <tr>
+      <td><div class="bottom_title">Related Topics</div></td>
+   </tr>
+   <tr>
+      <td>
+         <ul>
+            <li><a href="working_with_fields.html">Working With Fields</a></li>
+            <li><a href="working_with_filters.html">Working With Filters</a></li>
+         </ul>      </td>
+   </tr>
+</table>
+</body>
+</html>

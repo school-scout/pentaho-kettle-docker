@@ -1,0 +1,174 @@
+<html>	
+<head>
+<title>Working with Filters</title>
+	<link rel="StyleSheet" href="../../screen.css" type="text/css" />
+<style type="text/css">
+<!--
+#nodatatable {
+	width: 100%;
+	}
+
+th.nodata {
+	font-family: verdana, arial , helvetica, sans-serif;
+	font-size: 9pt;
+	font-color: #000000;
+	background-color: #999999;
+	font: bold;
+	border-left: 1px solid #000000;
+	border-bottom: 1px solid #000000;
+	border-top: 1px solid #000000;
+	text-align: left;
+	padding: 6px 6px 6px 12px;
+	width: 25%;
+	}
+
+th.nodataright {
+	font-family: verdana, arial , helvetica, sans-serif;
+	font-size: 9pt;
+	font-color: #000000;
+	background-color: #999999;
+	font: bold;
+	border-left: 1px solid #000000;
+	border-right: 1px solid #000000;
+	border-bottom: 1px solid #000000;
+	border-top: 1px solid #000000;
+	text-align: left;
+	padding: 6px 6px 6px 12px;
+	width: 25%;
+	}
+		
+td.nodatacell {
+	font-family: verdana, arial , helvetica, sans-serif;
+	font-size: 9pt;
+	font-color: #000000;
+	background-color: #FFFFFF;
+	border-left: 1px solid #000000;
+	border-bottom: 1px solid #000000;
+	text-align: left;
+	padding: 6px 6px 6px 12px;
+	width: 25%;
+	}
+		
+td.nodatacellright {
+	font-family: verdana, arial , helvetica, sans-serif;
+	font-size: 9pt;
+	font-color: #000000;
+	background-color: #FFFFFF;
+	border-right: 1px solid #000000;
+	border-left: 1px solid #000000;
+	border-bottom: 1px solid #000000;
+	text-align: left;
+	padding: 6px 6px 6px 12px;
+	width: 25%;
+	}
+	
+-->
+</style>
+</head>	
+<body style="padding: 10px 20px 0px 10px;">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="height: 124px">
+   <tr>
+      <td><img src="../../images/spacer.gif" height="33" width="100" border="0" alt="0"></td>
+   </tr>
+   <tr>
+      <td class="main_title">Working with Filters</td>
+   </tr>
+   <tr>
+      <td><img src="../../images/spacer.gif" height="35" width="100" border="0" alt="0"></td>
+   </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding: 10px 0px 20px 10px">
+   <tr>
+      <td>
+         <ul>
+            <li><a href="#0">What Is a Filter?</a></li>
+            <li><a href="#1">About Pentaho Filters</a></li>
+            <li><a href="#filters_on_text_fields">Text Field Filters</a></li>
+            <li><a href="#filters_on_number_fields">Numeric Filters</a></li>
+            <li><a href="#4">Viewing and Editing a Filter</a></li>
+            <li><a href="#5">Adding a Filter</a></li>
+            <li><a href="#6">How Filters Work Together</a></li>
+			<li><a href="#when_the_report_returns_no_data">When Your Report Does Not Display Any Data</a></li>
+         </ul>
+         <h2 class="line"><a name="0"></a>What Is a Filter?</h2>
+         <p>Filters are used to restrict (limit) the data that is presented in a report. Let's look at some examples of reports with the data limited by a variety of filters.</p>
+		 <p><strong>Example 1:</strong> This report shows sales by product line. The filter on Quarter restricts the data so that only sales for the 4th quarter in 2006 are shown.</p>
+         <p><strong>Example 2:</strong> If we add a regional filter of Europe, then the report only displays data pertaining to European sales in the 4th quarter of 2006.</p>
+         <p><strong>Example 3:</strong> We can also add a filter on a field that is displayed in the report. If we add a filter on the Product Line field to exclude Surfing, then the report only displays data pertaining to European sales in the 4th quarter of 2006 that are not in the surfing product line.</p>
+         <h2 class="line"><a name="1"></a>About Pentaho Filters</h2>
+         <p>Pentaho Analyzer offers the following options for filtering reports:</p>
+         <ul>
+            <li><b>Filtering Text Fields:</b> Text fields contain non-numeric information, so you can choose to include or exclude certain values at will. Time Periods, Names, Types, and Categories are examples of text field groups; Product Line is an example of a specific text field.</li> 
+            <li><b>Filtering Number Fields:</b> Number fields include numeric information. Sales Revenue is an example of a number field. You can create a numeric filter using <strong>Greater/Less Than</strong> or <strong>Top Ten</strong>.</li>
+         </ul>
+         <h2 class="line"><a name="filters_on_text_fields"></a>Text Field Filters</h2>
+         <p>The dialog box for filters on text fields lets you choose between two types of filters:</p>
+         <ul>
+           <li><strong>Selecting from a list of values</strong>. Pentaho will display a list of values, and you choose to <strong>include</strong> or <strong>exclude</strong> certain values </li>
+           <li><strong>Match part of a string</strong>. You type in part of the name (string) that the name <strong>Contains</strong> or <strong>Does not Contain</strong> </li>
+         </ul>
+         <p><strong>Note:</strong> Typically, the list of possible values contains <strong>all</strong> available values although sometimes the list is narrowed down due to a filter on another field that is part of the same field hierarchy. (See <a href="working_with_fields.html#about_field_hierarchies">About Field Hierarchies</a>). This makes it easier for you to browse only  values that are relevant. For example, if you have the filter <strong>Year=2006</strong>, then the filter dialog for <strong>Quarters</strong> will only contain four checkboxes - the four quarters for 2006.</p>
+         <p>When you filter on time periods you have three options:</p>
+         <ul>
+           <li><strong>Commonly Used Time Periods </strong>. Pentaho will display common time periods. A great thing about these pre-set choices are that they dynamically change as time goes by so if you set &quot;current quarter&quot; you don't have to change your filter every new quarter. </li>
+           <li><strong>Select a range</strong>. Lets you define a range.</li>
+           <li><strong>Specifically choose time periods</strong>. Use this option when the other options are not sufficient. Here you can choose to include or exclude any time period. </li>
+         </ul>
+         <h2 class="line"><a name="filters_on_number_fields"></a>Numeric Filters</h2>
+         <p>You can restrict report data by applying conditions (e.g. <strong>Show me all product lines with sales revenue greater than 500</strong>) to number fields. There are two flavors of the numeric filter:</p>
+         <ul>
+         <li>Greater/Less Than...</li>
+        <li>Top 10, etc...</li>
+         </ul>
+         <ul>
+            <li>If your numeric filter has both a <strong>Greater Than</strong> and a <strong>Top Ten</strong> component at the same time, the <strong>Greater Than</strong> component is applied before the <strong>Top Ten</strong> component.</li>
+            <li>You can have only one numeric filter on a report at any given time.</li>
+            <li>When the report is generated, the numeric filter is applied after other filters are applied.</li>
+         </ul>
+         <p>When you create a numeric filter, you specify:</p>
+         <ul>
+            <li>One or more number fields. You cannot select a calculated field (such as % of, Rank, Running Sum, etc.).</li>
+            <li>One text field, which indicates the values the numeric filter will filter. <strong>Note:</strong> If you remove the text field from the report later, the numeric filter also is removed.</li>
+         </ul>
+         <p><strong>Example 1:</strong> The following report shows sales by region and product line without a numeric filter:</p>
+         <div class="img">
+            <img src="../../images/content/working_with_filters/img_7.jpg" width="214" height="226" alt="image 7" border="0">         </div>
+         <p><strong>Example 2:</strong> Now let's filter the report to show only data where sales revenue is above $12 for each product line. The filter removes any product lines that do not meet that criteria. Also note that the filter acts on sales for 2006 Q4 (as opposed to sales for all time periods).
+         <p>Compare this to a filter that applies to each Region. The filter below removes regions.</p>
+         <div class="img">
+            <img src="../../images/content/working_with_filters/img_8.jpg" width="284" height="178" alt="image 8" border="0">         </div>
+         <h2 class="line"><a name="4"></a>Viewing and Editing Filters</h2>
+         <p>To view the filters that are applied to a report, click the <strong>Show Filters</strong> button to display the <strong>Filters</strong> pane.</p>
+         <p>To edit an existing filter, click the <strong>Edit filter</strong> symbol next to the filter in the <b>Filters</b> pane.</p>     
+         <h2 class="line"><a name="5"></a>Adding a Filter</h2>
+         <p>A filter always acts on a field, so the first step is always to select a field. To add a new filter, use one of the following methods:</p>
+         <ul>
+            <li> <strong>Method 1:</strong> Click on a field in the report, and select <b>Filter</b> from the menu. (This method assumes you use the field in the report).</li>
+            <li><strong> Method 2:</strong> From the <strong>Available Fields</strong> pane, find the field you want to filter and drag the field into the <b>Filters</b> pane OR to the &quot;(+) 0 Filter in Use&quot; area.</li>           
+            <li><strong>Method 3:</strong> In the Available Fields pane, find the field you want to filter and right click on the field, and select <b>Filter</b>.           </li>
+         </ul>
+         <h2 class="line"><a name="6"></a>How Filters Work Together</h2>
+         <p>Filters are applied in the following order:</p>
+        <ol>
+        <li>Text field filters, such as <strong>Product Line = Snow Sports</strong> or <strong>Time Period = 2006 Q4</strong>. (Note that the order between these filters is irrelevant.)</li>
+        <li><strong>Greater/Less Than</strong> component of numeric filters. This filter will <em>further restrict</em> the data.</li>
+        <li><strong>Top Ten</strong> component of numeric filters. This filter will <em>even further restrict</em> the data.</li>
+        </ol>
+         <p>Another way to express this is: All text field filters are applied first (#1) creating a first &quot;invisible&quot; version of the report. Second, Greater/Less than filters are applied on this invisible report (#2), and -- finally -- based on this report, the Top 10 filter is applied (#3). </p>
+         
+		  <h2 class="line"><a name="when_the_report_returns_no_data"></a>When Your Report Does Not Display Any Data</h2>
+      <p>Please refer to the section <a href="working_with_fields.html#when_the_report_returns_no_data">When your Report Does Not Display Any_Data</a> in the Fields chapter.</p>
+ </td>
+  </tr>
+   <tr>
+      <td><div class="bottom_title">Related Topics</div></td>
+   </tr>
+   <tr>
+      <td>
+         <ul>
+            <li><a href="working_with_calculations.html">Working with Calculations</a></li>
+         </ul>      </td>
+   </tr>
+</table>
+</body>
+</html>
